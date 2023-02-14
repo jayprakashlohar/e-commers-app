@@ -1,0 +1,55 @@
+.FirstDiv {
+  padding: 18px;
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  background-color: blue;
+  color: #ffff;
+}
+
+.social {
+  display: flex;
+  justify-content: space-between;
+}
+
+.tag {
+  margin-right: 40px;
+  cursor: pointer;
+  width: 20px;
+  height: 20px;
+}
+.heading {
+  font-weight: bold;
+}
+
+.secondDiv {
+  border: 1px solid darkblue;
+  width: 100%;
+  height: 280px;
+  background-color: darkblue;
+  color: #ffff;
+}
+
+.h3 {
+  text-align: center;
+  margin-top: 20px;
+  font-size: 25px;
+  font-weight: bold;
+}
+.paragraph {
+  text-align: center;
+  width: 70%;
+  margin: auto;
+  margin-top: 15px;
+  line-height: 25px;
+}
+
+.lastDiv {
+  border: 1px solid darkblue;
+  padding: 12px;
+  text-align: center;
+  font-weight: bold;
+  font-size: 20px;
+  color: #ffff;
+  background-color: rgb(5, 5, 109);
+}

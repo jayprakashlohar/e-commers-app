@@ -7,18 +7,17 @@ import { Login } from "./Components/Pages/Login";
 import { Signup } from "./Components/Pages/Signup";
 import { ChakraProvider } from "@chakra-ui/react";
 import { AllRoutes } from "./Components/AllRoutes/AllRoutes";
+import { Footer } from "./Components/Footer/Footer";
 
 function App() {
   return (
     <div className="App">
-      {/* <AutoSlider /> */}
       {/* <SimpleSlider /> */}
-      {/* <Login/> */}
+
       <ChakraProvider>
         <Navbar />
-        {/* <Signup /> */}
-        {/* <Login /> */}
-        <AllRoutes/>
+        <AllRoutes />
+        <Footer />
       </ChakraProvider>
     </div>
   );
