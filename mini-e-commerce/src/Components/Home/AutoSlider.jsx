@@ -24,9 +24,11 @@ const AutoSlider = () => {
   ];
 
   return (
-    <div>
-      <img src={slides[data].URL} alt={slides[data].title} />
-    </div>
+    <>
+      <div style={{ marginTop: "10px" }}>
+        <img src={slides[data].URL} alt={slides[data].title} />
+      </div>
+    </>
   );
 };
 
