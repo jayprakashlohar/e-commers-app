@@ -5,11 +5,14 @@ const MiniNavbar = () => {
   return (
     <>
       <div className={Styles.MiniNavDiv}>
-        <p>Products</p>
-        <p>Shop</p>
-        <p>More products</p>
-        <p>Join us</p>
-        <p>Terms of use</p>
+        <p>Store</p>
+        <p>I phone</p>
+        <p>Mac</p>
+        <p>Watch</p>
+        <p>AirPods</p>
+        <p>Accessories</p>
+        <p>Support</p>
+       
       </div>
     </>
   );

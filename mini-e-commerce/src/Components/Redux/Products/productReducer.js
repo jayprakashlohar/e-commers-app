@@ -1,7 +1,8 @@
-import { FETCH_PRODUCTS } from "./actionTypes";
+import { FETCH_PRODUCTS, FETCH_MOBILEPRODUCTS } from "./actionTypes";
 
 const initialState = {
   productData: [],
+  mobileData: [],
 };
 
 const productReducer = (state = initialState, action) => {
@@ -10,6 +11,11 @@ const productReducer = (state = initialState, action) => {
       return {
         ...state,
         productData: action.payload,
+      };
+    case FETCH_MOBILEPRODUCTS:
+      return {
+        ...state,
+        mobileData: action.payload,
       };
 
     default:

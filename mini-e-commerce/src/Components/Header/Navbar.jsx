@@ -20,14 +20,20 @@ const Navbar = () => {
   return (
     <div>
       <div className={Styles.container}>
-        <img
-          style={{ width: "50px", height: "50px" }}
-          src={AppleLogo}
-          alt="logo"
-        />
+        <Link to="/">
+          <img
+            style={{ width: "50px", height: "50px" }}
+            src={AppleLogo}
+            alt="logo"
+          />
+          {/* <img
+              src="https://1000logos.net/wp-content/uploads/2016/10/Apple-Logo.png"
+              alt="logo"
+            /> */}
+        </Link>
 
         <div className={Styles.searchInput}>
-          <Input type="text" placeholder="Search" />
+          <Input w="20rem" type="text" placeholder="Search" />
         </div>
         <BsHeart className={Styles.navIcon} />
         <Link to="/cart">
