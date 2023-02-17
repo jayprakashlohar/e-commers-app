@@ -78,7 +78,7 @@ const Login = () => {
     dispatch(authLogin(formData));
   };
   return (
-    <Box background="blue.400" height="100vh" border="1px solid blue">
+    <Box height="100vh" border="1px solid blue">
       <Box
         width="35%"
         margin="auto"
