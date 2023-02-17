@@ -2,12 +2,44 @@
   padding: 0;
   margin: 0;
   box-sizing: border-box;
- 
 }
 
 .login {
   text-align: center;
   cursor: pointer;
   margin: 20px;
+  font-weight: 500;
+}
+
+.MainDiv {
+  position: relative;
+}
+
+.phoneSlider > svg {
+  position: absolute;
+  z-index: 2;
+  top: 50%;
+  transform: translate(0, -50%);
+}
+
+.leftIcon {
+  width: 3rem;
+  height: 3rem;
+  cursor: pointer;
+  left: 0;
+  color: gray;
+}
+
+.rightIcon {
+  width: 3rem;
+  height: 3rem;
+  cursor: pointer;
+  right: 0;
+  color: gray;
+}
+
+.title {
+  text-align: center;
+  margin: 10px;
   font-weight: 500;
 }

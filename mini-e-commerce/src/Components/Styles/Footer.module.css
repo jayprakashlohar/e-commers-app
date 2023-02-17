@@ -27,6 +27,7 @@
   width: 100%;
   height: 280px;
   background-color: darkblue;
+  /* background-color: black; */
   color: #ffff;
 }
 
@@ -46,6 +47,7 @@
 
 .lastDiv {
   border: 1px solid darkblue;
+  /* background-color: rgba(0, 0, 0, 0.658); */
   padding: 12px;
   text-align: center;
   font-weight: bold;

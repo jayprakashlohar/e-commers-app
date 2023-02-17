@@ -4,7 +4,6 @@ import { ChakraProvider } from "@chakra-ui/react";
 import { AllRoutes } from "./Components/AllRoutes/AllRoutes";
 import { Footer } from "./Components/Footer/Footer";
 import { Profile } from "./Components/Pages/Profile";
-import { Mobile } from "./Components/Pages/Mobile";
 
 
 function App() {
@@ -12,9 +11,8 @@ function App() {
     <div className="App">
       <ChakraProvider>
         <Navbar />
-        {/* <AllRoutes /> */}
+        <AllRoutes />
         {/* <Profile /> */}
-        <Mobile/>
         <Footer />
       </ChakraProvider>
     </div>

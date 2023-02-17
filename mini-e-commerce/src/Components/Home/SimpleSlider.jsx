@@ -41,7 +41,7 @@ export default class SimpleSlider extends Component {
             <Image
               w="full"
               h="300px"
-              src="https://i.pinimg.com/originals/a9/2c/53/a92c53d10db3113c841c99f4ae9efa70.png"
+              src="https://techmartme.com/wp-content/uploads/2022/04/iphone-13-pro-green-2.jpg"
             />
           </Box>
           <Box>

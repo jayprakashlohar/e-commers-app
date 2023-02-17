@@ -9,6 +9,7 @@
   padding: 10px;
   box-shadow: rgba(0, 0, 0, 0.19) 0px 10px 20px, rgba(0, 0, 0, 0.23) 0px 6px 6px;
   background-color: rgba(219, 208, 210, 0.925);
+  z-index: 999;
 }
 
 .container img {
@@ -41,9 +42,9 @@
   cursor: pointer;
 }
 
-/* .MiniNavDiv p:hover {
-  color: black;
-} */
+.MiniNavDiv p:hover {
+  text-decoration: underline;
+}
 
 .MiniNavDiv {
   display: flex;

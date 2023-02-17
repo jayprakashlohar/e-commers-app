@@ -27,7 +27,7 @@ const Mobile = () => {
               <h2>{item.brand}</h2>
               <h3>{item.title}</h3>
               <h3>{item.rate}</h3>
-              <h3>{item.price}</h3>
+              <h3>₹ {item.price}</h3>
               <AiOutlineHeart
                 style={{ float: "right", height: "25px", width: "25px" }}
               />

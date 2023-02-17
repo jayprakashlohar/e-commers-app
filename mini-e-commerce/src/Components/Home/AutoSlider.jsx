@@ -10,26 +10,27 @@ const AutoSlider = () => {
 
   const slides = [
     {
-      URL: "https://m.media-amazon.com/images/I/619rl+QqjwL._SX3000_.jpg",
+      URL: "https://techmartme.com/wp-content/uploads/2021/10/006E-1.jpg",
       title: "Slide 1",
     },
     {
-      URL: "https://apple.directd.com.my/images/thumbs/0002161_Webslider-Promo-Feb-iPhone-14-Apple%20(1).jpeg",
+      URL: "https://techmartme.com/wp-content/uploads/2022/04/iphone-13-pro-green-2.jpg",
+
       title: "Slide 2",
     },
     {
-      URL: "https://m.media-amazon.com/images/I/716UBzu+EAL._SX3000_.jpg",
+      URL: "https://techmartme.com/wp-content/uploads/2021/11/010E.jpg",
       title: "Slide 3",
     },
     {
-      URL: "https://apple.directd.com.my/images/thumbs/0002154_Webslider-Promo-Feb-iPhone-14-Pro-Apple.jpeg",
-      titlw: "Slide 4",
+      URL: "https://techmartme.com/wp-content/uploads/2021/11/008E.jpg",
+      title: "Slide 4",
     },
   ];
 
   return (
     <>
-      <div style={{ marginTop: "10px" }}>
+      <div style={{ marginTop: "10px", marginBottom:"10px" }}>
         <img src={slides[data].URL} alt={slides[data].title} />
       </div>
     </>
