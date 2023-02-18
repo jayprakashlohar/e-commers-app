@@ -45,7 +45,7 @@ const Mobile = () => {
 
       <div className={Styles.filterDiv}>
         <div>
-          <Select onChange={(e) => handleFilter(e.target.value)}>
+          <Select w="300px" onChange={(e) => handleFilter(e.target.value)}>
             <option value="All">Filter By Model</option>
             <option value="Apple iPhone 11">I PHONE-11</option>
             <option value="Apple iPhone 12">I PHONE-12</option>
@@ -54,7 +54,7 @@ const Mobile = () => {
           </Select>
         </div>
         <div>
-          <Select onChange={(e) => handleSort(e.target.value)}>
+          <Select w="300px" onChange={(e) => handleSort(e.target.value)}>
             <option value="">Sort By Price</option>
             <option value="desc">High To Low</option>
             <option value="asc">Low To High</option>

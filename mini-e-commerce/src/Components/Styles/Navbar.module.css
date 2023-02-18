@@ -7,8 +7,8 @@
   justify-content: space-around;
   align-items: center;
   padding: 10px;
-  box-shadow: rgba(0, 0, 0, 0.19) 0px 10px 20px, rgba(0, 0, 0, 0.23) 0px 6px 6px;
-  background-color: rgba(219, 208, 210, 0.925);
+  background-color: black;
+  color: #ffff;
   z-index: 999;
 }
 
@@ -33,10 +33,9 @@
 }
 
 .MiniNavDiv {
-  border: 1px solid black;
   padding: 5px;
   width: 100%;
-  background-color: black;
+  background-color: gray;
   color: #fff;
   font-weight: bold;
   cursor: pointer;

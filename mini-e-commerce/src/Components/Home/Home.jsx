@@ -17,6 +17,7 @@ const Home = () => {
               alt=""
             />
           </div>
+
           <div>
             <img
               src="https://apple.directd.com.my/images/thumbs/0002154_Webslider-Promo-Feb-iPhone-14-Pro-Apple.jpeg"

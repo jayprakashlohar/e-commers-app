@@ -26,14 +26,10 @@ const Navbar = () => {
             src={AppleLogo}
             alt="logo"
           />
-          {/* <img
-              src="https://1000logos.net/wp-content/uploads/2016/10/Apple-Logo.png"
-              alt="logo"
-            /> */}
         </Link>
 
         <div className={Styles.searchInput}>
-          <Input w="20rem" type="text" placeholder="Search" />
+          <Input w="20rem" borderRadius="0" type="text" placeholder="Search" />
         </div>
         <BsHeart className={Styles.navIcon} />
         <Link to="/cart">
@@ -43,7 +39,7 @@ const Navbar = () => {
           <MenuButton>
             <BiUserCircle className={Styles.navIcon} />
           </MenuButton>
-          <MenuList>
+          <MenuList color="black" >
             <Link to="/login">
               {" "}
               <MenuItem>Login</MenuItem>
