@@ -5,7 +5,7 @@ const Cart = () => {
   return (
     <>
       <div>
-        <Heading textAlign="center" m="20px">
+        <Heading textAlign="center" p="200px">
           Your cart is empty!
         </Heading>
       </div>
