@@ -45,7 +45,7 @@
 }
 
 .lastDiv {
-  border: 1px solid gray;
+  border: 1px solid rgba(0, 0, 0, 0.712);
   background-color: rgba(0, 0, 0, 0.712);
   padding: 10px;
   text-align: center;
