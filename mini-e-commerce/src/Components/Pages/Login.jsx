@@ -82,7 +82,7 @@ const Login = () => {
       <Box
         width="35%"
         margin="auto"
-        height="420px"
+        height="450px"
         padding="25px"
         background="#fff"
         marginTop="50px"
@@ -92,14 +92,15 @@ const Login = () => {
         bg="white"
       >
         <Heading textAlign="center">Login</Heading>
-        <FormLabel>Email </FormLabel>
+
+        <FormLabel m="10px 0px 10px 0px">Email </FormLabel>
         <Input
           type={"email"}
           placeholder="Enter your email"
           name="email"
           onChange={handleChange}
         />
-        <FormLabel>Password </FormLabel>
+        <FormLabel m="10px 0px 10px 0px">Password </FormLabel>
         <Input
           type={"password"}
           placeholder="Enter your password"
@@ -108,7 +109,7 @@ const Login = () => {
         />
         <Button
           onClick={handleSubmit}
-          colorScheme="pink"
+          colorScheme="blue"
           w="100%"
           marginTop="25px"
         >
@@ -126,7 +127,8 @@ const Login = () => {
           Cancel
         </Button>
         <p className="login" onClick={() => navigate("/signup")}>
-          User Not Sign Up ? <span style={{ color: "blue" }}> Sign Up</span>
+          Don't have an account ?{" "}
+          <span style={{ color: "blue" }}> Sign up</span>
         </p>
       </Box>
     </Box>

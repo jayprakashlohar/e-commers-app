@@ -70,7 +70,7 @@ const Signup = () => {
       <Box
         width="35%"
         margin="auto"
-        height="475px"
+        height="450px"
         background="#fff"
         marginTop="50px"
         boxShadow="dark-lg"
@@ -81,38 +81,27 @@ const Signup = () => {
         <Heading textAlign="center" marginTop="20px">
           Sign up
         </Heading>
-        <Stack py={6} gap={4} w={{ base: "85%", md: "70%" }} m="auto">
+        <Stack py={4} gap={2} w={{ base: "100%", md: "90%" }} m="auto">
           <FormLabel>Email </FormLabel>
-          <InputGroup>
-            {" "}
-            <InputLeftElement
-              pointerEvents="none"
-              children={<EmailIcon color="gray.600" />}
-            />
-            <Input
-              type="email"
-              onChange={handleChange}
-              name="email"
-              placeholder="Email"
-              value={formData.email}
-              required={true}
-            />
-          </InputGroup>
-          <FormLabel>Password </FormLabel>
-          <InputGroup>
-            <InputLeftElement
-              pointerEvents="none"
-              children={<LockIcon color="gray.600" />}
-            />
 
-            <Input
-              type={"password"}
-              onChange={handleChange}
-              name="password"
-              placeholder="Password"
-              value={formData.password}
-            />
-          </InputGroup>
+          <Input
+            type="email"
+            onChange={handleChange}
+            name="email"
+            placeholder="Email"
+            value={formData.email}
+            required={true}
+          />
+
+          <FormLabel>Password </FormLabel>
+
+          <Input
+            type={"password"}
+            onChange={handleChange}
+            name="password"
+            placeholder="Password"
+            value={formData.password}
+          />
 
           <Button
             bg="blue"
@@ -125,7 +114,8 @@ const Signup = () => {
             {authState.loading ? "Registering..." : "Register"}
           </Button>
           <Button onClick={() => navigate("/login")}>
-            Already a User ? Login
+            Already a user ?
+            <span style={{ color: "blue", marginLeft: "5px" }}>Login</span>
           </Button>
         </Stack>
       </Box>
