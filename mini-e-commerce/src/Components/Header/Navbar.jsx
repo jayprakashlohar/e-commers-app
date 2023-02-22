@@ -31,7 +31,9 @@ const Navbar = () => {
         <div className={Styles.searchInput}>
           <Input w="20rem" borderRadius="0" type="text" placeholder="Search" />
         </div>
-        <BsHeart className={Styles.navIcon} />
+        <Link to="/wishlist">
+          <BsHeart className={Styles.navIcon} />
+        </Link>
         <Link to="/cart">
           <FaCartArrowDown className={Styles.navIcon} />
         </Link>
@@ -39,7 +41,7 @@ const Navbar = () => {
           <MenuButton>
             <BiUserCircle className={Styles.navIcon} />
           </MenuButton>
-          <MenuList color="black" >
+          <MenuList color="black">
             <Link to="/login">
               {" "}
               <MenuItem>Login</MenuItem>

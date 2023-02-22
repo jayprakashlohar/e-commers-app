@@ -3,13 +3,15 @@ import {
   fetchMobileData,
   sortbyPrice,
   filterbyTitle,
+  addToWishlist,
 } from "../Redux/Products/action";
 import { useEffect, useState } from "react";
-import { Heading, Select, Spinner } from "@chakra-ui/react";
+import { Heading, Select, Spinner, useToast } from "@chakra-ui/react";
 import Styles from "../Styles/Product.module.css";
 import { AiOutlineHeart } from "react-icons/ai";
 
 const Mobile = () => {
+  const toast = useToast();
   const [loading, setLoading] = useState(true);
   const dispatch = useDispatch();
   let { mobileData } = useSelector((state) => state.Products);
@@ -28,20 +30,22 @@ const Mobile = () => {
     dispatch(filterbyTitle(value));
   };
 
+  const handleWishItem = (item) => {
+    dispatch(addToWishlist(item));
+    toast({
+      title: "Add To Wishlist Successfully!",
+      status: "success",
+      duration: 5000,
+      isClosable: true,
+      position: "top",
+    });
+  };
+
   return (
     <>
       <Heading textAlign="center" margin="20px">
         Products
       </Heading>
-      {loading && (
-        <Spinner
-          thickness="4px"
-          speed="0.65s"
-          emptyColor="gray.200"
-          color="blue.500"
-          size="xl"
-        />
-      )}
 
       <div className={Styles.filterDiv}>
         <div>
@@ -61,6 +65,15 @@ const Mobile = () => {
           </Select>
         </div>
       </div>
+      {loading && (
+        <Spinner
+          thickness="4px"
+          speed="0.65s"
+          emptyColor="gray.200"
+          color="blue.500"
+          size="xl"
+        />
+      )}
       <div className={Styles.proContainer}>
         {data.map((item) => {
           return (
@@ -72,6 +85,7 @@ const Mobile = () => {
               <h3>₹ {item.price}</h3>
               <AiOutlineHeart
                 style={{ float: "right", height: "25px", width: "25px" }}
+                onClick={() => handleWishItem(item)}
               />
             </div>
           );

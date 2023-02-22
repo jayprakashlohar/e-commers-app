@@ -3,12 +3,15 @@ import {
   FETCH_MOBILEPRODUCTS,
   SORT_BY_PRICE,
   FILTER_BY_TITLE,
+  ADD_TO_WISHLIST,
+  REMOVE_FROM_WISHLIST,
 } from "./actionTypes";
 import axios from "axios";
 
 const initialState = {
   productData: [],
   mobileData: [],
+  addToWish: [],
 };
 
 const productReducer = (state = initialState, action) => {
@@ -43,9 +46,25 @@ const productReducer = (state = initialState, action) => {
       } else {
         filterTilte = data.filter((data) => data.title === title);
       }
+
       return {
         ...state,
         mobileData: filterTilte,
+      };
+
+    case ADD_TO_WISHLIST:
+      let obj = action.payload;
+      // let x = state.addToWish.slice().concet(obj)
+      return {
+        ...state,
+        addToWish: [...state.addToWish, { ...obj }],
+      };
+
+    case REMOVE_FROM_WISHLIST:
+      // console.log("sdf", action.payload);
+      return {
+        ...state,
+        addToWish: state.addToWish.filter((item) => item.id !== action.payload),
       };
 
     default:

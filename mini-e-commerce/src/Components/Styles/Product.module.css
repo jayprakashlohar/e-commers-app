@@ -28,7 +28,15 @@
 }
 
 .filterDiv {
-  display: flex; 
+  display: flex;
   justify-content: space-around;
   padding: 10px;
+}
+.removeWish {
+  float: right;
+  font-weight: bold;
+}
+
+.removeWish:hover {
+  color: blue;
 }

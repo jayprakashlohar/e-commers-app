@@ -3,7 +3,8 @@ import {
   FETCH_MOBILEPRODUCTS,
   SORT_BY_PRICE,
   FILTER_BY_TITLE,
-  PAGINATION,
+  ADD_TO_WISHLIST,
+  REMOVE_FROM_WISHLIST,
 } from "./actionTypes";
 
 import axios from "axios";
@@ -39,3 +40,18 @@ export const filterbyTitle = (title) => async (dispatch) => {
     })
     .catch((err) => console.log(err));
 };
+
+export const addToWishlist = (data) => {
+  return {
+    type: ADD_TO_WISHLIST,
+    payload: data,
+  };
+};
+
+
+export const removeWishlistItem = (data) => {
+    return {
+      type: REMOVE_FROM_WISHLIST,
+      payload: data,
+    };
+}
