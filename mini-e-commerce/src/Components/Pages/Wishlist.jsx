@@ -24,7 +24,7 @@ const Wishlist = () => {
   return (
     <div>
       <Heading textAlign="center" m="20px" fontSize="25px">
-        Your Wishlist Iitem...
+        Your Wishlist Items...
       </Heading>
       <div className={Styles.proContainer}>
         {wishlistData.map((item) => {

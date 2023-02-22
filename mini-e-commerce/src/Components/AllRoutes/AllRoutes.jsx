@@ -6,6 +6,7 @@ import { Cart } from "../Pages/Cart";
 import { Home } from "../Home/Home";
 import { Mobile } from "../Pages/Mobile";
 import { Wishlist } from "../Pages/Wishlist";
+import { ProductsDetails } from "../Pages/ProductsDetails";
 
 const AllRoutes = () => {
   return (
@@ -16,7 +17,11 @@ const AllRoutes = () => {
         <Route path="/login" element={<Login />}></Route>
         <Route path="/wishlist" element={<Wishlist />}></Route>
         <Route path="/cart" element={<Cart />}></Route>
-        <Route path="/appleproducts" element={<Mobile />}></Route>
+        <Route path="/appleproducts" element={<Mobile />}></Route>\{" "}
+        <Route
+          path="/products/single/:id"
+          element={<ProductsDetails />}
+        ></Route>
       </Routes>
     </div>
   );
