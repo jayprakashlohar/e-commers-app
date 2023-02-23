@@ -6,14 +6,16 @@ import {
   ADD_TO_WISHLIST,
   REMOVE_FROM_WISHLIST,
   PRODUCT_DETAILS,
+  ADD_TO_CART,
+  REMOVE_TO_CART,
 } from "./actionTypes";
-import axios from "axios";
 
 const initialState = {
   productData: [],
   mobileData: [],
   addToWish: [],
   singleProducts: [],
+  cart: [],
 };
 
 const productReducer = (state = initialState, action) => {
@@ -56,24 +58,34 @@ const productReducer = (state = initialState, action) => {
 
     case ADD_TO_WISHLIST:
       let obj = action.payload;
-      // let x = state.addToWish.slice().concet(obj)
       return {
         ...state,
         addToWish: [...state.addToWish, { ...obj }],
       };
 
     case REMOVE_FROM_WISHLIST:
-      // console.log("sdf", action.payload);
       return {
         ...state,
         addToWish: state.addToWish.filter((item) => item.id !== action.payload),
       };
 
     case PRODUCT_DETAILS:
-      // console.log("single", action.payload);
       return {
         ...state,
         singleProducts: action.payload,
+      };
+
+    case ADD_TO_CART:
+      let obj1 = action.payload;
+      return {
+        ...state,
+        cart: [...state.cart, { ...obj1 }],
+      };
+
+    case REMOVE_TO_CART:
+      return {
+        ...state,
+        cart: state.cart.filter((item) => item.id !== action.payload),
       };
 
     default:

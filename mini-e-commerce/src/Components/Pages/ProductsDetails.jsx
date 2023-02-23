@@ -1,11 +1,13 @@
 import { useDispatch, useSelector } from "react-redux";
 import { singleProduct } from "../Redux/Products/action";
 import { useEffect } from "react";
-import { Button } from "@chakra-ui/react";
+import { Button, useToast } from "@chakra-ui/react";
 import { useParams } from "react-router-dom";
 import Styles from "../Styles/Product.module.css";
+import { addToCart } from "../Redux/Products/action";
 
 const ProductsDetails = () => {
+  const toast = useToast();
   const dispatch = useDispatch();
   const data = useSelector((state) => state.Products.singleProducts);
   const { id } = useParams();
@@ -13,6 +15,17 @@ const ProductsDetails = () => {
   useEffect(() => {
     dispatch(singleProduct(id));
   }, [dispatch]);
+
+  const handleCart = (data) => {
+    dispatch(addToCart(data));
+    toast({
+      title: "Add To Cart Successfully!",
+      status: "success",
+      duration: 5000,
+      isClosable: true,
+      position: "top",
+    });
+  };
 
   return (
     <>
@@ -84,6 +97,7 @@ const ProductsDetails = () => {
             _hover="none"
             borderRadius="40px"
             bg="#ffcc00"
+            onClick={() => handleCart(data)}
           >
             Add To Cart
           </Button>{" "}

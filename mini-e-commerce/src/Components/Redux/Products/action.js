@@ -6,6 +6,8 @@ import {
   ADD_TO_WISHLIST,
   REMOVE_FROM_WISHLIST,
   PRODUCT_DETAILS,
+  REMOVE_TO_CART,
+  ADD_TO_CART,
 } from "./actionTypes";
 
 import axios from "axios";
@@ -61,4 +63,18 @@ export const singleProduct = (id) => async (dispatch) => {
     `https://pear-naughty-clam.cyclic.app/iphone/${id}`
   );
   dispatch({ type: PRODUCT_DETAILS, payload: response.data });
+};
+
+export const addToCart = (data) => {
+  return {
+    type: ADD_TO_CART,
+    payload: data,
+  };
+};
+
+export const removeToCart = (data) => {
+  return {
+    type: REMOVE_TO_CART,
+    payload: data,
+  };
 };
