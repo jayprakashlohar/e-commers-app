@@ -5,6 +5,7 @@ import {
   FILTER_BY_TITLE,
   ADD_TO_WISHLIST,
   REMOVE_FROM_WISHLIST,
+  PRODUCT_DETAILS,
 } from "./actionTypes";
 
 import axios from "axios";
@@ -19,9 +20,7 @@ export const fetchData = () => async (dispatch) => {
 
 // FETCH ALL DATA
 export const fetchMobileData = () => async (dispatch) => {
-  const responce = await axios.get(
-    "https://bug-backend-production.up.railway.app/iphone"
-  );
+  const responce = await axios.get("https://cute-jay-cap.cyclic.app/iphone");
   dispatch({ type: FETCH_MOBILEPRODUCTS, payload: responce.data });
 };
 
@@ -33,7 +32,7 @@ export const sortbyPrice = (order) => async (dispatch) => {
 // FILTRING
 export const filterbyTitle = (title) => async (dispatch) => {
   axios
-    .get("https://bug-backend-production.up.railway.app/iphone")
+    .get("https://cute-jay-cap.cyclic.app/iphone")
     .then((res) => {
       let data = res.data;
       dispatch({ type: FILTER_BY_TITLE, payload: { data, title } });
@@ -48,10 +47,16 @@ export const addToWishlist = (data) => {
   };
 };
 
-
 export const removeWishlistItem = (data) => {
-    return {
-      type: REMOVE_FROM_WISHLIST,
-      payload: data,
-    };
-}
+  return {
+    type: REMOVE_FROM_WISHLIST,
+    payload: data,
+  };
+};
+
+export const singleProduct = (id) => async (dispatch) => {
+  const response = await axios.get(
+    `https://cute-jay-cap.cyclic.app/iphone/${id}`
+  );
+  dispatch({ type: PRODUCT_DETAILS, payload: response.data });
+};

@@ -18,10 +18,7 @@ const AllRoutes = () => {
         <Route path="/wishlist" element={<Wishlist />}></Route>
         <Route path="/cart" element={<Cart />}></Route>
         <Route path="/appleproducts" element={<Mobile />}></Route>\{" "}
-        <Route
-          path="/products/single/:id"
-          element={<ProductsDetails />}
-        ></Route>
+        <Route path="/products/:id" element={<ProductsDetails />}></Route>
       </Routes>
     </div>
   );

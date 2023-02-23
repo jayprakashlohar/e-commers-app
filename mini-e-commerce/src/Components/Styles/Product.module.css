@@ -40,3 +40,7 @@
 .removeWish:hover {
   color: blue;
 }
+
+.title:hover {
+  text-decoration: underline;
+}

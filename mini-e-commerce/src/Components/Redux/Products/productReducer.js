@@ -5,6 +5,7 @@ import {
   FILTER_BY_TITLE,
   ADD_TO_WISHLIST,
   REMOVE_FROM_WISHLIST,
+  PRODUCT_DETAILS,
 } from "./actionTypes";
 import axios from "axios";
 
@@ -12,6 +13,7 @@ const initialState = {
   productData: [],
   mobileData: [],
   addToWish: [],
+  singleProducts: [],
 };
 
 const productReducer = (state = initialState, action) => {
@@ -65,6 +67,13 @@ const productReducer = (state = initialState, action) => {
       return {
         ...state,
         addToWish: state.addToWish.filter((item) => item.id !== action.payload),
+      };
+
+    case PRODUCT_DETAILS:
+      // console.log("single", action.payload);
+      return {
+        ...state,
+        singleProducts: action.payload,
       };
 
     default:

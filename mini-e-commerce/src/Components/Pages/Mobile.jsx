@@ -9,6 +9,7 @@ import { useEffect, useState } from "react";
 import { Heading, Select, Spinner, useToast } from "@chakra-ui/react";
 import Styles from "../Styles/Product.module.css";
 import { AiOutlineHeart } from "react-icons/ai";
+import { Link } from "react-router-dom";
 
 const Mobile = () => {
   const toast = useToast();
@@ -74,13 +75,16 @@ const Mobile = () => {
           size="xl"
         />
       )}
+
       <div className={Styles.proContainer}>
         {data.map((item) => {
           return (
             <div key={item.id}>
-              <img src={item.imgUrl} alt="" />
+              <Link to={`/products/${item._id}`}>
+                <img src={item.imgUrl} alt="" />
+              </Link>
               <h2>{item.brand}</h2>
-              <h3>{item.title}</h3>
+              <h3 className={Styles.title}>{item.title}</h3>
               <h3>{item.rate}</h3>
               <h3>₹ {item.price}</h3>
               <AiOutlineHeart
