@@ -20,7 +20,9 @@ export const fetchData = () => async (dispatch) => {
 
 // FETCH ALL DATA
 export const fetchMobileData = () => async (dispatch) => {
-  const responce = await axios.get("https://cute-jay-cap.cyclic.app/iphone");
+  const responce = await axios.get(
+    "https://pear-naughty-clam.cyclic.app/iphone"
+  );
   dispatch({ type: FETCH_MOBILEPRODUCTS, payload: responce.data });
 };
 
@@ -32,7 +34,7 @@ export const sortbyPrice = (order) => async (dispatch) => {
 // FILTRING
 export const filterbyTitle = (title) => async (dispatch) => {
   axios
-    .get("https://cute-jay-cap.cyclic.app/iphone")
+    .get("https://pear-naughty-clam.cyclic.app/iphone")
     .then((res) => {
       let data = res.data;
       dispatch({ type: FILTER_BY_TITLE, payload: { data, title } });
@@ -56,7 +58,7 @@ export const removeWishlistItem = (data) => {
 
 export const singleProduct = (id) => async (dispatch) => {
   const response = await axios.get(
-    `https://cute-jay-cap.cyclic.app/iphone/${id}`
+    `https://pear-naughty-clam.cyclic.app/iphone/${id}`
   );
   dispatch({ type: PRODUCT_DETAILS, payload: response.data });
 };

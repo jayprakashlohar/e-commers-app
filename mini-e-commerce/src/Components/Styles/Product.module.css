@@ -44,3 +44,104 @@
 .title:hover {
   text-decoration: underline;
 }
+
+/* single product page */
+
+.topDiv {
+  width: 97%;
+  margin: auto;
+  display: flex;
+  justify-content: space-evenly;
+  padding: 20px;
+  background-color: #f8f2f2;
+  margin-top: 10px;
+}
+
+.name {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 25px;
+  font-weight: bold;
+}
+.mainContainer {
+  display: flex;
+  margin: 20px;
+  justify-content: space-around;
+}
+
+.imageDiv img {
+  height: 70vh;
+  box-shadow: rgba(0, 0, 0, 0.05) 0px 0px 0px 1px;
+  padding: 20px;
+}
+
+.detailsDiv {
+  box-shadow: rgba(0, 0, 0, 0.05) 0px 0px 0px 1px;
+  width: 400px;
+  padding: 20px;
+}
+
+.title1 {
+  font-size: 30px;
+  font-weight: bold;
+}
+
+.price {
+  font-size: 30px;
+  font-weight: 500;
+  color: rgb(211, 86, 86);
+  font-style: italic;
+}
+.brand {
+  font-weight: 400;
+  color: rgb(90, 90, 231);
+}
+
+.stock {
+  margin-top: 10px;
+  font-weight: bold;
+  font-size: 20px;
+}
+.color {
+  margin-top: 5px;
+  font-size: 20px;
+  font-weight: bold;
+}
+
+.colorDiv {
+  display: flex;
+}
+
+.size {
+  border: 1px solid gray;
+  padding: 5px;
+  font-weight: 500;
+}
+
+.size:hover {
+  background-color: lavender;
+  cursor: pointer;
+}
+.size1 {
+  border: 1px solid gray;
+  padding: 5px;
+  font-weight: 500;
+  margin-left: 10px;
+}
+
+.size1:hover {
+  background-color: lavender;
+  cursor: pointer;
+}
+.size2 {
+  border: 1px solid gray;
+  padding: 5px;
+  font-weight: 500;
+  margin-left: 10px;
+}
+
+.size2:hover {
+  background-color: lavender;
+  cursor: pointer;
+}
