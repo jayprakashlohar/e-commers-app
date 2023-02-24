@@ -19,7 +19,7 @@ const ProductsDetails = () => {
   const handleCart = (data) => {
     dispatch(addToCart(data));
     toast({
-      title: "Add To Cart Successfully!",
+      title: "Added To Cart",
       status: "success",
       duration: 5000,
       isClosable: true,

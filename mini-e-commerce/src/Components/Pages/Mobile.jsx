@@ -34,7 +34,7 @@ const Mobile = () => {
   const handleWishItem = (item) => {
     dispatch(addToWishlist(item));
     toast({
-      title: "Add To Wishlist Successfully!",
+      title: "Added To Wishlist",
       status: "success",
       duration: 5000,
       isClosable: true,

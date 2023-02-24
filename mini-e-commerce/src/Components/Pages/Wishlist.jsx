@@ -1,7 +1,7 @@
 import React from "react";
 import { useSelector, useDispatch } from "react-redux";
 import Styles from "../Styles/Product.module.css";
-import { Heading } from "@chakra-ui/react";
+import { Box, Heading } from "@chakra-ui/react";
 import { removeWishlistItem } from "../Redux/Products/action";
 import { useToast } from "@chakra-ui/react";
 
@@ -23,29 +23,34 @@ const Wishlist = () => {
 
   return (
     <div>
-      <Heading textAlign="center" m="20px" fontSize="25px">
-        Your Wishlist Items...
-      </Heading>
-      <div className={Styles.proContainer}>
-        {wishlistData.map((item) => {
-          const { id, imgUrl, brand, title, rate, price } = item;
-          return (
-            <div key={item.id}>
-              <img src={imgUrl} alt="" />
-              <h2>{brand}</h2>
-              <h3>{title}</h3>
-              <h3>{rate}</h3>
-              <h3>₹ {price}</h3>
-              <p
-                className={Styles.removeWish}
-                onClick={() => handleRemove(item)}
-              >
-                REMOVE
-              </p>
-            </div>
-          );
-        })}
-      </div>
+      {wishlistData.length > 0 ? (
+        <div className={Styles.proContainer}>
+          {wishlistData.map((item) => {
+            const { id, imgUrl, brand, title, rate, price } = item;
+            return (
+              <div key={item.id}>
+                <img src={imgUrl} alt="" />
+                <h2>{brand}</h2>
+                <h3>{title}</h3>
+                <h3>{rate}</h3>
+                <h3>₹ {price}</h3>
+                <p
+                  className={Styles.removeWish}
+                  onClick={() => handleRemove(item)}
+                >
+                  REMOVE
+                </p>
+              </div>
+            );
+          })}
+        </div>
+      ) : (
+        <Box>
+          <Heading textAlign="center" p="200px">
+            Your wishlist is empty!
+          </Heading>
+        </Box>
+      )}
     </div>
   );
 };
