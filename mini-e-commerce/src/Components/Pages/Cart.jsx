@@ -97,7 +97,7 @@ const Cart = () => {
                     color: "green",
                     fontSize: "13px",
                     marginLeft: "10PX",
-                    marginTop:"12px"
+                    marginTop: "12px",
                   }}
                 >
                   Your order is eligible for FREE Delivery. Select this option

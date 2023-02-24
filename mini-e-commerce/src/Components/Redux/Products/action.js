@@ -21,9 +21,10 @@ export const fetchData = () => async (dispatch) => {
 };
 
 // FETCH ALL DATA
-export const fetchMobileData = () => async (dispatch) => {
+export const fetchMobileData = (page) => async (dispatch) => {
   const responce = await axios.get(
-    "https://pear-naughty-clam.cyclic.app/iphone"
+    // "https://pear-naughty-clam.cyclic.app/iphone"
+    `http://localhost:8080/iphone?limit=8&page=${page}`
   );
   dispatch({ type: FETCH_MOBILEPRODUCTS, payload: responce.data });
 };
@@ -34,9 +35,10 @@ export const sortbyPrice = (order) => async (dispatch) => {
 };
 
 // FILTRING
-export const filterbyTitle = (title) => async (dispatch) => {
+export const filterbyTitle = (title,page) => async (dispatch) => {
   axios
-    .get("https://pear-naughty-clam.cyclic.app/iphone")
+    // .get("https://pear-naughty-clam.cyclic.app/iphone")
+    .get(`http://localhost:8080/iphone?limit=8&page=${page}`)
     .then((res) => {
       let data = res.data;
       dispatch({ type: FILTER_BY_TITLE, payload: { data, title } });

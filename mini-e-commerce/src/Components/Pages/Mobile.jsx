@@ -6,7 +6,14 @@ import {
   addToWishlist,
 } from "../Redux/Products/action";
 import { useEffect, useState } from "react";
-import { Heading, Select, Spinner, useToast } from "@chakra-ui/react";
+import {
+  Box,
+  Button,
+  Heading,
+  Select,
+  Spinner,
+  useToast,
+} from "@chakra-ui/react";
 import Styles from "../Styles/Product.module.css";
 import { AiOutlineHeart } from "react-icons/ai";
 import { Link } from "react-router-dom";
@@ -17,18 +24,19 @@ const Mobile = () => {
   const dispatch = useDispatch();
   let { mobileData } = useSelector((state) => state.Products);
   let data = mobileData;
+  const [page, setPage] = useState(1);
 
   useEffect(() => {
-    dispatch(fetchMobileData());
+    dispatch(fetchMobileData(page));
     setLoading(false);
-  }, [dispatch]);
+  }, [dispatch, page]);
 
   const handleSort = (value) => {
     dispatch(sortbyPrice(value));
   };
 
   const handleFilter = (value) => {
-    dispatch(filterbyTitle(value));
+    dispatch(filterbyTitle(value, page));
   };
 
   const handleWishItem = (item) => {
@@ -94,6 +102,14 @@ const Mobile = () => {
             </div>
           );
         })}
+
+        <Box>
+          <button onClick={() => setPage(page - 1)} _disabled={page - 1 === 0}>
+            Prev
+          </button>
+          <button>{page}</button>
+          <button onClick={() => setPage(page + 1)}>Next</button>
+        </Box>
       </div>
     </>
   );
