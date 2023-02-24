@@ -87,7 +87,7 @@ const Cart = () => {
               h="300px"
               p="15px"
             >
-              <Box display="flex">
+              <Box display="flex" justifyContent="center" alignItems="center">
                 <input
                   style={{ height: "18px", width: "18px" }}
                   type="checkbox"
@@ -96,7 +96,8 @@ const Cart = () => {
                   style={{
                     color: "green",
                     fontSize: "13px",
-                    marginLeft: "5PX",
+                    marginLeft: "10PX",
+                    marginTop:"12px"
                   }}
                 >
                   Your order is eligible for FREE Delivery. Select this option
@@ -107,7 +108,7 @@ const Cart = () => {
                 <p style={{ fontSize: "20px", fontWeight: "550" }}>
                   Subtotal: <span>price</span>
                 </p>
-                <Button mt="40px" w="full" bg="#ffad33">
+                <Button mt="40px" w="full" bg="#ffad33" _hover="none">
                   Proceed to buy
                 </Button>
               </Box>
