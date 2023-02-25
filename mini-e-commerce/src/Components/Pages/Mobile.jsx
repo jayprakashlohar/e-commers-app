@@ -6,14 +6,7 @@ import {
   addToWishlist,
 } from "../Redux/Products/action";
 import { useEffect, useState } from "react";
-import {
-  Box,
-  Button,
-  Heading,
-  Select,
-  Spinner,
-  useToast,
-} from "@chakra-ui/react";
+import { Heading, Select, Spinner, useToast } from "@chakra-ui/react";
 import Styles from "../Styles/Product.module.css";
 import { AiOutlineHeart } from "react-icons/ai";
 import { Link } from "react-router-dom";
@@ -102,14 +95,14 @@ const Mobile = () => {
             </div>
           );
         })}
+      </div>
 
-        <Box>
-          <button onClick={() => setPage(page - 1)} _disabled={page - 1 === 0}>
-            Prev
-          </button>
-          <button>{page}</button>
-          <button onClick={() => setPage(page + 1)}>Next</button>
-        </Box>
+      <div className={Styles.paginationDiv}>
+        <button onClick={() => setPage(page - 1)} disabled={page - 1 == 0}>
+          Prev
+        </button>
+        <button>{page}</button>
+        <button onClick={() => setPage(page + 1)}>Next</button>
       </div>
     </>
   );

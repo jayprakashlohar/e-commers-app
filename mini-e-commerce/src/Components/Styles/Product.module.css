@@ -146,3 +146,21 @@
   background-color: lavender;
   cursor: pointer;
 }
+
+.paginationDiv {
+  padding: 10px;
+  margin-bottom: 5px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  box-shadow: rgba(0, 0, 0, 0.16) 0px 3px 6px, rgba(0, 0, 0, 0.23) 0px 3px 6px;
+}
+
+.paginationDiv button {
+  margin-left: 5px;
+  padding: 5px 10px 5px 10px;
+  background-color: black;
+  color: #ffff;
+  border-radius: 5px;
+  font-weight: bold;
+}
