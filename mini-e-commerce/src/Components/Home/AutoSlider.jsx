@@ -29,11 +29,11 @@ const AutoSlider = () => {
   ];
 
   return (
-    <>
-      <div style={{ marginTop: "10px", marginBottom:"10px" }}>
+    <div>
+      <div style={{ marginTop: "10px", marginBottom: "10px" }}>
         <img src={slides[data].URL} alt={slides[data].title} />
       </div>
-    </>
+    </div>
   );
 };
 

@@ -53,3 +53,23 @@
   font-size: 20px;
   color: #ffff;
 }
+
+@media all and (min-width: 0px) and (max-width: 420px) {
+  .FirstDiv {
+    display: block;
+    margin: auto;
+  }
+  .heading {
+    text-align: center;
+    margin-bottom: 20px;
+  }
+  .social {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  .secondDiv {
+    height: auto;
+    line-height: 30px;
+  }
+}
