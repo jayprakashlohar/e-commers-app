@@ -1,5 +1,4 @@
 import {
-  FETCH_PRODUCTS,
   FETCH_MOBILEPRODUCTS,
   SORT_BY_PRICE,
   FILTER_BY_TITLE,
@@ -8,10 +7,10 @@ import {
   PRODUCT_DETAILS,
   ADD_TO_CART,
   REMOVE_TO_CART,
+  CHANGE_CART_QTY,
 } from "./actionTypes";
 
 const initialState = {
-  productData: [],
   mobileData: [],
   addToWish: [],
   singleProducts: [],
@@ -20,11 +19,7 @@ const initialState = {
 
 const productReducer = (state = initialState, action) => {
   switch (action.type) {
-    case FETCH_PRODUCTS:
-      return {
-        ...state,
-        productData: action.payload,
-      };
+    // Products
     case FETCH_MOBILEPRODUCTS:
       return {
         ...state,
@@ -56,6 +51,7 @@ const productReducer = (state = initialState, action) => {
         mobileData: filterTilte,
       };
 
+    // Wishlist
     case ADD_TO_WISHLIST:
       let obj = action.payload;
       return {
@@ -75,6 +71,7 @@ const productReducer = (state = initialState, action) => {
         singleProducts: action.payload,
       };
 
+    // Cart
     case ADD_TO_CART:
       let obj1 = action.payload;
       return {
@@ -86,6 +83,15 @@ const productReducer = (state = initialState, action) => {
       return {
         ...state,
         cart: state.cart.filter((item) => item.id !== action.payload),
+      };
+
+    case CHANGE_CART_QTY:
+      console.log("qty", action.payload);
+      return {
+        ...state,
+        cart: state.cart.filter((c) =>
+          c.id === action.payload.id ? (c.qty = action.payload.qty) : c.qty
+        ),
       };
 
     default:

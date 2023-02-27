@@ -1,5 +1,4 @@
 import {
-  FETCH_PRODUCTS,
   FETCH_MOBILEPRODUCTS,
   SORT_BY_PRICE,
   FILTER_BY_TITLE,
@@ -8,17 +7,10 @@ import {
   PRODUCT_DETAILS,
   REMOVE_TO_CART,
   ADD_TO_CART,
+  CHANGE_CART_QTY,
 } from "./actionTypes";
 
 import axios from "axios";
-
-export const fetchData = () => async (dispatch) => {
-  const responce = await axios.get(
-    "https://bug-backend-production.up.railway.app/product"
-  );
-  // console.log(responce)
-  dispatch({ type: FETCH_PRODUCTS, payload: responce.data });
-};
 
 // FETCH ALL DATA
 export const fetchMobileData = (page) => async (dispatch) => {
@@ -44,13 +36,23 @@ export const filterbyTitle = (title, page) => async (dispatch) => {
     .catch((err) => console.log(err));
 };
 
+// -------- ---------- ------------- ------------ ------------ ---------
 export const addToWishlist = (data) => {
-  
-  return {
-    type: ADD_TO_WISHLIST,
-    payload: data,
-  };
+  axios
+    .post("http://localhost:8080/wishlist/createproduct", data)
+    .then((res) => {
+      let data = res.data;
+      console.log("data", data);
+      // dispatch({ type: ADD_TO_WISHLIST, payload: res.data });
+    })
+    .catch((err) => console.log(err));
+  // return {
+  //   type: ADD_TO_WISHLIST,
+  //   payload: data,
+  // };
 };
+
+// --------- -------------- -------------- ------------ --------------------------
 
 export const removeWishlistItem = (data) => {
   return {
@@ -78,4 +80,14 @@ export const removeToCart = (data) => {
     type: REMOVE_TO_CART,
     payload: data,
   };
+};
+
+export const changeQty = (id, qty) => (dispatch) => {
+  dispatch({
+    type: CHANGE_CART_QTY,
+    payload: {
+      id: id,
+      qty: qty,
+    },
+  });
 };

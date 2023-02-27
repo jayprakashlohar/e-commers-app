@@ -16,7 +16,7 @@ export const authRegister = (data) => async (dispatch) => {
     dispatch({ type: AUTH_REGISTER_REQUEST });
 
     const res = await axios.post(
-      "https://bug-backend-production.up.railway.app/user/signup",
+      "https://pear-naughty-clam.cyclic.app/user/signup",
       {
         email: data.email,
         username: data.name,
@@ -47,7 +47,7 @@ export const authLogin = (data) => async (dispatch) => {
     dispatch({ type: AUTH_LOGIN_REQUEST });
 
     const res = await axios.post(
-      "https://bug-backend-production.up.railway.app/user/login",
+      "https://pear-naughty-clam.cyclic.app/user/login",
 
       data
     );

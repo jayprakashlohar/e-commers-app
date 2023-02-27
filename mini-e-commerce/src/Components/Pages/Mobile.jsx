@@ -34,13 +34,13 @@ const Mobile = () => {
 
   const handleWishItem = (item) => {
     dispatch(addToWishlist(item));
-    toast({
-      title: "Added To Wishlist",
-      status: "success",
-      duration: 5000,
-      isClosable: true,
-      position: "top",
-    });
+    // toast({
+    //   title: "Added To Wishlist",
+    //   status: "success",
+    //   duration: 5000,
+    //   isClosable: true,
+    //   position: "top",
+    // });
   };
 
   return (
@@ -67,15 +67,23 @@ const Mobile = () => {
           </Select>
         </div>
       </div>
-      {loading && (
-        <Spinner
-          thickness="4px"
-          speed="0.65s"
-          emptyColor="gray.200"
-          color="blue.500"
-          size="xl"
-        />
-      )}
+      <div
+        style={{
+          display: "flex",
+          justifyContent: "center",
+          alignItems: "center",
+        }}
+      >
+        {loading && (
+          <Spinner
+            thickness="4px"
+            speed="0.65s"
+            emptyColor="gray.200"
+            color="blue.500"
+            size="xl"
+          />
+        )}
+      </div>
 
       <div className={Styles.proContainer}>
         {data.map((item) => {

@@ -1,8 +1,6 @@
 import React from "react";
 import { AutoSlider } from "./AutoSlider";
 import { MultipalSlider } from "./MultipalSlider";
-import SimpleSlider from "./SimpleSlider";
-import { Products } from "../Pages/Products";
 import { WatchSlider } from "./WatchSlider";
 
 const Home = () => {
@@ -24,8 +22,6 @@ const Home = () => {
               alt=""
             />
           </div>
-          {/* <SimpleSlider /> */}
-          {/* <Products /> */}
           <MultipalSlider />
           <div style={{ margin: "20px, 0px 10px 0px" }}>
             <WatchSlider />

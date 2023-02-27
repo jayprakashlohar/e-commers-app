@@ -1,13 +1,17 @@
-import { Box, Button, Heading, Image, Input } from "@chakra-ui/react";
 import React from "react";
-import { removeToCart } from "../Redux/Products/action";
-import { useToast } from "@chakra-ui/react";
+import { useToast, Box, Button, Heading, Image } from "@chakra-ui/react";
 import { useSelector, useDispatch } from "react-redux";
+import { removeToCart, changeQty } from "../Redux/Products/action";
+import { CartTotal } from "./CartTotal";
 
 const Cart = () => {
   const toast = useToast();
   const dispatch = useDispatch();
   const cartData = useSelector((state) => state.Products.cart);
+
+  const handleQty = (item) => {
+    changeQty(item.id);
+  };
 
   const handleRemove = (item) => {
     dispatch(removeToCart(item.id));
@@ -24,7 +28,7 @@ const Cart = () => {
       <Box>
         {cartData && cartData.length > 0 ? (
           <Box display="flex">
-            <Box m="30px 0px 30px 0px" border="1px solid black" w="70%">
+            <Box m="30px 0px 30px 0px" boxShadow="base" w="70%">
               <Box
                 display="flex"
                 justifyContent="space-between"
@@ -43,7 +47,6 @@ const Cart = () => {
                   <Box
                     m="10px 0px 10px 0px"
                     display="flex"
-                    // bg="#ffff"
                     boxShadow="base"
                     justifyContent="space-between"
                     padding="10px"
@@ -57,11 +60,20 @@ const Cart = () => {
                         <h3>{rate}</h3>
                         <Box mt="80px">
                           {" "}
-                          <Button borderRadius="50%">-</Button>
-                          <Button borderRadius="50%" ml="5px">
-                            1
+                          <Button
+                            borderRadius="50%"
+                            onClick={() => handleQty(item.id, item.qty - 1)}
+                          >
+                            -
                           </Button>
                           <Button borderRadius="50%" ml="5px">
+                            {item.qty}
+                          </Button>
+                          <Button
+                            borderRadius="50%"
+                            ml="5px"
+                            onClick={() => handleQty(item.id, item.qty + 1)}
+                          >
                             +
                           </Button>
                           <Button ml="20px" onClick={() => handleRemove(item)}>
@@ -80,39 +92,7 @@ const Cart = () => {
                 );
               })}
             </Box>
-            <Box
-              border="1px solid red"
-              w="350px"
-              m="30px 0px 0px 30px"
-              h="300px"
-              p="15px"
-            >
-              <Box display="flex" justifyContent="center" alignItems="center">
-                <input
-                  style={{ height: "18px", width: "18px" }}
-                  type="checkbox"
-                />
-                <p
-                  style={{
-                    color: "green",
-                    fontSize: "13px",
-                    marginLeft: "10PX",
-                    marginTop: "12px",
-                  }}
-                >
-                  Your order is eligible for FREE Delivery. Select this option
-                  at checkout. Details{" "}
-                </p>
-              </Box>
-              <Box border="1px solid teal" mt="20px">
-                <p style={{ fontSize: "20px", fontWeight: "550" }}>
-                  Subtotal: <span>price</span>
-                </p>
-                <Button mt="40px" w="full" bg="#ffad33" _hover="none">
-                  Proceed to buy
-                </Button>
-              </Box>
-            </Box>
+            <CartTotal />
           </Box>
         ) : (
           <Box>

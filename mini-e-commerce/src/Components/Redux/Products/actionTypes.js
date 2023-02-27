@@ -1,4 +1,3 @@
-export const FETCH_PRODUCTS = "FETCH_PRODUCTS";
 export const FETCH_MOBILEPRODUCTS = "FETCH_MOBILEPRODUCTS";
 
 export const FILTER_BY_TITLE = "FILTER_BY_TITLE";
@@ -11,3 +10,5 @@ export const PRODUCT_DETAILS = "PRODUCT_DETAILS";
 
 export const ADD_TO_CART = "ADD_TO_CART";
 export const REMOVE_TO_CART = "REMOVE_TO_CART";
+
+export const CHANGE_CART_QTY = "CHANGE_CART_QTY";

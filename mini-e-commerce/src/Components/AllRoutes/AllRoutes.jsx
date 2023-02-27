@@ -2,7 +2,7 @@ import React from "react";
 import { Routes, Route } from "react-router-dom";
 import { Signup } from "../Pages/Signup";
 import { Login } from "../Pages/Login";
-import { Cart } from "../Pages/Cart";
+import { Cart } from "../Cart/Cart";
 import { Home } from "../Home/Home";
 import { Mobile } from "../Pages/Mobile";
 import { Wishlist } from "../Pages/Wishlist";
