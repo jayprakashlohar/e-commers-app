@@ -7,14 +7,7 @@ import { Link } from "react-router-dom";
 import { MiniNavbar } from "../Header/MiniNavbar";
 import AppleLogo from "../Logo/Apple hub.png";
 
-import {
-  Menu,
-  MenuButton,
-  MenuList,
-  MenuItem,
-  Button,
-  Input,
-} from "@chakra-ui/react";
+import { Menu, MenuButton, MenuList, MenuItem, Input } from "@chakra-ui/react";
 
 const Navbar = () => {
   return (

@@ -43,11 +43,20 @@
 
 .MiniNavDiv p:hover {
   text-decoration: underline;
-
 }
 
 .MiniNavDiv {
   display: flex;
   justify-content: space-around;
   margin-top: 70px;
+}
+
+@media all and (min-width: 0px) and (max-width: 420px) {
+  .searchInput Input {
+    width: 170px;
+  }
+  .MiniNavDiv {
+    font-size: 10px;
+    cursor: pointer;
+  }
 }

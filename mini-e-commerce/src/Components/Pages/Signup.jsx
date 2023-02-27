@@ -5,12 +5,9 @@ import {
   Heading,
   Stack,
   Button,
-  InputGroup,
-  InputLeftElement,
   FormLabel,
 } from "@chakra-ui/react";
 
-import { EmailIcon, LockIcon } from "@chakra-ui/icons";
 import React from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { authRegister } from "../Redux/Auth/action";
@@ -68,7 +65,6 @@ const Signup = () => {
   return (
     <Box height="100vh">
       <Box
-        width="35%"
         margin="auto"
         height="450px"
         background="#fff"
@@ -77,6 +73,7 @@ const Signup = () => {
         p="2"
         rounded="md"
         bg="white"
+        w={{ base: "90%", md: "80%" ,lg:"35%" }}
       >
         <Heading textAlign="center" marginTop="20px">
           Sign up

@@ -74,11 +74,10 @@ const Login = () => {
   const handleSubmit = (e) => {
     e.preventDefault();
     setLoading(true);
-    // console.log(formData);
     dispatch(authLogin(formData));
   };
   return (
-    <Box height="100vh" >
+    <Box height="100vh">
       <Box
         width="35%"
         margin="auto"
@@ -90,6 +89,7 @@ const Login = () => {
         p="8"
         rounded="md"
         bg="white"
+        w={{ base: "90%", md: "80%", lg: "35%" }}
       >
         <Heading textAlign="center">Login</Heading>
 

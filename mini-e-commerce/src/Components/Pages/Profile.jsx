@@ -11,7 +11,7 @@
 
 //   const getUserData = () => {
 //     axios
-//       .get("https://bug-backend-production.up.railway.app/user/getProfile", {
+//       .get("https://pear-naughty-clam.cyclic.app/user/getProfile", {
 //         headers: { token: token },
 //       })
 //       .then((res) => {

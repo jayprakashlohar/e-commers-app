@@ -86,7 +86,7 @@ const productReducer = (state = initialState, action) => {
       };
 
     case CHANGE_CART_QTY:
-      console.log("qty", action.payload);
+      // console.log("qty", action.payload);
       return {
         ...state,
         cart: state.cart.filter((c) =>

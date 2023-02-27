@@ -4,6 +4,7 @@ import { ChakraProvider } from "@chakra-ui/react";
 import { AllRoutes } from "./Components/AllRoutes/AllRoutes";
 import { Footer } from "./Components/Footer/Footer";
 import { Profile } from "./Components/Pages/Profile";
+import { Checkout } from "./Components/Pages/Checkout";
 
 function App() {
   return (
@@ -12,8 +13,7 @@ function App() {
         <Navbar />
         <AllRoutes />
         {/* <Profile /> */}
-        {/* <CartTotal/> */}
-
+        {/* <Checkout/> */}
         <Footer />
       </ChakraProvider>
     </div>

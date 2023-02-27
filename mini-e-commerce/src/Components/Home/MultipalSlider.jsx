@@ -15,15 +15,21 @@ const  MultipalSlider = () => {
     infinite: false,
     responsive: [
       {
-        breakpoint: 1024,
+        breakpoint: 1025,
         settings: {
-          slidesToShow: 2,
+          slidesToShow: 4,
         },
       },
       {
         breakpoint: 800,
         settings: {
           slidesToShow: 3,
+        },
+      },
+      {
+        breakpoint: 400,
+        settings: {
+          slidesToShow: 2,
         },
       },
     ],
