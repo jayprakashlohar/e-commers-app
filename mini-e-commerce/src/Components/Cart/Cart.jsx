@@ -24,11 +24,11 @@ const Cart = () => {
     });
   };
   return (
-    <Box>
-      <Box>
+    <>
+      <div>
         {cartData && cartData.length > 0 ? (
-          <Box display="flex">
-            <Box m="30px 0px 30px 0px" boxShadow="base" w="70%">
+          <Box className="cartDiv">
+            <div className="cartSecondDiv">
               <Box
                 display="flex"
                 justifyContent="space-between"
@@ -42,7 +42,7 @@ const Cart = () => {
               <hr style={{ width: "98%", margin: "auto" }} />
 
               {cartData.map((item) => {
-                const { id, imgUrl, brand, title, rate, price } = item;
+                const { _id, imgUrl, brand, title, rate, price } = item;
                 return (
                   <Box
                     m="10px 0px 10px 0px"
@@ -62,7 +62,7 @@ const Cart = () => {
                           {" "}
                           <Button
                             borderRadius="50%"
-                            onClick={() => handleQty(item.id, item.qty - 1)}
+                            onClick={() => handleQty(item._id, item.qty - 1)}
                           >
                             -
                           </Button>
@@ -72,7 +72,7 @@ const Cart = () => {
                           <Button
                             borderRadius="50%"
                             ml="5px"
-                            onClick={() => handleQty(item.id, item.qty + 1)}
+                            onClick={() => handleQty(item._id, item.qty + 1)}
                           >
                             +
                           </Button>
@@ -91,7 +91,7 @@ const Cart = () => {
                   </Box>
                 );
               })}
-            </Box>
+            </div>
             <CartTotal />
           </Box>
         ) : (
@@ -101,8 +101,8 @@ const Cart = () => {
             </Heading>
           </Box>
         )}
-      </Box>
-    </Box>
+      </div>
+    </>
   );
 };
 

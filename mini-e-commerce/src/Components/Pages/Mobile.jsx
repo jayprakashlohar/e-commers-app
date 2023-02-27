@@ -33,14 +33,26 @@ const Mobile = () => {
   };
 
   const handleWishItem = (item) => {
-    dispatch(addToWishlist(item));
-    // toast({
-    //   title: "Added To Wishlist",
-    //   status: "success",
-    //   duration: 5000,
-    //   isClosable: true,
-    //   position: "top",
-    // });
+    console.log("item",item)
+    dispatch(addToWishlist(item))
+      .then((res) => {
+        toast({
+          title: res,
+          status: "success",
+          duration: 5000,
+          isClosable: true,
+          position: "top",
+        });
+      })
+      .catch((err) => {
+        toast({
+          title: err,
+          status: "error",
+          duration: 5000,
+          isClosable: true,
+          position: "top",
+        });
+      });
   };
 
   return (

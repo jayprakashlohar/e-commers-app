@@ -1,17 +1,22 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { useSelector, useDispatch } from "react-redux";
 import Styles from "../Styles/Product.module.css";
 import { Box, Heading } from "@chakra-ui/react";
 import { removeWishlistItem } from "../Redux/Products/action";
 import { useToast } from "@chakra-ui/react";
+import { fetchwishlistData } from "../Redux/Products/action";
 
 const Wishlist = () => {
   const toast = useToast();
   const dispatch = useDispatch();
-  const wishlistData = useSelector((state) => state.Products.addToWish);
+  const wishData = useSelector((state) => state.Products.wishlistData);
+   console.log("wishData",wishData)
+  useEffect(() => {
+    dispatch(fetchwishlistData);
+  }, []);
 
   const handleRemove = (item) => {
-    dispatch(removeWishlistItem(item.id));
+    dispatch(removeWishlistItem(item._id));
     toast({
       title: "Remove your product",
       status: "error",
@@ -19,13 +24,14 @@ const Wishlist = () => {
       isClosable: true,
       position: "top",
     });
+    dispatch(fetchwishlistData);
   };
 
   return (
     <div>
-      {wishlistData.length > 0 ? (
+      {wishData.length > 0 ? (
         <div className={Styles.proContainer}>
-          {wishlistData.map((item) => {
+          {wishData.map((item) => {
             const { id, imgUrl, brand, title, rate, price } = item;
             return (
               <div key={item.id}>

@@ -8,6 +8,7 @@ import {
   ADD_TO_CART,
   REMOVE_TO_CART,
   CHANGE_CART_QTY,
+  FETCH_WISHLIST_DATA,
 } from "./actionTypes";
 
 const initialState = {
@@ -15,6 +16,7 @@ const initialState = {
   addToWish: [],
   singleProducts: [],
   cart: [],
+  wishlistData: [],
 };
 
 const productReducer = (state = initialState, action) => {
@@ -52,6 +54,13 @@ const productReducer = (state = initialState, action) => {
       };
 
     // Wishlist
+
+    case FETCH_WISHLIST_DATA: {
+      return {
+        ...state,
+        wishlistData: action.payload,
+      };
+    }
     case ADD_TO_WISHLIST:
       let obj = action.payload;
       return {
@@ -62,7 +71,9 @@ const productReducer = (state = initialState, action) => {
     case REMOVE_FROM_WISHLIST:
       return {
         ...state,
-        addToWish: state.addToWish.filter((item) => item.id !== action.payload),
+        wishlistData: state.wishlistData.filter(
+          (item) => item.id !== action.payload
+        ),
       };
 
     case PRODUCT_DETAILS:

@@ -23,7 +23,13 @@ const CartTotal = () => {
 
   return (
     <div>
-      <Box w="350px" m="30px 0px 0px 30px" h="auto" p="15px" boxShadow="base">
+      <Box
+        m="30px 0px 0px 30px"
+        h="auto"
+        p="15px"
+        boxShadow="base"
+        w={{ base: "80%", md: "90%", lg: "350px" }}
+      >
         <Box display="flex" justifyContent="center" alignItems="center">
           <input style={{ height: "18px", width: "18px" }} type="checkbox" />
           <p
