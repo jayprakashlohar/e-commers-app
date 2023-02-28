@@ -13,13 +13,13 @@ import { useSelector } from "react-redux";
 
 const CartTotal = () => {
   const [total, setTotal] = useState();
-  const cartData = useSelector((state) => state.Products.cart);
+  const cart = useSelector((state) => state.Products.cartData);
 
   useEffect(() => {
     setTotal(
-      cartData.reduce((acc, curr) => acc + Number(curr.price) * curr.qty, 0)
+      cart.reduce((acc, curr) => acc + Number(curr.price) * curr.qty, 0)
     );
-  }, [cartData]);
+  }, [cart]);
 
   return (
     <div>

@@ -1,20 +1,28 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { useToast, Box, Button, Heading, Image } from "@chakra-ui/react";
 import { useSelector, useDispatch } from "react-redux";
-import { removeToCart, changeQty } from "../Redux/Products/action";
+import {
+  removeToCart,
+  changeQty,
+  fetchCartData,
+} from "../Redux/Products/action";
 import { CartTotal } from "./CartTotal";
 
 const Cart = () => {
   const toast = useToast();
   const dispatch = useDispatch();
-  const cartData = useSelector((state) => state.Products.cart);
+  const cartData = useSelector((state) => state.Products.cartData);
+
+  useEffect(() => {
+    dispatch(fetchCartData);
+  });
 
   const handleQty = (item) => {
-    changeQty(item.id);
+    changeQty(item._id);
   };
 
   const handleRemove = (item) => {
-    dispatch(removeToCart(item.id));
+    dispatch(removeToCart(item._id));
     toast({
       title: "Remove your product",
       status: "error",
@@ -22,6 +30,7 @@ const Cart = () => {
       isClosable: true,
       position: "top",
     });
+    dispatch(fetchCartData);
   };
   return (
     <>
@@ -42,7 +51,7 @@ const Cart = () => {
               <hr style={{ width: "98%", margin: "auto" }} />
 
               {cartData.map((item) => {
-                const { _id, imgUrl, brand, title, rate, price } = item;
+                const { _id, imgUrl, brand, title, rate, price, qty } = item;
                 return (
                   <Box
                     m="10px 0px 10px 0px"
@@ -62,7 +71,7 @@ const Cart = () => {
                           {" "}
                           <Button
                             borderRadius="50%"
-                            onClick={() => handleQty(item._id, item.qty - 1)}
+                            onClick={() => handleQty(_id, qty - 1)}
                           >
                             -
                           </Button>

@@ -10,7 +10,6 @@ const Wishlist = () => {
   const toast = useToast();
   const dispatch = useDispatch();
   const wishData = useSelector((state) => state.Products.wishlistData);
-   console.log("wishData",wishData)
   useEffect(() => {
     dispatch(fetchwishlistData);
   }, []);

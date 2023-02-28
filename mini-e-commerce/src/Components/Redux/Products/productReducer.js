@@ -2,21 +2,19 @@ import {
   FETCH_MOBILEPRODUCTS,
   SORT_BY_PRICE,
   FILTER_BY_TITLE,
-  ADD_TO_WISHLIST,
   REMOVE_FROM_WISHLIST,
   PRODUCT_DETAILS,
-  ADD_TO_CART,
   REMOVE_TO_CART,
   CHANGE_CART_QTY,
   FETCH_WISHLIST_DATA,
+  FETCH_CART_DATA,
 } from "./actionTypes";
 
 const initialState = {
   mobileData: [],
-  addToWish: [],
   singleProducts: [],
-  cart: [],
   wishlistData: [],
+  cartData: [],
 };
 
 const productReducer = (state = initialState, action) => {
@@ -61,12 +59,6 @@ const productReducer = (state = initialState, action) => {
         wishlistData: action.payload,
       };
     }
-    case ADD_TO_WISHLIST:
-      let obj = action.payload;
-      return {
-        ...state,
-        addToWish: [...state.addToWish, { ...obj }],
-      };
 
     case REMOVE_FROM_WISHLIST:
       return {
@@ -83,24 +75,29 @@ const productReducer = (state = initialState, action) => {
       };
 
     // Cart
-    case ADD_TO_CART:
-      let obj1 = action.payload;
+    case FETCH_CART_DATA: {
       return {
         ...state,
-        cart: [...state.cart, { ...obj1 }],
+        cartData: action.payload,
       };
+    }
+    // case ADD_TO_CART:
+    //   let obj1 = action.payload;
+    //   return {
+    //     ...state,
+    //     cart: [...state.cart, { ...obj1 }],
+    //   };
 
     case REMOVE_TO_CART:
       return {
         ...state,
-        cart: state.cart.filter((item) => item.id !== action.payload),
+        cartData: state.cartData.filter((item) => item.id !== action.payload),
       };
 
     case CHANGE_CART_QTY:
-      // console.log("qty", action.payload);
       return {
         ...state,
-        cart: state.cart.filter((c) =>
+        cartData: state.cartData.filter((c) =>
           c.id === action.payload.id ? (c.qty = action.payload.qty) : c.qty
         ),
       };

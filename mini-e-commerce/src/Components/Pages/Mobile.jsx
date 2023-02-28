@@ -17,6 +17,7 @@ const Mobile = () => {
   const dispatch = useDispatch();
   let { mobileData } = useSelector((state) => state.Products);
   let data = mobileData;
+
   const [page, setPage] = useState(1);
 
   useEffect(() => {
@@ -33,7 +34,6 @@ const Mobile = () => {
   };
 
   const handleWishItem = (item) => {
-    console.log("item",item)
     dispatch(addToWishlist(item))
       .then((res) => {
         toast({

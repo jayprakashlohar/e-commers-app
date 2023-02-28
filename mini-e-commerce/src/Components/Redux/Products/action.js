@@ -9,8 +9,9 @@ import {
   ADD_TO_CART,
   CHANGE_CART_QTY,
   FETCH_WISHLIST_DATA,
+  FETCH_CART_DATA,
 } from "./actionTypes";
-// import { Dispatch } from "react-redux";
+
 import axios from "axios";
 
 // FETCH ALL DATA
@@ -37,10 +38,10 @@ export const filterbyTitle = (title, page) => async (dispatch) => {
     .catch((err) => console.log(err));
 };
 
-// -------- ---------- ------------- ------------ ------------ ---------
+// Wishlist Products
 export const addToWishlist = (data) => (dispatch) => {
   return axios
-    .post("http://localhost:8080/wishlist/createproduct", data)
+    .post("https://pear-naughty-clam.cyclic.app/wishlist/createproduct", data)
     .then((res) => {
       dispatch({ type: ADD_TO_WISHLIST, payload: res.data });
       return res.data.msg;
@@ -52,19 +53,20 @@ export const addToWishlist = (data) => (dispatch) => {
 };
 
 export const fetchwishlistData = async (dispatch) => {
-  const responce = await axios.get("http://localhost:8080/wishlist");
+  const responce = await axios.get(
+    "https://pear-naughty-clam.cyclic.app/wishlist"
+  );
   dispatch({ type: FETCH_WISHLIST_DATA, payload: responce.data });
 };
 
 export const removeWishlistItem = (id) => async (dispatch) => {
-  console.log("id",id)
   const responce = await axios.delete(
-    `http://localhost:8080/wishlist/delete/${id}`
+    `https://pear-naughty-clam.cyclic.app/wishlist/delete/${id}`
   );
   dispatch({ type: REMOVE_FROM_WISHLIST, payload: responce });
 };
-// ----------- ----------     ---------------- ---------
 
+// -------------- // ---------------------------- // ------------------------------ // ----------------------------
 
 export const singleProduct = (id) => async (dispatch) => {
   const response = await axios.get(
@@ -73,25 +75,37 @@ export const singleProduct = (id) => async (dispatch) => {
   dispatch({ type: PRODUCT_DETAILS, payload: response.data });
 };
 
-export const addToCart = (data) => {
-  return {
-    type: ADD_TO_CART,
-    payload: data,
-  };
+// Cart Products
+export const addToCart = (data) => (dispatch) => {
+  return axios
+    .post("http://localhost:8080/cart/createproduct", data)
+    .then((res) => {
+      dispatch({ type: ADD_TO_CART, payload: res.data });
+      return res.data.msg;
+    })
+    .catch((err) => {
+      console.log(err);
+      return err.data.msg;
+    });
 };
 
-export const removeToCart = (data) => {
-  return {
-    type: REMOVE_TO_CART,
-    payload: data,
-  };
+export const fetchCartData = async (dispatch) => {
+  const responce = await axios.get("http://localhost:8080/cart");
+  dispatch({ type: FETCH_CART_DATA, payload: responce.data });
 };
 
-export const changeQty = (id, qty) => (dispatch) => {
+export const removeToCart = (id) => async (dispatch) => {
+  const responce = await axios.delete(
+    `http://localhost:8080/cart/delete/${id}`
+  );
+  dispatch({ type: REMOVE_TO_CART, payload: responce });
+};
+
+export const changeQty = (_id, qty) => (dispatch) => {
   dispatch({
     type: CHANGE_CART_QTY,
     payload: {
-      id: id,
+      id: _id,
       qty: qty,
     },
   });
