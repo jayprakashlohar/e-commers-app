@@ -89,17 +89,23 @@ const productReducer = (state = initialState, action) => {
     //   };
 
     case REMOVE_TO_CART:
+      let updated = state.cartData.filter(
+        (item) => item._id !== action.payload
+      );
+
       return {
         ...state,
-        cartData: state.cartData.filter((item) => item.id !== action.payload),
+        cartData: updated,
       };
 
     case CHANGE_CART_QTY:
+      let updatedData = state.cartData.map((c) =>
+        c._id === action.payload._id ? action.payload : c
+      );
+
       return {
         ...state,
-        cartData: state.cartData.filter((c) =>
-          c.id === action.payload.id ? (c.qty = action.payload.qty) : c.qty
-        ),
+        cartData: updatedData,
       };
 
     default:

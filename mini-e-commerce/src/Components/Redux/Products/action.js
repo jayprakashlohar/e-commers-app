@@ -98,29 +98,18 @@ export const removeToCart = (id) => async (dispatch) => {
   const responce = await axios.delete(
     `https://pear-naughty-clam.cyclic.app/cart/delete/${id}`
   );
-  dispatch({ type: REMOVE_TO_CART, payload: responce });
+  dispatch({ type: REMOVE_TO_CART, payload: id });
 };
 
-export const changeQty = (_id, qty) => (dispatch) => {
-  dispatch({
-    type: CHANGE_CART_QTY,
-    payload: {
-      id: _id,
-      qty: qty,
-    },
-  });
+export const changeQty = (id, qty) => async (dispatch) => {
+  try {
+    let responce = await axios.patch(
+      `https://pear-naughty-clam.cyclic.app/cart/update/${id}`,
+      { data: { qty } }
+    );
+    let data = await responce.data;
+    dispatch({ type: CHANGE_CART_QTY, payload: data.data });
+  } catch (err) {
+    console.log(err);
+  }
 };
-
-// const increment = (id) => (dispatch) => {
-//   return dispatch({
-//     type: "INCREMENT",
-//     payload: id,
-//   });
-// };
-
-// const decrement = (id) => (dispatch) => {
-//   return dispatch({
-//     type: "DECREMENT",
-//     payload: id,
-//   });
-// };

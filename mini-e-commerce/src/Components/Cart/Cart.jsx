@@ -13,14 +13,12 @@ const Cart = () => {
   const dispatch = useDispatch();
   const cartData = useSelector((state) => state.Products.cartData);
 
-  // console.log("cartdata", cartData);
-
   useEffect(() => {
     dispatch(fetchCartData);
   }, []);
 
-  const handleQty = (item) => {
-    changeQty(item._id);
+  const handleQty = (id, qty) => {
+    dispatch(changeQty(id, qty));
   };
 
   const handleRemove = (item) => {
@@ -72,14 +70,15 @@ const Cart = () => {
 
                         <Box mt="80px">
                           {" "}
-                          <Button
+                          <button
                             borderRadius="50%"
+                            disabled={qty - 1 == 0}
                             onClick={() => handleQty(_id, qty - 1)}
                           >
                             -
-                          </Button>
+                          </button>
                           <Button borderRadius="50%" ml="5px">
-                            {item.qty}
+                            {qty}
                           </Button>
                           <Button
                             borderRadius="50%"
