@@ -78,7 +78,7 @@ export const singleProduct = (id) => async (dispatch) => {
 // Cart Products
 export const addToCart = (data) => (dispatch) => {
   return axios
-    .post("http://localhost:8080/cart/createproduct", data)
+    .post("https://pear-naughty-clam.cyclic.app/cart/createproduct", data)
     .then((res) => {
       dispatch({ type: ADD_TO_CART, payload: res.data });
       return res.data.msg;
@@ -90,13 +90,13 @@ export const addToCart = (data) => (dispatch) => {
 };
 
 export const fetchCartData = async (dispatch) => {
-  const responce = await axios.get("http://localhost:8080/cart");
+  const responce = await axios.get("https://pear-naughty-clam.cyclic.app/cart");
   dispatch({ type: FETCH_CART_DATA, payload: responce.data });
 };
 
 export const removeToCart = (id) => async (dispatch) => {
   const responce = await axios.delete(
-    `http://localhost:8080/cart/delete/${id}`
+    `https://pear-naughty-clam.cyclic.app/cart/delete/${id}`
   );
   dispatch({ type: REMOVE_TO_CART, payload: responce });
 };
@@ -110,3 +110,17 @@ export const changeQty = (_id, qty) => (dispatch) => {
     },
   });
 };
+
+// const increment = (id) => (dispatch) => {
+//   return dispatch({
+//     type: "INCREMENT",
+//     payload: id,
+//   });
+// };
+
+// const decrement = (id) => (dispatch) => {
+//   return dispatch({
+//     type: "DECREMENT",
+//     payload: id,
+//   });
+// };

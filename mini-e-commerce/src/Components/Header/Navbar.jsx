@@ -8,6 +8,7 @@ import { MiniNavbar } from "../Header/MiniNavbar";
 import AppleLogo from "../Logo/Apple hub.png";
 
 import { Menu, MenuButton, MenuList, MenuItem, Input } from "@chakra-ui/react";
+import { Profile } from "../Pages/Profile";
 
 const Navbar = () => {
   return (
@@ -35,6 +36,10 @@ const Navbar = () => {
             <BiUserCircle className={Styles.navIcon} />
           </MenuButton>
           <MenuList color="black">
+            <MenuItem>
+              {" "}
+              <Profile />{" "}
+            </MenuItem>
             <Link to="/login">
               {" "}
               <MenuItem>Login</MenuItem>

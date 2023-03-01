@@ -14,6 +14,7 @@ import { useSelector } from "react-redux";
 const CartTotal = () => {
   const [total, setTotal] = useState();
   const cart = useSelector((state) => state.Products.cartData);
+  // console.log(total)
 
   useEffect(() => {
     setTotal(

@@ -10,6 +10,7 @@ const ProductsDetails = () => {
   const toast = useToast();
   const dispatch = useDispatch();
   const data = useSelector((state) => state.Products.singleProducts);
+
   const { id } = useParams();
 
   useEffect(() => {
@@ -18,24 +19,24 @@ const ProductsDetails = () => {
 
   const handleCart = (data) => {
     dispatch(addToCart(data))
-    .then((res) => {
-      toast({
-        title: res,
-        status: "success",
-        duration: 5000,
-        isClosable: true,
-        position: "top",
+      .then((res) => {
+        toast({
+          title: res,
+          status: "success",
+          duration: 5000,
+          isClosable: true,
+          position: "top",
+        });
+      })
+      .catch((err) => {
+        toast({
+          title: err,
+          status: "error",
+          duration: 5000,
+          isClosable: true,
+          position: "top",
+        });
       });
-    })
-    .catch((err) => {
-      toast({
-        title: err,
-        status: "error",
-        duration: 5000,
-        isClosable: true,
-        position: "top",
-      });
-    });
   };
 
   return (

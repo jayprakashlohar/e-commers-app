@@ -73,7 +73,7 @@ const Signup = () => {
         p="2"
         rounded="md"
         bg="white"
-        w={{ base: "90%", md: "80%" ,lg:"35%" }}
+        w={{ base: "90%", md: "80%", lg: "35%" }}
       >
         <Heading textAlign="center" marginTop="20px">
           Sign up

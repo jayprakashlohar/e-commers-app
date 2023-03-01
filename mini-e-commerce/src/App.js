@@ -3,7 +3,6 @@ import { Navbar } from "./Components/Header/Navbar";
 import { ChakraProvider } from "@chakra-ui/react";
 import { AllRoutes } from "./Components/AllRoutes/AllRoutes";
 import { Footer } from "./Components/Footer/Footer";
-import { Profile } from "./Components/Pages/Profile";
 import { Checkout } from "./Components/Pages/Checkout";
 
 function App() {
@@ -11,9 +10,8 @@ function App() {
     <div className="App">
       <ChakraProvider>
         <Navbar />
-        <AllRoutes />
-        {/* <Profile /> */}
-        {/* <Checkout/> */}
+        {/* <AllRoutes /> */}
+        <Checkout/>
         <Footer />
       </ChakraProvider>
     </div>

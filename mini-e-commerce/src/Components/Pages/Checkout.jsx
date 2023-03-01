@@ -3,7 +3,6 @@ import {
   Box,
   Image,
   Text,
-  FormControl,
   FormLabel,
   Heading,
   Input,
@@ -11,8 +10,28 @@ import {
   Button,
 } from "@chakra-ui/react";
 
+let initialField = {
+  country: "",
+  name: "",
+  number: "",
+  city: "",
+  state: "",
+  pincode: "",
+  mobile: "",
+};
+
 const Checkout = () => {
-  const [formData, setFormData] = useState("");
+  const [formData, setFormData] = useState(initialField);
+
+  const handleInputChange = (e) => {
+    const { name, value } = e.target;
+    setFormData({ ...formData, [name]: value });
+  };
+
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    localStorage.setItem("addressData", JSON.stringify(formData));
+  };
 
   return (
     <Box>
@@ -33,13 +52,18 @@ const Checkout = () => {
       </Box>
 
       {/* --------------------- ----------------- ------------------ -------- */}
-      <Box m="20px 0px 20px 20px" w="50%" p="30px" boxShadow="outline">
-        <FormControl>
+      <Box m="20px 0px 20px 50px" w="50%" p="30px" boxShadow="outline">
+        <form onSubmit={handleSubmit}>
           <Heading fontSize="30px" m="10px 0px 20px 0px">
             Add a new address
           </Heading>
           <FormLabel>Country</FormLabel>
-          <Select placeholder="Select Country">
+          <Select
+            placeholder="Select Country"
+            name="country"
+            onChange={handleInputChange}
+            value={formData.country}
+          >
             <option>United Arab Emirates</option>
             <option>India</option>
             <option>Taiwan</option>
@@ -48,21 +72,57 @@ const Checkout = () => {
             <option>US</option>
           </Select>
           <FormLabel>Full name (First and Last name)</FormLabel>
-          <Input type="text" placeholder="Enter Your Full Name" />
+          <Input
+            type="text"
+            placeholder="Enter Your Full Name"
+            name="name"
+            onChange={handleInputChange}
+            value={formData.name}
+          />
           <FormLabel>Street number</FormLabel>
-          <Input type="number" placeholder="Street Address" />
+          <Input
+            type="number"
+            placeholder="Street Address"
+            name="number"
+            onChange={handleInputChange}
+            value={formData.number}
+          />
           <FormLabel>City</FormLabel>
-          <Input type="text" placeholder="Enter Your City" />
+          <Input
+            type="text"
+            placeholder="Enter Your City"
+            name="city"
+            onChange={handleInputChange}
+            value={formData.city}
+          />
           <FormLabel>State / Province / Region</FormLabel>
-          <Input type="text" placeholder="Enter Your State" />
+          <Input
+            type="text"
+            placeholder="Enter Your State"
+            name="state"
+            onChange={handleInputChange}
+            value={formData.state}
+          />
           <FormLabel>Pin Code</FormLabel>
-          <Input type="number" placeholder="Enter Your Pin Code" />
+          <Input
+            type="number"
+            placeholder="Enter Your Pin Code"
+            name="pincode"
+            onChange={handleInputChange}
+            value={formData.pincode}
+          />
           <FormLabel>Phone Number</FormLabel>
-          <Input type="number" placeholder="Enter Your Mobile Number" />
+          <Input
+            type="number"
+            placeholder="Enter Your Mobile Number"
+            name="mobile"
+            onChange={handleInputChange}
+            value={formData.mobile}
+          />
           <Button w="full" mt="20px" type="submit">
             Add
           </Button>
-        </FormControl>
+        </form>
       </Box>
     </Box>
   );

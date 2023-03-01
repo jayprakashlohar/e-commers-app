@@ -51,6 +51,7 @@ const Login = () => {
           isClosable: true,
           position: "top",
         });
+
         dispatch({ type: AUTH_LOGIN_RESET });
         setTimeout(() => {
           navigate("/");

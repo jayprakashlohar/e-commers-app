@@ -31,6 +31,7 @@ export const authRegister = (data) => async (dispatch) => {
         message: res.data.response,
       },
     });
+  
   } catch (error) {
     dispatch({
       type: AUTH_REGISTER_FAILURE,

@@ -13,9 +13,11 @@ const Cart = () => {
   const dispatch = useDispatch();
   const cartData = useSelector((state) => state.Products.cartData);
 
+  // console.log("cartdata", cartData);
+
   useEffect(() => {
     dispatch(fetchCartData);
-  });
+  }, []);
 
   const handleQty = (item) => {
     changeQty(item._id);
@@ -67,6 +69,7 @@ const Cart = () => {
                         <h2>{brand}</h2>
                         <h3>{title}</h3>
                         <h3>{rate}</h3>
+
                         <Box mt="80px">
                           {" "}
                           <Button
@@ -81,7 +84,7 @@ const Cart = () => {
                           <Button
                             borderRadius="50%"
                             ml="5px"
-                            onClick={() => handleQty(item._id, item.qty + 1)}
+                            onClick={() => handleQty(_id, qty + 1)}
                           >
                             +
                           </Button>
