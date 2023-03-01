@@ -9,8 +9,17 @@ import AppleLogo from "../Logo/Apple hub.png";
 
 import { Menu, MenuButton, MenuList, MenuItem, Input } from "@chakra-ui/react";
 import { Profile } from "../Pages/Profile";
+import { useNavigate } from "react-router-dom";
 
 const Navbar = () => {
+  let navigate = useNavigate();
+  const token = localStorage.getItem("token");
+
+  const handleLogout = () => {
+    localStorage.removeItem("token");
+    navigate("/");
+  };
+
   return (
     <div>
       <div className={Styles.container}>
@@ -36,19 +45,26 @@ const Navbar = () => {
             <BiUserCircle className={Styles.navIcon} />
           </MenuButton>
           <MenuList color="black">
-            <MenuItem>
-              {" "}
-              <Profile />{" "}
-            </MenuItem>
-            <Link to="/login">
-              {" "}
-              <MenuItem>Login</MenuItem>
-            </Link>
-
-            <Link to="/signup">
-              {" "}
-              <MenuItem>Signup</MenuItem>
-            </Link>
+            {token && (
+              <MenuItem>
+                {" "}
+                <Profile />{" "}
+              </MenuItem>
+            )}
+            {!token && (
+              <>
+                {" "}
+                <Link to="/login">
+                  {" "}
+                  <MenuItem>Login</MenuItem>
+                </Link>
+                <Link to="/signup">
+                  {" "}
+                  <MenuItem>Signup</MenuItem>
+                </Link>{" "}
+              </>
+            )}
+            {token && <MenuItem onClick={handleLogout}>Logout</MenuItem>}
           </MenuList>
         </Menu>
       </div>

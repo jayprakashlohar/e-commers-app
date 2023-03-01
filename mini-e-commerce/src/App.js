@@ -10,8 +10,8 @@ function App() {
     <div className="App">
       <ChakraProvider>
         <Navbar />
-        {/* <AllRoutes /> */}
-        <Checkout/>
+        <AllRoutes />
+        {/* <Checkout/> */}
         <Footer />
       </ChakraProvider>
     </div>
