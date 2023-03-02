@@ -54,7 +54,7 @@ const Cart = () => {
                 const { _id, imgUrl, brand, title, rate, price, qty } = item;
                 return (
                   <Box
-                    m="10px 0px 10px 0px"
+                    m="0px 0px 10px 0px"
                     display="flex"
                     boxShadow="base"
                     justifyContent="space-between"
@@ -84,7 +84,10 @@ const Cart = () => {
                           >
                             +
                           </button>
-                          <button className="deleteBtn" onClick={() => handleRemove(item)}>
+                          <button
+                            className="deleteBtn"
+                            onClick={() => handleRemove(item)}
+                          >
                             Delete
                           </button>
                         </Box>
