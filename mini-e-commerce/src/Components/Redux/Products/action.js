@@ -63,7 +63,7 @@ export const removeWishlistItem = (id) => async (dispatch) => {
   const responce = await axios.delete(
     `https://pear-naughty-clam.cyclic.app/wishlist/delete/${id}`
   );
-  dispatch({ type: REMOVE_FROM_WISHLIST, payload: responce });
+  dispatch({ type: REMOVE_FROM_WISHLIST, payload: id });
 };
 
 // -------------- // ---------------------------- // ------------------------------ // ----------------------------
@@ -101,6 +101,7 @@ export const removeToCart = (id) => async (dispatch) => {
   dispatch({ type: REMOVE_TO_CART, payload: id });
 };
 
+// Quantity increment and decrement
 export const changeQty = (id, qty) => async (dispatch) => {
   try {
     let responce = await axios.patch(

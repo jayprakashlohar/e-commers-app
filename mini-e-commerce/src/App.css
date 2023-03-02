@@ -53,6 +53,39 @@
   width: 70%;
 }
 
+.btn {
+  background-color: rgb(48, 119, 48);
+  padding: 1px 12px;
+  font-weight: bold;
+  border-radius: 50%;
+  color: #ffff;
+}
+.btn1 {
+  background-color: rgb(48, 119, 48);
+  color: #ffff;
+  padding: 1px 12px;
+  font-weight: bold;
+  border-radius: 50%;
+  margin-left: 5px;
+}
+.btn:hover {
+  color: #ffff;
+  background-color: gray;
+}
+.btn1:hover {
+  color: #ffff;
+  background-color: gray;
+}
+
+.deleteBtn {
+  margin-left: 20px;
+  padding: 2px 20px;
+  font-weight: bold;
+  background-color: red;
+  color: #ffff;
+  border-radius: 5px;
+}
+
 @media all and (min-width: 420px) and (max-width: 720px) {
   .cartDiv {
     display: block;

@@ -71,25 +71,22 @@ const Cart = () => {
                         <Box mt="80px">
                           {" "}
                           <button
-                            borderRadius="50%"
+                            className="btn"
                             disabled={qty - 1 == 0}
                             onClick={() => handleQty(_id, qty - 1)}
                           >
                             -
                           </button>
-                          <Button borderRadius="50%" ml="5px">
-                            {qty}
-                          </Button>
-                          <Button
-                            borderRadius="50%"
-                            ml="5px"
+                          <button className="btn1">{qty}</button>
+                          <button
+                            className="btn1"
                             onClick={() => handleQty(_id, qty + 1)}
                           >
                             +
-                          </Button>
-                          <Button ml="20px" onClick={() => handleRemove(item)}>
+                          </button>
+                          <button className="deleteBtn" onClick={() => handleRemove(item)}>
                             Delete
-                          </Button>
+                          </button>
                         </Box>
                       </Box>
                     </Box>

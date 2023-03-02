@@ -61,11 +61,12 @@ const productReducer = (state = initialState, action) => {
     }
 
     case REMOVE_FROM_WISHLIST:
+      let updatedWish = state.wishlistData.filter(
+        (item) => item._id !== action.payload
+      );
       return {
         ...state,
-        wishlistData: state.wishlistData.filter(
-          (item) => item.id !== action.payload
-        ),
+        wishlistData: updatedWish,
       };
 
     case PRODUCT_DETAILS:
