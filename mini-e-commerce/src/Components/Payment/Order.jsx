@@ -46,7 +46,7 @@ const Order = () => {
                   <p>Subtotal</p>
                 </Box>
                 <Box fontWeight={"bold"}>
-                  <p>Rs.{total}</p>
+                  <p>₹ {total}</p>
                 </Box>
               </HStack>
             </Box>
@@ -60,7 +60,7 @@ const Order = () => {
                   <p>DISCOUNT</p>
                 </Box>
                 <Box fontWeight={"bold"}>
-                  <p>Rs.</p>
+                  <p>₹ </p>
                 </Box>
               </HStack>
             </Box>
@@ -71,7 +71,7 @@ const Order = () => {
                   <p>Delivery Charges</p>
                 </Box>
                 <Box fontWeight={"bold"}>
-                  <p>Rs.{"0"}</p>
+                  <p>₹ 0.00</p>
                 </Box>
               </HStack>
             </Box>
@@ -84,10 +84,10 @@ const Order = () => {
                 fontWeight={"bold"}
               >
                 <Box h="30px">
-                  <p style={{ color: "#cc0000" }}>Order Total</p>
+                  <p style={{ color: "#cc0000" }}>Order Total:</p>
                 </Box>
                 <Box fontWeight={"bold"}>
-                  <p style={{ color: "#cc0000" }}>Rs.{total}</p>
+                  <p style={{ color: "#cc0000" }}>₹ {total}</p>
                 </Box>
               </HStack>
             </Box>
