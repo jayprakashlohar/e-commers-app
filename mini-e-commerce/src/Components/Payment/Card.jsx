@@ -41,7 +41,7 @@ const Card = () => {
               >
                 <Box>
                   <Text>CVV*</Text>
-                  <Input bg="#F3F3F3" width={"100px"}></Input>
+                  <Input bg="#F3F3F3" width={"100px"} type="password"></Input>
                 </Box>
               </VStack>
             </Box>

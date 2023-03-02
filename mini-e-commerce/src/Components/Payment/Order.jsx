@@ -13,7 +13,7 @@ import { Link } from "react-router-dom";
 import { useState, useEffect } from "react";
 
 const Order = () => {
-  let navigate = useNavigate();
+  const navigate = useNavigate();
   const toast = useToast();
   const [finalAddress, setFinalAddress] = useState(null);
   const [total, setTotal] = useState();
@@ -105,7 +105,7 @@ const Order = () => {
           mb="20px"
         >
           <Link
-            to={"/#"}
+            to={"/thankyou"}
             onClick={() => {
               finalAddress
                 ? toast({
@@ -123,6 +123,12 @@ const Order = () => {
                     duration: 5000,
                     isClosable: true,
                     position: "top",
+                    // title: "SUCCESS",
+                    // description: "order placed successfully",
+                    // status: "success",
+                    // duration: 5000,
+                    // isClosable: true,
+                    // position: "top",
                   });
               alert("Your order is placed successfully 🎁");
               navigate("/thankyou");

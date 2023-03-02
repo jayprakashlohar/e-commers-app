@@ -4,8 +4,9 @@ import { FaChevronLeft, FaChevronRight } from "react-icons/fa";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 import { Box } from "@chakra-ui/react";
+import { Link } from "react-router-dom";
 
-const  MultipalSlider = () => {
+const MultipalSlider = () => {
   const [sliderRef, setSliderRef] = useState(null);
 
   const sliderSettings = {
@@ -103,11 +104,13 @@ const  MultipalSlider = () => {
           {phoneimages.map((card, index) => (
             <div key={index}>
               <Box m="5px" pt="10px" pb="10px" boxShadow="base">
-                <img
-                  style={{ margin: "auto" }}
-                  src={card.imageSrc}
-                  alt={card.title}
-                />
+                <Link to="/appleproducts">
+                  <img
+                    style={{ margin: "auto" }}
+                    src={card.imageSrc}
+                    alt={card.title}
+                  />
+                </Link>
 
                 <p className="title">{card.title}</p>
               </Box>
@@ -117,6 +120,6 @@ const  MultipalSlider = () => {
       </div>
     </Box>
   );
-}
+};
 
 export { MultipalSlider };
