@@ -44,6 +44,12 @@
   font-weight: 500;
 }
 
+.wishIcon:hover {
+  background-color: red;
+  border-radius: 100%;
+  color: #fff;
+}
+
 .cartDiv {
   display: flex;
 }
