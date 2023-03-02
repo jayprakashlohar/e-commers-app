@@ -2,16 +2,14 @@ import {
   Box,
   Flex,
   Heading,
-  HStack,
   Input,
   StackDivider,
   Text,
   VStack,
 } from "@chakra-ui/react";
 
-import { Link, useNavigate } from "react-router-dom";
-import { useToast } from "@chakra-ui/react";
 import { React, useState } from "react";
+
 import {
   Modal,
   ModalOverlay,
@@ -25,6 +23,7 @@ import {
   Image,
 } from "@chakra-ui/react";
 import { Card } from "./Card";
+import { Order } from "./Order";
 
 const Payment = () => {
   const [name, setName] = useState("");
@@ -34,9 +33,7 @@ const Payment = () => {
   const [altPhone, setAltPhone] = useState("");
   const [landMark, setLandMark] = useState("");
   const [finalAddress, setFinalAddress] = useState(null);
-  const navigate = useNavigate();
   const { isOpen, onOpen, onClose } = useDisclosure();
-  const toast = useToast();
 
   const handleAddress = () => {
     let addressArray = [];
@@ -78,6 +75,7 @@ const Payment = () => {
           cursor="pointer"
           onClick={onOpen}
           ml="150px"
+        
         >
           {finalAddress ? "CHANGE YOUR ADDRESS" : "ADD YOUR ADDRESS DETAILS"}
         </Button>
@@ -88,10 +86,11 @@ const Payment = () => {
             return (
               <Box
                 textAlign={"left"}
-                width={"90%"}
+                width={"80%"}
                 m={["auto", "auto", "auto"]}
                 boxShadow="base"
                 p="10px"
+             
               >
                 <Heading color="#FF3399">ADDRESS</Heading>
                 <Text>{`Name : ${items.name}`}</Text>
@@ -216,121 +215,15 @@ const Payment = () => {
             </ModalContent>
           </Modal>
         </Box>
-   {/* --------- --------- ------------ */}
-          <Card />
-   {/* ------- ------------ -------------- */}
+        {/* --------- --------- ------------ */}
 
-        <Box width={["100%", "100%", "30%", "30%", "30%"]} border="1px solid red">
-          <Box bg={"#F2F2F2"} color={"black"} p={"5px"} mt={"20px"}>
-            <VStack
-              divider={<StackDivider borderColor="gray.200" />}
-              spacing={2}
-              align="stretch"
-              m={"20px"}
-            >
-              <Box h="40px">
-                <Heading as="h3" size="sm" textAlign={"left"}>
-                  OVERVIEW
-                </Heading>
-              </Box>
-              <Box h="20px">
-                <HStack p={"0"} justifyContent={"space-between"}>
-                  <Box h="40px">
-                    <p>Subtotal</p>
-                  </Box>
-                  <Box fontWeight={"bold"}>
-                    <p>Rs.</p>
-                  </Box>
-                </HStack>
-              </Box>
-              <Box h="20px">
-                <HStack
-                  p={"0"}
-                  justifyContent={"space-between"}
-                  color={"#FF3399"}
-                >
-                  <Box h="40px">
-                    <p>DISCOUNT</p>
-                  </Box>
-                  <Box fontWeight={"bold"}>
-                    <p>Rs.</p>
-                  </Box>
-                </HStack>
-              </Box>
-              <Box h="20px">
-                <HStack p={"0"} justifyContent={"space-between"}>
-                  <Box h="40px">
-                    <p>GST</p>
-                  </Box>
-                  <Box fontWeight={"bold"}>
-                    <p>Rs.{"0"}</p>
-                  </Box>
-                </HStack>
-              </Box>
-              <Box h="20px">
-                <HStack p={"0"} justifyContent={"space-between"}>
-                  <Box h="40px">
-                    <p>Delivery Charges</p>
-                  </Box>
-                  <Box fontWeight={"bold"}>
-                    <p>Rs.{"0"}</p>
-                  </Box>
-                </HStack>
-              </Box>
-              <Box borderBottom="2px solid black"></Box>
-              <Box h="30px">
-                <HStack
-                  p={"0"}
-                  justifyContent={"space-between"}
-                  fontWeight={"bold"}
-                >
-                  <Box h="40px">
-                    <p>Total</p>
-                  </Box>
-                  <Box fontWeight={"bold"}>
-                    <p>Rs.</p>
-                  </Box>
-                </HStack>
-              </Box>
-            </VStack>
-          </Box>
+        <Card />
 
-          <Box
-            mt={"20px"}
-            width={"100%"}
-            h={"30px"}
-            bg={"#f39"}
-            fontWeight={"bold"}
-            pt={"10px"}
-            pb={"30px"}
-          >
-            <Link
-              to={"/#"}
-              onClick={() => {
-                finalAddress
-                  ? toast({
-                      title: "SUCCESS",
-                      description: "order placed successfully",
-                      status: "success",
-                      duration: 9000,
-                      isClosable: true,
-                      position: "top",
-                    })
-                  : toast({
-                      title: "ERROR",
-                      description: "Please Enter valid address details",
-                      status: "error",
-                      duration: 9000,
-                      isClosable: true,
-                    });
-                alert("Your order is placed successfully 🎁");
-                navigate("/");
-              }}
-            >
-              PLACE ORDER
-            </Link>
-          </Box>
-        </Box>
+        {/* ------- ------------ -------------- */}
+
+        <Order />
+
+        {/* ------- ----------- ----------- ----------    */}
       </Flex>
     </div>
   );

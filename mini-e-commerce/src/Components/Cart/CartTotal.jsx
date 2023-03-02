@@ -10,6 +10,8 @@ import {
 } from "@chakra-ui/react";
 import { useState, useEffect } from "react";
 import { useSelector } from "react-redux";
+import { Link } from "react-router-dom";
+
 
 const CartTotal = () => {
   const [total, setTotal] = useState();
@@ -46,11 +48,15 @@ const CartTotal = () => {
         </Box>
         <Box mt="20px">
           <p style={{ fontSize: "20px", fontWeight: "550" }}>
-            Subtotal: <span>{total}</span>
+            Subtotal: <span>₹{total}</span>
           </p>
-          <Button mt="40px" w="full" bg="#ffad33" _hover="none">
-            Proceed to buy
-          </Button>
+          <Link to="/payment">
+            {" "}
+            <Button mt="40px" w="full" bg="#ffad33" _hover="none">
+              Proceed to buy
+            </Button>
+          </Link>
+
           <Box mt="20px" mb="20px">
             <Accordion allowMultiple>
               <AccordionItem>
