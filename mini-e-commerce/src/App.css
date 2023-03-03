@@ -162,6 +162,7 @@
   height: 30px;
   background-color: #ffff;
   color: #2e2eb8;
+  cursor: pointer;
   border-radius: 100%;
 }
 .twitter {
@@ -171,6 +172,7 @@
   color: #33ccff;
   border-radius: 100%;
   margin-left: 5px;
+  cursor: pointer;
 }
 
 .google {
@@ -180,4 +182,5 @@
   color: red;
   border-radius: 100%;
   margin-left: 3px;
+  cursor: pointer;
 }

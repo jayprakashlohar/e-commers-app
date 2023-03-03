@@ -3,9 +3,9 @@ import {
   Input,
   Box,
   Heading,
-  Stack,
   Button,
   FormLabel,
+  Text,
 } from "@chakra-ui/react";
 
 import React from "react";
@@ -66,55 +66,63 @@ const Signup = () => {
     <Box height="100vh">
       <Box
         margin="auto"
-        height="450px"
+        padding="25px"
         background="#fff"
         marginTop="50px"
         boxShadow="dark-lg"
-        p="2"
+        p="8"
         rounded="md"
         bg="white"
-        w={{ base: "90%", md: "80%", lg: "35%" }}
+        w={{ base: "90%", md: "80%", lg: "30%" }}
       >
-        <Heading textAlign="center" marginTop="20px">
+        <Heading textAlign="center" mb="30px">
           Sign up
         </Heading>
-        <Stack py={4} gap={2} w={{ base: "100%", md: "90%" }} m="auto">
-          <FormLabel>Email </FormLabel>
+        <FormLabel>Email </FormLabel>
 
-          <Input
-            type="email"
-            onChange={handleChange}
-            name="email"
-            placeholder="Email"
-            value={formData.email}
-            required={true}
-          />
+        <Input
+          variant="flushed"
+          type="email"
+          onChange={handleChange}
+          name="email"
+          placeholder="Enter your email"
+          value={formData.email}
+          required={true}
+        />
 
-          <FormLabel>Password </FormLabel>
+        <FormLabel m="10px 0px 10px 0px">Password </FormLabel>
 
-          <Input
-            type={"password"}
-            onChange={handleChange}
-            name="password"
-            placeholder="Password"
-            value={formData.password}
-          />
+        <Input
+          variant="flushed"
+          type={"password"}
+          onChange={handleChange}
+          name="password"
+          placeholder="Enter your password"
+          value={formData.password}
+        />
 
-          <Button
-            bg="blue"
-            onClick={handleSubmit}
-            _hover={{ bg: "green" }}
-            color={"white"}
-            fontSize="18px"
-            w={"100%"}
-          >
-            {authState.loading ? "Registering..." : "Register"}
-          </Button>
-          <Button onClick={() => navigate("/login")}>
-            Already a user ?
-            <span style={{ color: "blue", marginLeft: "5px" }}>Login</span>
-          </Button>
-        </Stack>
+        <Button
+          onClick={handleSubmit}
+          w="100%"
+          marginTop="30px"
+          borderRadius="20px"
+          bg="black"
+          _hover="none"
+          color="#fff"
+        >
+          {authState.loading ? "Registering..." : "Register"}
+        </Button>
+        <Text
+          onClick={() => navigate("/login")}
+          textAlign="center"
+          mt="50px"
+          color="#58595b"
+        >
+          Already a user ?
+          <span style={{ color: "blue", marginLeft: "5px", cursor: "pointer" }}>
+            Login
+          </span>
+        </Text>
       </Box>
     </Box>
   );
