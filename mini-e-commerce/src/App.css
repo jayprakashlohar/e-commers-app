@@ -125,3 +125,17 @@
     width: 100%;
   }
 }
+
+/* wishlist */
+.continueShop {
+  border: 1px solid rgba(0, 0, 0, 0.08);
+  padding: 8px 16px;
+  border-radius: 3px;
+  color: #58595b;
+}
+
+.continueShop:hover {
+  background-color: #1affb2;
+  color: #fff;
+  text-shadow: none;
+}

@@ -1,10 +1,11 @@
 import React, { useEffect } from "react";
 import { useSelector, useDispatch } from "react-redux";
 import Styles from "../Styles/Product.module.css";
-import { Box, Heading } from "@chakra-ui/react";
+import { Box, Text } from "@chakra-ui/react";
 import { removeWishlistItem } from "../Redux/Products/action";
 import { useToast } from "@chakra-ui/react";
 import { fetchwishlistData } from "../Redux/Products/action";
+import { Link } from "react-router-dom";
 
 const Wishlist = () => {
   const toast = useToast();
@@ -50,10 +51,21 @@ const Wishlist = () => {
           })}
         </div>
       ) : (
-        <Box>
-          <Heading textAlign="center" p="200px">
-            Your wishlist is empty!
-          </Heading>
+        <Box p={{ base: "100px", lg: "200px" }}>
+          <Text textAlign="center" color="58595b" fontSize="30px">
+            Your WishList Is Empty!
+          </Text>
+
+          <Box
+            display="flex"
+            justifyContent="center"
+            alignItems="center"
+            mt="20px"
+          >
+            <Link to="/appleproducts">
+              <button className="continueShop">Continue Shopping</button>
+            </Link>
+          </Box>
         </Box>
       )}
     </div>
