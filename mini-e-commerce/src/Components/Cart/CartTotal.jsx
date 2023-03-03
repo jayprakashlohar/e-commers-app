@@ -1,6 +1,7 @@
 import React from "react";
 import {
   Box,
+  Text,
   Button,
   Accordion,
   AccordionItem,
@@ -11,7 +12,6 @@ import {
 import { useState, useEffect } from "react";
 import { useSelector } from "react-redux";
 import { Link } from "react-router-dom";
-
 
 const CartTotal = () => {
   const [total, setTotal] = useState();
@@ -26,25 +26,18 @@ const CartTotal = () => {
   return (
     <div>
       <Box
-        m="30px 0px 0px 30px"
         h="auto"
         p="15px"
         boxShadow="base"
-        w={{ base: "80%", md: "90%", lg: "350px" }}
+        w={{ base: "100%", md: "100%", lg: "350px" }}
+        m={{ base: "20px 0px 20px 0px", md: "0px", lg: "77px 0px 0px 30px" }}
       >
         <Box display="flex" justifyContent="center" alignItems="center">
           <input style={{ height: "18px", width: "18px" }} type="checkbox" />
-          <p
-            style={{
-              color: "green",
-              fontSize: "13px",
-              marginLeft: "10PX",
-              marginTop: "12px",
-            }}
-          >
+          <Text color="green" fontSize="13px" ml="10px" mt="12px">
             Your order is eligible for FREE Delivery. Select this option at
             checkout. Details{" "}
-          </p>
+          </Text>
         </Box>
         <Box mt="20px">
           <p style={{ fontSize: "20px", fontWeight: "550" }}>
