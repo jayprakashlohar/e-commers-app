@@ -47,7 +47,6 @@
   text-decoration: underline;
 }
 
-
 @media all and (min-width: 0px) and (max-width: 420px) {
   .filterDiv {
     display: flex;
@@ -79,11 +78,18 @@
 .topDiv {
   width: 97%;
   margin: auto;
-  display: flex;
-  justify-content: space-evenly;
   padding: 20px;
   background-color: #f8f2f2;
   margin-top: 10px;
+  display: grid;
+  grid-template-columns: repeat(9, 1fr);
+}
+
+@media all and (min-width: 420px) and (max-width: 720px) {
+  .topDiv {
+    display: grid;
+    grid-template-columns: repeat(9, 1fr);
+  }
 }
 
 .name {

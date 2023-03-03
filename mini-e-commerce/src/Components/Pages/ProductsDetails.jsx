@@ -1,7 +1,7 @@
 import { useDispatch, useSelector } from "react-redux";
 import { singleProduct } from "../Redux/Products/action";
 import { useEffect } from "react";
-import { Button, useToast } from "@chakra-ui/react";
+import { Button, useToast,Box } from "@chakra-ui/react";
 import { useParams } from "react-router-dom";
 import Styles from "../Styles/Product.module.css";
 import { addToCart } from "../Redux/Products/action";
@@ -41,41 +41,43 @@ const ProductsDetails = () => {
 
   return (
     <>
-      <div className={Styles.topDiv}>
-        <p className={Styles.name}>iPhone</p>
-        <img
-          src="https://m.media-amazon.com/images/I/31z9RgPMrsL._FMpng_SY85_.png"
-          alt=""
-        />
-        <img
-          src="https://m.media-amazon.com/images/I/31UA+MH3xzL._FMpng_SY85_.png"
-          alt=""
-        />
-        <img
-          src="https://m.media-amazon.com/images/I/31wQS465YJL._FMpng_SY85_.png"
-          alt=""
-        />
-        <img
-          src="https://m.media-amazon.com/images/I/31PrI7blgdL._FMpng_SY85_.png"
-          alt=""
-        />
-        <img
-          src="https://m.media-amazon.com/images/I/3106zj7rkHL._FMpng_SY85_.png"
-          alt=""
-        />
-        <img
-          src="https://m.media-amazon.com/images/I/31uqaf+EONL._FMpng_SY85_.png"
-          alt=""
-        />
-        <img
-          src="https://m.media-amazon.com/images/I/31vyLKKiIKL._FMpng_SY85_.png"
-          alt=""
-        />
-        <img
-          src="https://m.media-amazon.com/images/I/31PrI7blgdL._FMpng_SY85_.png"
-          alt=""
-        />
-      </div>
+      
+        <div className={Styles.topDiv}>
+          <p className={Styles.name}>iPhone</p>
+          <img
+            src="https://m.media-amazon.com/images/I/31z9RgPMrsL._FMpng_SY85_.png"
+            alt=""
+          />
+          <img
+            src="https://m.media-amazon.com/images/I/31UA+MH3xzL._FMpng_SY85_.png"
+            alt=""
+          />
+          <img
+            src="https://m.media-amazon.com/images/I/31wQS465YJL._FMpng_SY85_.png"
+            alt=""
+          />
+          <img
+            src="https://m.media-amazon.com/images/I/31PrI7blgdL._FMpng_SY85_.png"
+            alt=""
+          />
+          <img
+            src="https://m.media-amazon.com/images/I/3106zj7rkHL._FMpng_SY85_.png"
+            alt=""
+          />
+          <img
+            src="https://m.media-amazon.com/images/I/31uqaf+EONL._FMpng_SY85_.png"
+            alt=""
+          />
+          <img
+            src="https://m.media-amazon.com/images/I/31vyLKKiIKL._FMpng_SY85_.png"
+            alt=""
+          />
+          <img
+            src="https://m.media-amazon.com/images/I/31PrI7blgdL._FMpng_SY85_.png"
+            alt=""
+          />
+        </div>
+      
 
       <div className={Styles.mainContainer}>
         <div className={Styles.imageDiv}>
