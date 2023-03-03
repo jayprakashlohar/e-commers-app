@@ -60,6 +60,7 @@ const Cart = () => {
                     justifyContent="space-between"
                     padding="10px"
                     key={item.id}
+                    h={{ base: "150px", lg: "250px" }}
                   >
                     <Box display="flex">
                       <Image w="50%" src={imgUrl} alt="" />
@@ -68,7 +69,12 @@ const Cart = () => {
                         <h3>{title}</h3>
                         <h3>{rate}</h3>
 
-                        <Box mt="80px">
+                        <Box
+                          mt={{ base: "13px", lg: "100px" }}
+                          display="flex"
+                          justifyContent="center"
+                          alignItems="center"
+                        >
                           {" "}
                           <button
                             className="btn"
@@ -95,9 +101,7 @@ const Cart = () => {
                     </Box>
 
                     <Box>
-                      <h3 style={{ fontWeight: "bold", fontSize: "25px" }}>
-                        ₹ {price}
-                      </h3>
+                      <h3 className="totalPrice">₹{price}</h3>
                     </Box>
                   </Box>
                 );

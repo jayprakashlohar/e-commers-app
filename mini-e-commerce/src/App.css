@@ -92,6 +92,22 @@
   border-radius: 5px;
 }
 
+.totalPrice {
+  font-size: 25px;
+  font-weight: bold;
+}
+@media all and (min-width: 420px) and (max-width: 720px) {
+  .deleteBtn {
+    padding: 0px 8px;
+  }
+}
+
+@media all and (min-width: 0px) and (max-width: 420px) {
+  .totalPrice {
+    font-size: 18px;
+  }
+}
+
 @media all and (min-width: 420px) and (max-width: 720px) {
   .cartDiv {
     display: block;
