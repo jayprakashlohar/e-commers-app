@@ -52,7 +52,7 @@ const Wishlist = () => {
         </div>
       ) : (
         <Box p={{ base: "100px", lg: "200px" }}>
-          <Text textAlign="center" color="58595b" fontSize="30px">
+          <Text textAlign="center" color="#58595b" fontSize="30px">
             Your WishList Is Empty!
           </Text>
 

@@ -6,6 +6,7 @@ import {
   Box,
   Heading,
   Button,
+  Text,
 } from "@chakra-ui/react";
 
 import React, { useState } from "react";
@@ -13,6 +14,8 @@ import { useDispatch, useSelector } from "react-redux";
 import { useNavigate } from "react-router-dom";
 import { authLogin } from "../Redux/Auth/action";
 import { AUTH_LOGIN_RESET } from "../Redux/Auth/actionTypes";
+import { BsFacebook } from "react-icons/bs";
+import { AiFillTwitterCircle, AiFillGoogleCircle } from "react-icons/ai";
 
 const initialState = {
   email: "",
@@ -80,9 +83,7 @@ const Login = () => {
   return (
     <Box height="100vh">
       <Box
-        width="35%"
         margin="auto"
-        height="450px"
         padding="25px"
         background="#fff"
         marginTop="50px"
@@ -90,46 +91,74 @@ const Login = () => {
         p="8"
         rounded="md"
         bg="white"
-        w={{ base: "90%", md: "80%", lg: "35%" }}
+        w={{ base: "90%", md: "80%", lg: "30%" }}
       >
-        <Heading textAlign="center">Login</Heading>
+        <Heading textAlign="center" mb="30px">
+          Login
+        </Heading>
 
-        <FormLabel m="10px 0px 10px 0px">Email </FormLabel>
+        <FormLabel>Email </FormLabel>
+
         <Input
+          variant="flushed"
           type={"email"}
           placeholder="Enter your email"
           name="email"
           onChange={handleChange}
         />
+
         <FormLabel m="10px 0px 10px 0px">Password </FormLabel>
+
         <Input
+          variant="flushed"
           type={"password"}
           placeholder="Enter your password"
           name="password"
           onChange={handleChange}
         />
+        <Text
+          float="right"
+          fontSize="12px"
+          color="#58595b"
+          mt="5px"
+          fontWeight="400"
+          cursor="pointer"
+        >
+          Forgot password?
+        </Text>
         <Button
           onClick={handleSubmit}
-          colorScheme="blue"
           w="100%"
           marginTop="25px"
+          borderRadius="20px"
+          bg="black"
+          _hover="none"
+          color="#fff"
         >
           {" "}
-          Login
+          LOGIN
         </Button>
+        <p className="login1" onClick={() => navigate("/signup")}>
+          Or Sign Up Using
+        </p>
+        <Box display="flex" justifyContent="center" alignItems="center">
+          <BsFacebook className="faceBook" />
+          <AiFillTwitterCircle className="twitter" />
+          <AiFillGoogleCircle className="google" />
+        </Box>
 
-        <Button
-          w="100%"
-          mt="25px"
-          onClick={() => {
-            navigate("/");
+        <p className="login">Have not account yet?</p>
+        <p
+          onClick={() => navigate("/signup")}
+          style={{
+            color: "  color: #58595b;",
+            textAlign: "center",
+            fontWeight: "bold",
+            cursor: "pointer",
           }}
         >
-          Cancel
-        </Button>
-        <p className="login" onClick={() => navigate("/signup")}>
-          Don't have an account ?{" "}
-          <span style={{ color: "blue" }}> Sign up</span>
+          {" "}
+          SIGN UP
         </p>
       </Box>
     </Box>

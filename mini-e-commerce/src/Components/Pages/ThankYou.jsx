@@ -6,7 +6,7 @@ const ThankYou = () => {
   return (
     <Box>
       <Box p={{ base: "100px", lg: "200px" }}>
-        <Text textAlign="center" color="58595b" fontSize="35px">
+        <Text textAlign="center" color="#58595b" fontSize="35px">
           Thank You For Shopping....
         </Text>
 

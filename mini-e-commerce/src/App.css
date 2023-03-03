@@ -7,8 +7,20 @@
 .login {
   text-align: center;
   cursor: pointer;
-  margin: 20px;
+  margin: 18px;
   font-weight: 500;
+  margin-top: 50px;
+  font-size: 14px;
+  color: #58595b;
+}
+.login1 {
+  text-align: center;
+  cursor: pointer;
+  margin: 18px;
+  font-weight: 500;
+  margin-top: 40px;
+  font-size: 12px;
+  color: #58595b;
 }
 
 .MainDiv {
@@ -143,4 +155,29 @@
 .cartIcon {
   width: 50px;
   height: 50px;
+}
+
+.faceBook {
+  width: 30px;
+  height: 30px;
+  background-color: #ffff;
+  color: #2e2eb8;
+  border-radius: 100%;
+}
+.twitter {
+  width: 35px;
+  height: 35px;
+  background-color: #ffff;
+  color: #33ccff;
+  border-radius: 100%;
+  margin-left: 5px;
+}
+
+.google {
+  width: 35px;
+  height: 35px;
+  background-color: #ffff;
+  color: red;
+  border-radius: 100%;
+  margin-left: 3px;
 }
