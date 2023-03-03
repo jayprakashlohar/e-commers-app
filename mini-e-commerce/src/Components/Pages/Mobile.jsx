@@ -62,8 +62,11 @@ const Mobile = () => {
       </Heading>
 
       <div className={Styles.filterDiv}>
-        <div>
-          <Select w="300px" onChange={(e) => handleFilter(e.target.value)}>
+        <div className={Styles.firstDivv}>
+          <Select
+            w={{ base: "150px", lg: "300px" }}
+            onChange={(e) => handleFilter(e.target.value)}
+          >
             <option value="All">Filter By Model</option>
             <option value="Apple iPhone 11">I PHONE-11</option>
             <option value="Apple iPhone 12">I PHONE-12</option>
@@ -72,7 +75,10 @@ const Mobile = () => {
           </Select>
         </div>
         <div>
-          <Select w="300px" onChange={(e) => handleSort(e.target.value)}>
+          <Select
+            w={{ base: "150px", lg: "300px" }}
+            onChange={(e) => handleSort(e.target.value)}
+          >
             <option value="">Sort By Price</option>
             <option value="desc">High To Low</option>
             <option value="asc">Low To High</option>
@@ -109,8 +115,8 @@ const Mobile = () => {
               <h3>{item.rate}</h3>
               <h3>₹ {item.price}</h3>
               <AiOutlineHeart
-              className="wishIcon"
-                style={{ float: "right", height: "25px", width: "25px"}}
+                className="wishIcon"
+                style={{ float: "right", height: "25px", width: "25px" }}
                 onClick={() => handleWishItem(item)}
               />
             </div>
