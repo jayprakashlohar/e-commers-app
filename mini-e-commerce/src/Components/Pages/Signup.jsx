@@ -63,12 +63,11 @@ const Signup = () => {
   };
 
   return (
-    <Box height="100vh">
+    <Box height="80vh" bg="lightblue" pt="50px">
       <Box
         margin="auto"
         padding="25px"
         background="#fff"
-        marginTop="50px"
         boxShadow="dark-lg"
         p="8"
         rounded="md"
@@ -119,7 +118,14 @@ const Signup = () => {
           color="#58595b"
         >
           Already a user ?
-          <span style={{ color: "blue", marginLeft: "5px", cursor: "pointer" }}>
+          <span
+            style={{
+              color: "blue",
+              marginLeft: "5px",
+              cursor: "pointer",
+              fontWeight: "bold",
+            }}
+          >
             Login
           </span>
         </Text>

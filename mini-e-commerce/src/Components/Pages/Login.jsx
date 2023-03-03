@@ -81,12 +81,11 @@ const Login = () => {
     dispatch(authLogin(formData));
   };
   return (
-    <Box height="100vh">
+    <Box height="100vh" pt="35px" bg="lightblue">
       <Box
         margin="auto"
         padding="25px"
         background="#fff"
-        marginTop="50px"
         boxShadow="dark-lg"
         p="8"
         rounded="md"
