@@ -1,25 +1,25 @@
 import React from "react";
-import { Box, Heading, Button } from "@chakra-ui/react";
+import { Box, Text } from "@chakra-ui/react";
 import { Link } from "react-router-dom";
 
 const ThankYou = () => {
   return (
     <Box>
-      <Box
-        textAlign="center"
-        display="block"
-        justifyContent="center"
-        alignItems="center"
-        fontSize="30px"
-        h="80vh"
-      >
-        <Heading mt="15rem">Thank You For Shopping....</Heading>
-        <Link to="/">
-          {" "}
-          <Button p="10px 30px" color="#fff" bg="green" _hover="none" mt="20px">
-            Go To Home{" "}
-          </Button>
-        </Link>
+      <Box p={{ base: "100px", lg: "200px" }}>
+        <Text textAlign="center" color="58595b" fontSize="35px">
+          Thank You For Shopping....
+        </Text>
+
+        <Box
+          display="flex"
+          justifyContent="center"
+          alignItems="center"
+          mt="20px"
+        >
+          <Link to="/">
+            <button className="continueShop">Continue Shopping</button>
+          </Link>
+        </Box>
       </Box>
     </Box>
   );
