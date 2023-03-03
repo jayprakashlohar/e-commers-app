@@ -74,8 +74,7 @@ const Payment = () => {
           _hover="none"
           cursor="pointer"
           onClick={onOpen}
-          ml="150px"
-        
+          ml={{ base: "50px", md: "12px", lg: "150px" }}
         >
           {finalAddress ? "CHANGE YOUR ADDRESS" : "ADD YOUR ADDRESS DETAILS"}
         </Button>
@@ -90,7 +89,6 @@ const Payment = () => {
                 m={["auto", "auto", "auto"]}
                 boxShadow="base"
                 p="10px"
-             
               >
                 <Heading color="#FF3399">ADDRESS</Heading>
                 <Text>{`Name : ${items.name}`}</Text>

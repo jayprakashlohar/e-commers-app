@@ -27,7 +27,13 @@ const Order = () => {
 
   return (
     <Box>
-      <Box boxShadow="base" w="350px" ml="50px" border="1px solid #ffff">
+      <Box
+        boxShadow="base"
+        ml={{ base: "0px", md: "35px", lg: "18px" }}
+        border="1px solid #ffff"
+        mb="20px"
+        w={{ base: "100%", md: "90%", lg: "350px" }}
+      >
         <Box color={"black"} p={"5px"} mt={"20px"}>
           <VStack
             divider={<StackDivider borderColor="gray.200" />}
