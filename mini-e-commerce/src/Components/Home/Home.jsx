@@ -22,6 +22,13 @@ const Home = () => {
               alt=""
             />
           </div>
+          <div>
+            <img
+              style={{ width: "100%" }}
+              src="https://i.stack.imgur.com/VzT4T.gif"
+              alt=""
+            />
+          </div>
           <MultipalSlider />
           <div style={{ margin: "20px, 0px 10px 0px" }}>
             <WatchSlider />
