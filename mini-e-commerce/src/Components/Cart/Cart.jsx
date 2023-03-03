@@ -1,6 +1,8 @@
 import React, { useEffect } from "react";
-import { useToast, Box, Button, Heading, Image } from "@chakra-ui/react";
+import { useToast, Box, Text, Heading, Image } from "@chakra-ui/react";
 import { useSelector, useDispatch } from "react-redux";
+import { Link } from "react-router-dom";
+
 import {
   removeToCart,
   changeQty,
@@ -110,10 +112,21 @@ const Cart = () => {
             <CartTotal />
           </Box>
         ) : (
-          <Box>
-            <Heading textAlign="center" p="200px">
-              Your cart is empty!
-            </Heading>
+          <Box p={{ base: "100px", lg: "200px" }}>
+            <Text textAlign="center" color="58595b" fontSize="30px">
+              Your Cart Is Empty!
+            </Text>
+
+            <Box
+              display="flex"
+              justifyContent="center"
+              alignItems="center"
+              mt="20px"
+            >
+              <Link to="/appleproducts">
+                <button className="continueShop">Continue Shopping</button>
+              </Link>
+            </Box>
           </Box>
         )}
       </div>
