@@ -18,7 +18,6 @@ const Card = () => {
         width={["100%", "100%", "70%", "70%", "70%"]}
         p="20px"
         boxShadow="base"
-        // border="1px solid gray"
         mb="50px"
       >
         <Text as="b" p="20px 0px 0px 20px">

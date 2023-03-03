@@ -123,18 +123,18 @@ const Order = () => {
                     position: "top",
                   })
                 : toast({
-                    title: "ERROR",
-                    description: "Please Enter valid address details",
-                    status: "error",
-                    duration: 5000,
-                    isClosable: true,
-                    position: "top",
-                    // title: "SUCCESS",
-                    // description: "order placed successfully",
-                    // status: "success",
+                    // title: "ERROR",
+                    // description: "Please Enter valid address details",
+                    // status: "error",
                     // duration: 5000,
                     // isClosable: true,
                     // position: "top",
+                    title: "SUCCESS",
+                    description: "order placed successfully",
+                    status: "success",
+                    duration: 5000,
+                    isClosable: true,
+                    position: "top",
                   });
               alert("Your order is placed successfully 🎁");
               navigate("/thankyou");
