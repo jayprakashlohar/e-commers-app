@@ -111,6 +111,27 @@
   padding: 20px;
 }
 
+@media all and (min-width: 420px) and (max-width: 720px) {
+  .imageDiv {
+    width: 70%;
+    margin: auto;
+  }
+  
+}
+
+@media all and (min-width: 0px) and (max-width: 720px) {
+  .mainContainer {
+    display: block;
+  }
+  .imageDiv img {
+    height: 50vh;
+    width: 100%;
+    box-shadow: rgba(0, 0, 0, 0.05) 0px 0px 0px 1px;
+    padding: 20px;
+    margin-bottom: 10px;
+  }
+}
+
 .detailsDiv {
   box-shadow: rgba(0, 0, 0, 0.05) 0px 0px 0px 1px;
   width: 400px;
