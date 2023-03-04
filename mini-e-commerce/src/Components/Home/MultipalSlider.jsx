@@ -30,7 +30,7 @@ const MultipalSlider = () => {
       {
         breakpoint: 400,
         settings: {
-          slidesToShow: 2,
+          slidesToShow: 1,
         },
       },
     ],

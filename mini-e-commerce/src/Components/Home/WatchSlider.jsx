@@ -29,7 +29,7 @@ const WatchSlider = () => {
       {
         breakpoint: 400,
         settings: {
-          slidesToShow: 2,
+          slidesToShow: 1,
         },
       },
     ],
