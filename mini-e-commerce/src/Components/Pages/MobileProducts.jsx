@@ -11,7 +11,7 @@ import Styles from "../Styles/Product.module.css";
 import { AiOutlineHeart } from "react-icons/ai";
 import { Link } from "react-router-dom";
 
-const Mobile = () => {
+const MobileProducts = () => {
   const toast = useToast();
   const [loading, setLoading] = useState(true);
   const dispatch = useDispatch();
@@ -135,4 +135,4 @@ const Mobile = () => {
   );
 };
 
-export { Mobile };
+export { MobileProducts };
