@@ -15,6 +15,7 @@ import { useNavigate } from "react-router-dom";
 import { AUTH_REGISTER_RESET } from "../Redux/Auth/actionTypes";
 
 const initialState = {
+  name: "",
   email: "",
   password: "",
 };
@@ -63,7 +64,7 @@ const Signup = () => {
   };
 
   return (
-    <Box height="80vh" bg="lightblue" pt="50px">
+    <Box height="95vh" bg="lightblue" pt="50px">
       <Box
         margin="auto"
         padding="25px"
@@ -77,7 +78,18 @@ const Signup = () => {
         <Heading textAlign="center" mb="30px">
           Sign up
         </Heading>
-        <FormLabel>Email </FormLabel>
+        <FormLabel>Name </FormLabel>
+
+        <Input
+          variant="flushed"
+          type="text"
+          onChange={handleChange}
+          name="name"
+          placeholder="Enter your name"
+          value={formData.name}
+          required={true}
+        />
+        <FormLabel m="10px 0px 10px 0px">Email </FormLabel>
 
         <Input
           variant="flushed"

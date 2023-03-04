@@ -54,9 +54,14 @@
 @media all and (min-width: 0px) and (max-width: 420px) {
   .searchInput Input {
     width: 170px;
+    height: 30px;
   }
   .MiniNavDiv {
     font-size: 10px;
     cursor: pointer;
+  }
+  .navIcon {
+    width: 18px;
+    height: 18px;
   }
 }

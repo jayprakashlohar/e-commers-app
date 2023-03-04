@@ -19,7 +19,7 @@ export const authRegister = (data) => async (dispatch) => {
       "https://pear-naughty-clam.cyclic.app/user/signup",
       {
         email: data.email,
-        username: data.name,
+        name: data.name,
         password: data.password,
       }
     );
@@ -31,7 +31,6 @@ export const authRegister = (data) => async (dispatch) => {
         message: res.data.response,
       },
     });
-  
   } catch (error) {
     dispatch({
       type: AUTH_REGISTER_FAILURE,

@@ -10,6 +10,7 @@ import AppleLogo from "../Logo/Apple hub.png";
 import { Menu, MenuButton, MenuList, MenuItem, Input } from "@chakra-ui/react";
 import { Profile } from "../Pages/Profile";
 import { useNavigate } from "react-router-dom";
+import {BsApple} from "react-icons/bs"
 
 const Navbar = () => {
   let navigate = useNavigate();
@@ -24,11 +25,12 @@ const Navbar = () => {
     <div>
       <div className={Styles.container}>
         <Link to="/">
-          <img
+          {/* <img
             style={{ width: "50px", height: "50px" }}
             src={AppleLogo}
             alt="logo"
-          />
+          /> */}
+          <BsApple className="logo"/>
         </Link>
 
         <div className={Styles.searchInput}>

@@ -1,6 +1,6 @@
 import React from "react";
 import { useJwt } from "react-jwt";
-import { Flex, Heading, Text } from "@chakra-ui/react";
+import { Box, Flex, Heading, Text } from "@chakra-ui/react";
 import { useEffect, useState } from "react";
 import axios from "axios";
 
@@ -28,12 +28,15 @@ const Profile = () => {
   }, []);
 
   return (
-    <>
-      <Flex>
-        <Heading mt={4}>{userData?.name}</Heading>
+    <Box display="block">
+      <Box>
+        <Text fontWeight="bold">{userData?.name}</Text>
+      </Box>
+      <Box>
+        {" "}
         <Text mt={2}>{userData?.email}</Text>
-      </Flex>
-    </>
+      </Box>
+    </Box>
   );
 };
 
