@@ -105,7 +105,8 @@ export const removeToCart = (id) => async (dispatch) => {
 export const changeQty = (id, qty) => async (dispatch) => {
   try {
     let responce = await axios.patch(
-      `https://pear-naughty-clam.cyclic.app/cart/update/${id}`,
+      // `https://pear-naughty-clam.cyclic.app/cart/update/${id}`,
+      `http://localhost:8080/cart/update/${id}`,
       { data: { qty } }
     );
     let data = await responce.data;

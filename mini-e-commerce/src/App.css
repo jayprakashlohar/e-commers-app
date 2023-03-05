@@ -174,6 +174,20 @@
   color: #58595b;
 }
 
+@media all and (min-width: 0px) and (max-width: 420px) {
+  .continueShop {
+    border: 1px solid rgba(0, 0, 0, 0.08);
+    padding: 5px 8px;
+    border-radius: 3px;
+    color: #58595b;
+  }
+  .continueShop:hover {
+    background-color: #1affb2;
+    color: #fff;
+    text-shadow: none;
+  }
+}
+
 .continueShop:hover {
   background-color: #1affb2;
   color: #fff;

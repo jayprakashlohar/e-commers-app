@@ -20,6 +20,7 @@ const Cart = () => {
   }, []);
 
   const handleQty = (id, qty) => {
+    console.log("id", "qty", id, qty);
     dispatch(changeQty(id, qty));
   };
 
@@ -113,7 +114,11 @@ const Cart = () => {
           </Box>
         ) : (
           <Box p={{ base: "100px", lg: "200px" }}>
-            <Text textAlign="center" color="58595b" fontSize="30px">
+            <Text
+              textAlign="center"
+              color="58595b"
+              fontSize={{ base: "20px", lg: "30px" }}
+            >
               Your Cart Is Empty!
             </Text>
 
