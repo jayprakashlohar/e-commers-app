@@ -32,9 +32,18 @@ const CartTotal = () => {
         w={{ base: "100%", md: "100%", lg: "350px" }}
         m={{ base: "20px 0px 20px 0px", md: "0px", lg: "77px 0px 0px 30px" }}
       >
-        <Box display="flex" justifyContent="center" alignItems="center">
+        <Box
+          display="flex"
+          justifyContent={{ base: "start", lg: "center" }}
+          alignItems="center"
+        >
           <input style={{ height: "18px", width: "18px" }} type="checkbox" />
-          <Text color="green" fontSize="13px" ml="10px" mt="12px">
+          <Text
+            color="green"
+            fontSize={{ base: "13px", sm: "16px", lg: "13px" }}
+            ml="10px"
+            mt={{ base: "12px", sm: "0px", lg: "12px" }}
+          >
             Your order is eligible for FREE Delivery. Select this option at
             checkout. Details{" "}
           </Text>
