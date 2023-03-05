@@ -94,6 +94,12 @@
   display: flex;
 }
 
+@media all and (min-width: 720px) and (max-width: 850px) {
+  .cartDiv {
+    display: block;
+  }
+}
+
 .cartSecondDiv {
   margin: "30px 0px 30px 0px";
   width: 70%;

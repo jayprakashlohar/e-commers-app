@@ -19,9 +19,10 @@ const Cart = () => {
     dispatch(fetchCartData);
   }, []);
 
-  const handleQty = (id, qty) => {
-    console.log("id", "qty", id, qty);
-    dispatch(changeQty(id, qty));
+  const handleQty = (id, qty, item) => {
+    item.qty = qty;
+
+    dispatch(changeQty(id, item));
   };
 
   const handleRemove = (item) => {
@@ -82,14 +83,14 @@ const Cart = () => {
                           <button
                             className="btn"
                             disabled={qty - 1 == 0}
-                            onClick={() => handleQty(_id, qty - 1)}
+                            onClick={() => handleQty(_id, qty - 1, item)}
                           >
                             -
                           </button>
                           <button className="btn1">{qty}</button>
                           <button
                             className="btn1"
-                            onClick={() => handleQty(_id, qty + 1)}
+                            onClick={() => handleQty(_id, qty + 1, item)}
                           >
                             +
                           </button>

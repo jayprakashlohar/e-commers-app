@@ -102,12 +102,12 @@ export const removeToCart = (id) => async (dispatch) => {
 };
 
 // Quantity increment and decrement
-export const changeQty = (id, qty) => async (dispatch) => {
+export const changeQty = (id, item) => async (dispatch) => {
   try {
     let responce = await axios.patch(
-      // `https://pear-naughty-clam.cyclic.app/cart/update/${id}`,
-      `http://localhost:8080/cart/update/${id}`,
-      { data: { qty } }
+      `https://pear-naughty-clam.cyclic.app/cart/update/${id}`,
+      // `http://localhost:8080/cart/update/${id}`,
+      { data: item }
     );
     let data = await responce.data;
     dispatch({ type: CHANGE_CART_QTY, payload: data.data });
