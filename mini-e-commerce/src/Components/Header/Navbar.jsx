@@ -5,17 +5,17 @@ import { FaCartArrowDown } from "react-icons/fa";
 import { BiUserCircle } from "react-icons/bi";
 import { Link } from "react-router-dom";
 import { MiniNavbar } from "../Header/MiniNavbar";
-import AppleLogo from "../Logo/Apple hub.png";
+import { useSelector } from "react-redux";
 
 import { Menu, MenuButton, MenuList, MenuItem, Input } from "@chakra-ui/react";
 import { Profile } from "../Pages/Profile";
 import { useNavigate } from "react-router-dom";
-import {BsApple} from "react-icons/bs"
+import { BsApple } from "react-icons/bs";
 
 const Navbar = () => {
   let navigate = useNavigate();
   const token = localStorage.getItem("token");
-
+  const cartData = useSelector((state) => state.Products.cartData);
   const handleLogout = () => {
     localStorage.removeItem("token");
     navigate("/");
@@ -25,12 +25,7 @@ const Navbar = () => {
     <div>
       <div className={Styles.container}>
         <Link to="/">
-          {/* <img
-            style={{ width: "50px", height: "50px" }}
-            src={AppleLogo}
-            alt="logo"
-          /> */}
-          <BsApple className="logo"/>
+          <BsApple className="logo" />
         </Link>
 
         <div className={Styles.searchInput}>
@@ -40,6 +35,8 @@ const Navbar = () => {
           <BsHeart className={Styles.navIcon} />
         </Link>
         <Link to="/cart">
+          <p style={{ color: "#ffff", fontSize: "12px" }}>{cartData.length}</p>
+
           <FaCartArrowDown className={Styles.navIcon} />
         </Link>
         <Menu>

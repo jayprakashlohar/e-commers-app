@@ -6,7 +6,13 @@ import {
   addToWishlist,
 } from "../Redux/Products/action";
 import { useEffect, useState } from "react";
-import { Heading, Select, Spinner, useToast } from "@chakra-ui/react";
+import {
+  background,
+  Heading,
+  Select,
+  Spinner,
+  useToast,
+} from "@chakra-ui/react";
 import Styles from "../Styles/Product.module.css";
 import { AiOutlineHeart } from "react-icons/ai";
 import { Link } from "react-router-dom";

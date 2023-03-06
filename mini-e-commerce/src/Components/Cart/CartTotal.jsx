@@ -8,6 +8,7 @@ import {
   AccordionButton,
   AccordionPanel,
   AccordionIcon,
+  Checkbox,
 } from "@chakra-ui/react";
 import { useState, useEffect } from "react";
 import { useSelector } from "react-redux";
@@ -37,16 +38,10 @@ const CartTotal = () => {
           justifyContent={{ base: "start", lg: "center" }}
           alignItems="center"
         >
-          <input style={{ height: "18px", width: "18px" }} type="checkbox" />
-          <Text
-            color="green"
-            fontSize={{ base: "13px", sm: "16px", lg: "13px" }}
-            ml="10px"
-            mt={{ base: "12px", sm: "0px", lg: "12px" }}
-          >
-            Your order is eligible for FREE Delivery. Select this option at
-            checkout. Details{" "}
-          </Text>
+          <Checkbox defaultChecked>
+            {" "}
+            Your order is eligible for FREE Delivery.
+          </Checkbox>
         </Box>
         <Box mt="20px">
           <p style={{ fontSize: "20px", fontWeight: "550" }}>
