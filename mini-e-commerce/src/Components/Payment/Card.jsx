@@ -60,12 +60,8 @@ const Card = () => {
           <Checkbox defaultChecked>Save card as per RBI guideline</Checkbox>
         </Box>
         <hr style={{ border: "1px solid gray", marginTop: "20px" }} />
-        <Box m="10px 0px 0px 18px" fontWeight="bold">
-          <input
-            type="checkbox"
-            style={{ marginRight: "5px", cursor: "pointer" }}
-          />
-          Cash On Delivery/Pay On Delivery
+        <Box m="10px 0px 0px 18px" fontWeight="500">
+          <Checkbox defaultChecked> Cash On Delivery/Pay On Delivery</Checkbox>
         </Box>
       </Box>
     </>

@@ -1,25 +1,32 @@
-import React from "react";
+import React, { useEffect } from "react";
 import Styles from "../Styles/Navbar.module.css";
 import { BsHeart } from "react-icons/bs";
 import { FaCartArrowDown } from "react-icons/fa";
 import { BiUserCircle } from "react-icons/bi";
 import { Link } from "react-router-dom";
 import { MiniNavbar } from "../Header/MiniNavbar";
-import { useSelector } from "react-redux";
+import { useSelector, useDispatch } from "react-redux";
 
 import { Menu, MenuButton, MenuList, MenuItem, Input } from "@chakra-ui/react";
 import { Profile } from "../Pages/Profile";
 import { useNavigate } from "react-router-dom";
 import { BsApple } from "react-icons/bs";
+import { fetchCartData } from "../Redux/Products/action";
 
 const Navbar = () => {
+  const dispatch = useDispatch();
   let navigate = useNavigate();
   const token = localStorage.getItem("token");
-  const cartData = useSelector((state) => state.Products.cartData);
+  const cartLength = useSelector((state) => state.Products.cartLength);
+
   const handleLogout = () => {
     localStorage.removeItem("token");
     navigate("/");
   };
+
+  useEffect(() => {
+    dispatch(fetchCartData);
+  }, []);
 
   return (
     <div>
@@ -35,7 +42,7 @@ const Navbar = () => {
           <BsHeart className={Styles.navIcon} />
         </Link>
         <Link to="/cart">
-          <p style={{ color: "#ffff", fontSize: "12px" }}>{cartData.length}</p>
+          <p style={{ color: "#ffff", fontSize: "12px" }}>{cartLength}</p>
 
           <FaCartArrowDown className={Styles.navIcon} />
         </Link>

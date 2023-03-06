@@ -8,6 +8,7 @@ import {
   CHANGE_CART_QTY,
   FETCH_WISHLIST_DATA,
   FETCH_CART_DATA,
+  ADD_TO_CART,
 } from "./actionTypes";
 
 const initialState = {
@@ -15,6 +16,7 @@ const initialState = {
   singleProducts: [],
   wishlistData: [],
   cartData: [],
+  cartLength: 0,
 };
 
 const productReducer = (state = initialState, action) => {
@@ -80,14 +82,14 @@ const productReducer = (state = initialState, action) => {
       return {
         ...state,
         cartData: action.payload,
+        cartLength: action.payload.length,
       };
     }
-    // case ADD_TO_CART:
-    //   let obj1 = action.payload;
-    //   return {
-    //     ...state,
-    //     cart: [...state.cart, { ...obj1 }],
-    //   };
+    case ADD_TO_CART:
+      return {
+        ...state,
+        cartLength: state.cartLength + 1,
+      };
 
     case REMOVE_TO_CART:
       let updated = state.cartData.filter(
@@ -97,6 +99,7 @@ const productReducer = (state = initialState, action) => {
       return {
         ...state,
         cartData: updated,
+        cartLength: state.cartLength - 1,
       };
 
     case CHANGE_CART_QTY:
