@@ -78,51 +78,54 @@ const Signup = () => {
         <Heading textAlign="center" mb="30px">
           Sign up
         </Heading>
-        <FormLabel>Name </FormLabel>
+        <form onSubmit={handleSubmit}>
+          <FormLabel>Name </FormLabel>
 
-        <Input
-          variant="flushed"
-          type="text"
-          onChange={handleChange}
-          name="name"
-          placeholder="Enter your name"
-          value={formData.name}
-          required={true}
-        />
-        <FormLabel m="10px 0px 10px 0px">Email </FormLabel>
+          <Input
+            variant="flushed"
+            type="text"
+            onChange={handleChange}
+            name="name"
+            placeholder="Enter your name"
+            value={formData.name}
+            required={true}
+          />
+          <FormLabel m="10px 0px 10px 0px">Email </FormLabel>
 
-        <Input
-          variant="flushed"
-          type="email"
-          onChange={handleChange}
-          name="email"
-          placeholder="Enter your email"
-          value={formData.email}
-          required={true}
-        />
+          <Input
+            variant="flushed"
+            type="email"
+            onChange={handleChange}
+            name="email"
+            placeholder="Enter your email"
+            value={formData.email}
+            required={true}
+          />
 
-        <FormLabel m="10px 0px 10px 0px">Password </FormLabel>
+          <FormLabel m="10px 0px 10px 0px">Password </FormLabel>
 
-        <Input
-          variant="flushed"
-          type={"password"}
-          onChange={handleChange}
-          name="password"
-          placeholder="Enter your password"
-          value={formData.password}
-        />
+          <Input
+            variant="flushed"
+            type={"password"}
+            onChange={handleChange}
+            name="password"
+            placeholder="Enter your password"
+            value={formData.password}
+            required
+          />
 
-        <Button
-          onClick={handleSubmit}
-          w="100%"
-          marginTop="30px"
-          borderRadius="20px"
-          bg="black"
-          _hover="none"
-          color="#fff"
-        >
-          {authState.loading ? "Registering..." : "Register"}
-        </Button>
+          <Button
+            type="submit"
+            w="100%"
+            marginTop="30px"
+            borderRadius="20px"
+            bg="black"
+            _hover="none"
+            color="#fff"
+          >
+            {authState.loading ? "Registering..." : "Register"}
+          </Button>
+        </form>
         <Text
           onClick={() => navigate("/login")}
           textAlign="center"

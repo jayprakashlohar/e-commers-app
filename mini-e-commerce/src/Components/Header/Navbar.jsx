@@ -7,7 +7,14 @@ import { Link } from "react-router-dom";
 import { MiniNavbar } from "../Header/MiniNavbar";
 import { useSelector, useDispatch } from "react-redux";
 
-import { Menu, MenuButton, MenuList, MenuItem, Input } from "@chakra-ui/react";
+import {
+  Menu,
+  MenuButton,
+  MenuList,
+  MenuItem,
+  Input,
+  border,
+} from "@chakra-ui/react";
 import { Profile } from "../Pages/Profile";
 import { useNavigate } from "react-router-dom";
 import { BsApple } from "react-icons/bs";

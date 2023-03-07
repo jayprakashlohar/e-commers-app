@@ -4,30 +4,25 @@ import {
   sortbyPrice,
   filterbyTitle,
   addToWishlist,
+  fetchwishlistData,
 } from "../Redux/Products/action";
 import { useEffect, useState } from "react";
-import {
-  background,
-  Heading,
-  Select,
-  Spinner,
-  useToast,
-} from "@chakra-ui/react";
+import { Heading, Select, Spinner, useToast } from "@chakra-ui/react";
 import Styles from "../Styles/Product.module.css";
-import { AiOutlineHeart } from "react-icons/ai";
+import { AiTwotoneHeart } from "react-icons/ai";
 import { Link } from "react-router-dom";
 
 const MobileProducts = () => {
   const toast = useToast();
   const [loading, setLoading] = useState(true);
   const dispatch = useDispatch();
-  let { mobileData } = useSelector((state) => state.Products);
+  let { mobileData, wishlistData } = useSelector((state) => state.Products);
   let data = mobileData;
-
   const [page, setPage] = useState(1);
 
   useEffect(() => {
     dispatch(fetchMobileData(page));
+    dispatch(fetchwishlistData);
     setLoading(false);
   }, [dispatch, page]);
 
@@ -111,6 +106,9 @@ const MobileProducts = () => {
 
       <div className={Styles.proContainer}>
         {data.map((item) => {
+          const [isAvailable] = wishlistData.filter(
+            (find) => find._id === item._id
+          );
           return (
             <div key={item.id}>
               <Link to={`/products/${item._id}`}>
@@ -120,8 +118,8 @@ const MobileProducts = () => {
               <h3 className={Styles.title}>{item.title}</h3>
               <h3>{item.rate}</h3>
               <h3>₹ {item.price}</h3>
-              <AiOutlineHeart
-                className="wishIcon"
+              <AiTwotoneHeart
+                className={isAvailable ? "addedWishlist" : "wishIcon"}
                 style={{ float: "right", height: "25px", width: "25px" }}
                 onClick={() => handleWishItem(item)}
               />

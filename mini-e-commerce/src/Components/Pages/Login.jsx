@@ -96,47 +96,51 @@ const Login = () => {
           Login
         </Heading>
 
-        <FormLabel>Email </FormLabel>
+        <form onSubmit={handleSubmit}>
+          <FormLabel>Email </FormLabel>
 
-        <Input
-          variant="flushed"
-          type={"email"}
-          placeholder="Enter your email"
-          name="email"
-          onChange={handleChange}
-        />
+          <Input
+            variant="flushed"
+            type={"email"}
+            placeholder="Enter your email"
+            name="email"
+            onChange={handleChange}
+            required={true}
+          />
 
-        <FormLabel m="10px 0px 10px 0px">Password </FormLabel>
+          <FormLabel m="10px 0px 10px 0px">Password </FormLabel>
 
-        <Input
-          variant="flushed"
-          type={"password"}
-          placeholder="Enter your password"
-          name="password"
-          onChange={handleChange}
-        />
-        <Text
-          float="right"
-          fontSize="12px"
-          color="#58595b"
-          mt="5px"
-          fontWeight="400"
-          cursor="pointer"
-        >
-          Forgot password?
-        </Text>
-        <Button
-          onClick={handleSubmit}
-          w="100%"
-          marginTop="25px"
-          borderRadius="20px"
-          bg="black"
-          _hover="none"
-          color="#fff"
-        >
-          {" "}
-          LOGIN
-        </Button>
+          <Input
+            variant="flushed"
+            type={"password"}
+            placeholder="Enter your password"
+            name="password"
+            onChange={handleChange}
+            required={true}
+          />
+          <Text
+            float="right"
+            fontSize="12px"
+            color="#58595b"
+            mt="5px"
+            fontWeight="400"
+            cursor="pointer"
+          >
+            Forgot password?
+          </Text>
+          <Button
+            w="100%"
+            marginTop="25px"
+            borderRadius="20px"
+            bg="black"
+            _hover="none"
+            color="#fff"
+            type="submit"
+          >
+            {" "}
+            LOGIN
+          </Button>
+        </form>
         <p className="login1" onClick={() => navigate("/signup")}>
           Or Sign Up Using
         </p>

@@ -84,10 +84,18 @@
   font-weight: 500;
 }
 
+.wishIcon {
+  transition: 100ms ease-in;
+  /* color: red; */
+  color: #3f497f;
+}
+
+.addedWishlist{
+  color:red;
+}
+
 .wishIcon:hover {
-  background-color: red;
-  border-radius: 100%;
-  color: #fff;
+  scale: 1.3;
 }
 
 .cartDiv {
