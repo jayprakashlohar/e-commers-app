@@ -1,11 +1,12 @@
 const express = require("express");
 require("dotenv").config();
 const cors = require("cors");
-const { connection } = require("../config/database");
-const { userRouter } = require("../Routers/User.route");
-
+const { connection } = require("./config/db");
+const { userRouter } = require("./Routes/User.route");
+const { mobileRouter } = require("./Routes/MobileProducts.route");
+const { wishlistRouter } = require("./Routes/Wishlist.route");
+const { cartRouter } = require("./Routes/Cart.route");
 const app = express();
-app.use(express.json());
 const PORT = process.env.PORT;
 
 app.use(
@@ -14,11 +15,16 @@ app.use(
   })
 );
 
+app.use(express.json());
+
 app.get("/", (req, res) => {
-  res.send("Welcome...");
+  res.status(200).send({ message: "Welcome..." });
 });
 
 app.use("/user", userRouter);
+app.use("/iphone", mobileRouter);
+app.use("/wishlist", wishlistRouter);
+app.use("/cart", cartRouter);
 
 app.listen(PORT, async () => {
   try {
