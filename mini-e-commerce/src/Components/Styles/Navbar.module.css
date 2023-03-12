@@ -28,9 +28,14 @@
   cursor: pointer;
 }
 
+.navIcon1 {
+  width: 22px;
+  height: 22px;
+  cursor: pointer;
+}
+
 .navIcon :hover {
   color: blue;
-
 }
 
 .MiniNavDiv {

@@ -51,7 +51,7 @@ const Navbar = () => {
         <Link to="/cart">
           <p style={{ color: "#ffff", fontSize: "12px" }}>{cartLength}</p>
 
-          <FaCartArrowDown className={Styles.navIcon} />
+          <FaCartArrowDown className={Styles.navIcon1} />
         </Link>
         <Menu>
           <MenuButton>
