@@ -34,7 +34,7 @@
  
 </p>
 
-<h3 align="center"><a href="https://finestshave.vercel.app/"><strong>Want to see live preview »</strong></a></h3>
+<h3 align="center"><a href="https://apple-hub-orignal.netlify.app/"><strong>Want to see live preview »</strong></a></h3>
 
 <br />
 
