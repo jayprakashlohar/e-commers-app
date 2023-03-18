@@ -90,8 +90,8 @@
   color: #3f497f;
 }
 
-.addedWishlist{
-  color:red;
+.addedWishlist {
+  color: red;
 }
 
 .wishIcon:hover {
@@ -239,4 +239,20 @@
   border-radius: 100%;
   margin-left: 3px;
   cursor: pointer;
+}
+
+/* Admin panel  */
+
+.editIcon {
+  cursor: pointer;
+  width: 25px;
+  height: 25px;
+  color: green;
+}
+
+.deleteIcon {
+  cursor: pointer;
+  width: 25px;
+  height: 25px;
+  color: red;
 }

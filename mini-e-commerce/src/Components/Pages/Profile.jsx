@@ -1,6 +1,6 @@
 import React from "react";
 import { useJwt } from "react-jwt";
-import { Box, Flex, Heading, Text } from "@chakra-ui/react";
+import { Box, Text } from "@chakra-ui/react";
 import { useEffect, useState } from "react";
 import axios from "axios";
 
@@ -15,8 +15,8 @@ const Profile = () => {
         headers: { token: token },
       })
       .then((res) => {
-        let { name, email } = res.data.res;
-        setUserData({ ...userData, name, email });
+        let { name, email, _id } = res.data.res;
+        setUserData({ ...userData, name, email, _id });
       })
       .catch((err) => {
         console.log("err :", err);

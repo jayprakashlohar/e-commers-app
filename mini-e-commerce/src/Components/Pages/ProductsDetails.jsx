@@ -18,6 +18,7 @@ const ProductsDetails = () => {
   }, [dispatch]);
 
   const handleCart = (data) => {
+    console.log("data", data);
     dispatch(addToCart(data))
       .then((res) => {
         toast({

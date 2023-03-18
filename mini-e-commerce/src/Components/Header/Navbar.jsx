@@ -58,6 +58,10 @@ const Navbar = () => {
             <BiUserCircle className={Styles.navIcon} />
           </MenuButton>
           <MenuList color="black">
+            <Link to="/adminlogin">
+              {" "}
+              <MenuItem>Admin</MenuItem>
+            </Link>{" "}
             {token && <MenuItem> Profile</MenuItem>}
             {token && (
               <MenuItem>

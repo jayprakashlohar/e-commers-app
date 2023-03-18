@@ -77,26 +77,32 @@ export const singleProduct = (id) => async (dispatch) => {
 
 // Cart Products
 export const addToCart = (data) => (dispatch) => {
-  return axios
-    .post("https://pear-naughty-clam.cyclic.app/cart/createproduct", data)
-    .then((res) => {
-      dispatch({ type: ADD_TO_CART, payload: res.data });
-      return res.data.msg;
-    })
-    .catch((err) => {
-      console.log(err);
-      return err.data.msg;
-    });
+  return (
+    axios
+      .post("https://pear-naughty-clam.cyclic.app/cart/createproduct", data)
+      // .post("http://localhost:8080/cart/createproduct", data)
+      .then((res) => {
+        dispatch({ type: ADD_TO_CART, payload: res.data });
+        return res.data.msg;
+      })
+      .catch((err) => {
+        console.log(err);
+        return err.data.msg;
+      })
+  );
 };
 
 export const fetchCartData = async (dispatch) => {
   const responce = await axios.get("https://pear-naughty-clam.cyclic.app/cart");
+  // const responce = await axios.get("http://localhost:8080/cart");
   dispatch({ type: FETCH_CART_DATA, payload: responce.data });
+  // console.log("responce", responce);
 };
 
 export const removeToCart = (id) => async (dispatch) => {
   const responce = await axios.delete(
     `https://pear-naughty-clam.cyclic.app/cart/delete/${id}`
+    // `http://localhost:8080/cart/delete/${id}`
   );
   dispatch({ type: REMOVE_TO_CART, payload: id });
 };
@@ -115,4 +121,3 @@ export const changeQty = (id, item) => async (dispatch) => {
     console.log(err);
   }
 };
-

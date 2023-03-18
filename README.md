@@ -99,6 +99,10 @@ its Fully Responsive e-commerce web application that allows you to buy Products.
 <img src="mini-e-commerce/src/assets/mobileCart.png">
 <br />
 
+## Admin Dashboard
+
+<img src="mini-e-commerce/src/assets/admin.png">
+
 ## Getting Started
 
 This project was built using React, Chakra UI, HTML, CSS, JavaScript, Rest API . It is an e-commerce web application and for running on your local environment you should follow these guidelines.
