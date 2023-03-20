@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import { Box, Grid, Image, Text, Button } from "@chakra-ui/react";
+import { Box, Grid, Image, Text, Button, background } from "@chakra-ui/react";
 import {
   Menu,
   MenuButton,
@@ -24,8 +24,8 @@ const Admin = () => {
 
   const fetchProducts = async () => {
     let product = await axios.get(
-      "https://pear-naughty-clam.cyclic.app/iphone"
-      // "http://localhost:8080/iphone"
+      // "https://pear-naughty-clam.cyclic.app/iphone"
+      "http://localhost:8080/iphone/"
     );
     setData(product.data);
   };
@@ -76,6 +76,7 @@ const Admin = () => {
             m="auto"
             mt="20px"
             fontWeight="bold"
+            _hover={{ background: "black", color: "white" }}
           >
             <AiOutlineHome />
             <Link to="/admin">
@@ -95,6 +96,7 @@ const Admin = () => {
             m="auto"
             mt="20px"
             fontWeight="bold"
+            _hover={{ background: "black", color: "white" }}
           >
             <AiOutlineUserAdd />
             <Link to="/users">
@@ -114,6 +116,7 @@ const Admin = () => {
             m="auto"
             mt="20px"
             fontWeight="bold"
+            _hover={{ background: "black", color: "white" }}
           >
             <MdOutlineProductionQuantityLimits />
             <Link to="/addProduct">
@@ -132,6 +135,7 @@ const Admin = () => {
             m="auto"
             mt="20px"
             fontWeight="bold"
+            _hover={{ background: "black", color: "white" }}
           >
             <AiOutlineGift />
             <Link to="/orders">

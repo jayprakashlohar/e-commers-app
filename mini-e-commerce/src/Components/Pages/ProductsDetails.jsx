@@ -7,6 +7,7 @@ import Styles from "../Styles/Product.module.css";
 import { addToCart } from "../Redux/Products/action";
 
 const ProductsDetails = () => {
+  let token = localStorage.getItem("token");
   const toast = useToast();
   const dispatch = useDispatch();
   const data = useSelector((state) => state.Products.singleProducts);
@@ -17,9 +18,8 @@ const ProductsDetails = () => {
     dispatch(singleProduct(id));
   }, [dispatch]);
 
-  const handleCart = (data) => {
-    console.log("data", data);
-    dispatch(addToCart(data))
+  const handleCart = ( data) => {
+    dispatch(addToCart(token, data))
       .then((res) => {
         toast({
           title: res,

@@ -110,6 +110,8 @@ const AllRoutes = () => {
             </Layout>
           }
         ></Route>
+        
+        {/* Admin Routes */}
         <Route path="/admin" element={<Admin />}></Route>
         <Route path="/addProduct" element={<AddProduct />}></Route>
         <Route path="/adminedit/:id" element={<EditProduct />} />

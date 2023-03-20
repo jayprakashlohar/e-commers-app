@@ -24,7 +24,7 @@ const EditProduct = () => {
   const { id } = useParams();
   const [imgUrl, setImgUrl] = useState("");
   const [title, setTitle] = useState("");
-  const [price, setPrice] = useState("");
+  const [price, setPrice] = useState(null);
   const [brand, setBrand] = useState("");
   const [qty, setQty] = useState("");
   const toast = useToast();
@@ -102,7 +102,10 @@ const EditProduct = () => {
             fontWeight="bold"
           >
             <AiOutlineHome />
-            <Text fontSize="20px">Home</Text>
+            <Link to="/admin">
+              {" "}
+              <Text fontSize="20px">Home</Text>
+            </Link>
           </Box>
           <Box
             display="flex"

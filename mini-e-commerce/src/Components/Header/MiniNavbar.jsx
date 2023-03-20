@@ -7,7 +7,7 @@ const MiniNavbar = () => {
     <>
       <div className={Styles.MiniNavDiv}>
         <p>Store</p>
-        <Link to="appleproducts">
+        <Link to="/appleproducts">
           <p>I phone</p>
         </Link>
         <p>Mac</p>

@@ -11,22 +11,22 @@ import {
 import { CartTotal } from "./CartTotal";
 
 const Cart = () => {
+  let token = localStorage.getItem("token");
   const toast = useToast();
   const dispatch = useDispatch();
   const cartData = useSelector((state) => state.Products.cartData);
 
   useEffect(() => {
-    dispatch(fetchCartData);
+    dispatch(fetchCartData(token));
   }, []);
 
   const handleQty = (id, qty, item) => {
     item.qty = qty;
-
-    dispatch(changeQty(id, item));
+    dispatch(changeQty(token,id, item));
   };
 
   const handleRemove = (item) => {
-    dispatch(removeToCart(item._id));
+    dispatch(removeToCart(token, item._id));
     toast({
       title: "Remove your product",
       status: "error",

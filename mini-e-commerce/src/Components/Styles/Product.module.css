@@ -7,6 +7,7 @@
 }
 
 .proContainer div {
+  /* margin: auto; */
   padding: 20px;
   box-shadow: rgba(0, 0, 0, 0.16) 0px 3px 6px, rgba(0, 0, 0, 0.23) 0px 3px 6px;
 }
@@ -17,7 +18,8 @@
 }
 
 .proContainer div img {
-  width: 100%;
+  margin: auto;
+  width: 80%;
 }
 
 .proContainer div h2 {
@@ -42,7 +44,9 @@
 .removeWish:hover {
   color: blue;
 }
-
+.title {
+  margin-top: 5px;
+}
 .title:hover {
   text-decoration: underline;
 }
@@ -116,7 +120,6 @@
     width: 70%;
     margin: auto;
   }
-  
 }
 
 @media all and (min-width: 0px) and (max-width: 720px) {

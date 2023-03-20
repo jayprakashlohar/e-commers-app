@@ -38,32 +38,52 @@ export const filterbyTitle = (title, page) => async (dispatch) => {
     .catch((err) => console.log(err));
 };
 
-// Wishlist Products
-export const addToWishlist = (data) => (dispatch) => {
-  return axios
-    .post("https://pear-naughty-clam.cyclic.app/wishlist/createproduct", data)
-    .then((res) => {
-      dispatch({ type: ADD_TO_WISHLIST, payload: res.data });
-      return res.data.msg;
-    })
-    .catch((err) => {
-      console.log(err);
-      return err.data.msg;
+export const addToWishlist = (token, data) => async (dispatch) => {
+  try {
+    let res = await axios({
+      method: "POST",
+      url: "https://pear-naughty-clam.cyclic.app/wishlist/createproduct",
+      headers: {
+        token,
+      },
+      data,
     });
+    dispatch({ type: ADD_TO_WISHLIST, payload: res.data });
+    return res.data.msg;
+  } catch (err) {
+    console.log(err);
+    return err.data.msg;
+  }
 };
 
-export const fetchwishlistData = async (dispatch) => {
-  const responce = await axios.get(
-    "https://pear-naughty-clam.cyclic.app/wishlist"
-  );
-  dispatch({ type: FETCH_WISHLIST_DATA, payload: responce.data });
+export const fetchwishlistData = (token) => async (dispatch) => {
+  try {
+    let responce = await axios({
+      method: "GET",
+      url: "https://pear-naughty-clam.cyclic.app/wishlist",
+      headers: {
+        token,
+      },
+    });
+    dispatch({ type: FETCH_WISHLIST_DATA, payload: responce.data });
+  } catch (err) {
+    console.log(err);
+  }
 };
 
-export const removeWishlistItem = (id) => async (dispatch) => {
-  const responce = await axios.delete(
-    `https://pear-naughty-clam.cyclic.app/wishlist/delete/${id}`
-  );
-  dispatch({ type: REMOVE_FROM_WISHLIST, payload: id });
+export const removeWishlistItem = (token, id) => async (dispatch) => {
+  try {
+    let responce = await axios({
+      method: "DELETE",
+      url: `https://pear-naughty-clam.cyclic.app/wishlist/delete/${id}`,
+      headers: {
+        token,
+      },
+    });
+    dispatch({ type: REMOVE_FROM_WISHLIST, payload: id });
+  } catch (err) {
+    console.log(err);
+  }
 };
 
 // -------------- // ---------------------------- // ------------------------------ // ----------------------------
@@ -76,47 +96,67 @@ export const singleProduct = (id) => async (dispatch) => {
 };
 
 // Cart Products
-export const addToCart = (data) => (dispatch) => {
-  return (
-    axios
-      .post("https://pear-naughty-clam.cyclic.app/cart/createproduct", data)
-      // .post("http://localhost:8080/cart/createproduct", data)
-      .then((res) => {
-        dispatch({ type: ADD_TO_CART, payload: res.data });
-        return res.data.msg;
-      })
-      .catch((err) => {
-        console.log(err);
-        return err.data.msg;
-      })
-  );
-};
 
-export const fetchCartData = async (dispatch) => {
-  const responce = await axios.get("https://pear-naughty-clam.cyclic.app/cart");
-  // const responce = await axios.get("http://localhost:8080/cart");
-  dispatch({ type: FETCH_CART_DATA, payload: responce.data });
-  // console.log("responce", responce);
-};
-
-export const removeToCart = (id) => async (dispatch) => {
-  const responce = await axios.delete(
-    `https://pear-naughty-clam.cyclic.app/cart/delete/${id}`
-    // `http://localhost:8080/cart/delete/${id}`
-  );
-  dispatch({ type: REMOVE_TO_CART, payload: id });
-};
-
-// Quantity increment and decrement
-export const changeQty = (id, item) => async (dispatch) => {
+export const addToCart = (token, data) => async (dispatch) => {
   try {
-    let responce = await axios.patch(
-      `https://pear-naughty-clam.cyclic.app/cart/update/${id}`,
-      // `http://localhost:8080/cart/update/${id}`,
-      { data: item }
-    );
-    let data = await responce.data;
-    dispatch({ type: CHANGE_CART_QTY, payload: data.data });
+    let res = await axios({
+      method: "POST",
+      url: "https://pear-naughty-clam.cyclic.app/cart/createproduct",
+      headers: {
+        token,
+      },
+      data,
+    });
+    dispatch({ type: ADD_TO_CART, payload: res.data });
+    return res.data.msg;
+  } catch (err) {
+    console.log(err);
+    return err.data.msg;
+  }
+};
+
+export const fetchCartData = (token) => async (dispatch) => {
+  try {
+    let responce = await axios({
+      method: "GET",
+      url: "https://pear-naughty-clam.cyclic.app/cart",
+      headers: {
+        token,
+      },
+    });
+    dispatch({ type: FETCH_CART_DATA, payload: responce.data });
+  } catch (err) {
+    console.log(err);
+  }
+};
+
+export const removeToCart = (token, id) => async (dispatch) => {
+  try {
+    let responce = await axios({
+      method: "DELETE",
+      url: `https://pear-naughty-clam.cyclic.app/cart/delete/${id}`,
+      // url:  `https://pear-naughty-clam.cyclic.app/cart/delete/${id}`,
+      headers: {
+        token,
+      },
+    });
+    dispatch({ type: REMOVE_TO_CART, payload: id });
+  } catch (err) {
+    console.log(err);
+  }
+};
+
+export const changeQty = (token, id, item) => async (dispatch) => {
+  try {
+    let responce = await axios({
+      method: "PATCH",
+      url: `https://pear-naughty-clam.cyclic.app/cart/update/${id}`,
+      headers: {
+        token,
+      },
+      item,
+    });
+    dispatch({ type: CHANGE_CART_QTY, payload: responce.data });
   } catch (err) {
     console.log(err);
   }

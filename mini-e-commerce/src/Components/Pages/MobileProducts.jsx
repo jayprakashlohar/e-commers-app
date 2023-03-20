@@ -13,6 +13,7 @@ import { AiTwotoneHeart } from "react-icons/ai";
 import { Link } from "react-router-dom";
 
 const MobileProducts = () => {
+  let token = localStorage.getItem("token");
   const toast = useToast();
   const [loading, setLoading] = useState(true);
   const dispatch = useDispatch();
@@ -35,7 +36,7 @@ const MobileProducts = () => {
   };
 
   const handleWishItem = (item) => {
-    dispatch(addToWishlist(item))
+    dispatch(addToWishlist(token, item))
       .then((res) => {
         toast({
           title: res,
@@ -112,12 +113,12 @@ const MobileProducts = () => {
           return (
             <div key={item.id}>
               <Link to={`/products/${item._id}`}>
-                <img src={item.imgUrl} alt="" />
+                <img className="ProductImages" src={item.imgUrl} alt="" />
               </Link>
-              <h2>{item.brand}</h2>
+              <h2 className={Styles.title}>{item.brand}</h2>
               <h3 className={Styles.title}>{item.title}</h3>
-              <h3>{item.rate}</h3>
-              <h3>₹ {item.price}</h3>
+              <h3 className={Styles.title}>{item.rate}</h3>
+              <h3 className={Styles.title}>₹ {item.price}</h3>
               <AiTwotoneHeart
                 className={isAvailable ? "addedWishlist" : "wishIcon"}
                 style={{ float: "right", height: "25px", width: "25px" }}

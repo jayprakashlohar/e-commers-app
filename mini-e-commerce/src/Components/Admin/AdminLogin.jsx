@@ -31,6 +31,7 @@ const AdminLogin = () => {
       toast({
         title: `Error! Wrong Email or Password`,
         status: "error",
+        duration: 9000,
         isClosable: true,
         position: "top",
       });

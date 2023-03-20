@@ -8,15 +8,16 @@ import { fetchwishlistData } from "../Redux/Products/action";
 import { Link } from "react-router-dom";
 
 const Wishlist = () => {
+  let token = localStorage.getItem("token");
   const toast = useToast();
   const dispatch = useDispatch();
   const wishData = useSelector((state) => state.Products.wishlistData);
   useEffect(() => {
-    dispatch(fetchwishlistData);
+    dispatch(fetchwishlistData(token));
   }, []);
 
   const handleRemove = (item) => {
-    dispatch(removeWishlistItem(item._id));
+    dispatch(removeWishlistItem(token, item._id));
     toast({
       title: "Remove your product",
       status: "error",
