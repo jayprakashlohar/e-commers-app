@@ -36,25 +36,35 @@ const MobileProducts = () => {
   };
 
   const handleWishItem = (item) => {
-    dispatch(addToWishlist(token, item))
-      .then((res) => {
-        toast({
-          title: res,
-          status: "success",
-          duration: 5000,
-          isClosable: true,
-          position: "top",
+    if (token) {
+      dispatch(addToWishlist(token, item))
+        .then((res) => {
+          toast({
+            title: res,
+            status: "success",
+            duration: 5000,
+            isClosable: true,
+            position: "top",
+          });
+        })
+        .catch((err) => {
+          toast({
+            title: err,
+            status: "error",
+            duration: 5000,
+            isClosable: true,
+            position: "top",
+          });
         });
-      })
-      .catch((err) => {
-        toast({
-          title: err,
-          status: "error",
-          duration: 5000,
-          isClosable: true,
-          position: "top",
-        });
+    } else {
+      toast({
+        title: "Please Login First",
+        status: "error",
+        duration: 5000,
+        isClosable: true,
+        position: "top",
       });
+    }
   };
 
   return (

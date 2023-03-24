@@ -48,14 +48,18 @@ const AllRoutes = () => {
             </Layout>
           }
         ></Route>
+
         <Route
           path="/wishlist"
           element={
             <Layout>
-              <Wishlist />
+              <PrivateRoute>
+                <Wishlist />
+              </PrivateRoute>
             </Layout>
           }
         ></Route>
+
         <Route
           path="/appleproducts"
           element={

@@ -17,12 +17,14 @@ const Cart = () => {
   const cartData = useSelector((state) => state.Products.cartData);
 
   useEffect(() => {
-    dispatch(fetchCartData(token));
+   
+      dispatch(fetchCartData(token));
+   
   }, []);
 
   const handleQty = (id, qty, item) => {
     item.qty = qty;
-    dispatch(changeQty(token,id, item));
+    dispatch(changeQty(token, id, item));
   };
 
   const handleRemove = (item) => {

@@ -3,11 +3,10 @@ import { useSelector } from "react-redux";
 import { Navigate } from "react-router-dom";
 
 function PrivateRoute({ children }) {
-  const authState = useSelector((state) => state.Auth);
-
-  if (!authState.isAuthenticated) {
-    alert("Please signup first");
-    return <Navigate to={"/signup"} />;
+  let token = localStorage.getItem("token");
+  if (!token) {
+    alert("Please login first");
+    return <Navigate to={"/login"} />;
   }
   return <div>{children}</div>;
 }

@@ -30,6 +30,7 @@ const Navbar = () => {
     localStorage.removeItem("token");
     navigate("/");
   };
+  
 
   useEffect(() => {
     dispatch(fetchCartData);

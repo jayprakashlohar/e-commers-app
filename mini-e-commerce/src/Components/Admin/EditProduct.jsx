@@ -33,6 +33,7 @@ const EditProduct = () => {
 
   useEffect(() => {
     fetch("https://pear-naughty-clam.cyclic.app/iphone" + id)
+    // fetch("http://localhost:8080/iphone"+ id)
       .then((res) => {
         return res.json();
       })
@@ -60,23 +61,24 @@ const EditProduct = () => {
     };
 
     fetch(`https://pear-naughty-clam.cyclic.app/iphone/update/${id}`, {
-      method: "PUT",
-      headers: { "content-type": "application/json" },
-      body: JSON.stringify(prodata),
-    })
-      .then((res) => {
-        toast({
-          position: "top",
-          title: "Product Edit SuccessFully ",
-          status: "success",
-          duration: 4000,
-          isClosable: true,
-        });
-        navigate("/admin");
+      // fetch(`http://localhost:8080/iphone/update/${id}`, {
+        method: "PUT",
+        headers: { "content-type": "application/json" },
+        body: JSON.stringify(prodata),
       })
-      .catch((err) => {
-        console.log(err.message);
-      });
+        .then((res) => {
+          toast({
+            position: "top",
+            title: "Product Edit SuccessFully ",
+            status: "success",
+            duration: 4000,
+            isClosable: true,
+          });
+          navigate("/admin");
+        })
+        .catch((err) => {
+          console.log(err.message);
+        });
   };
 
   return (

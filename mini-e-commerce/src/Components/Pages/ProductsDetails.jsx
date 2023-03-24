@@ -18,26 +18,36 @@ const ProductsDetails = () => {
     dispatch(singleProduct(id));
   }, [dispatch]);
 
-  const handleCart = ( data) => {
-    dispatch(addToCart(token, data))
-      .then((res) => {
-        toast({
-          title: res,
-          status: "success",
-          duration: 5000,
-          isClosable: true,
-          position: "top",
+  const handleCart = (data) => {
+    if (token) {
+      dispatch(addToCart(token, data))
+        .then((res) => {
+          toast({
+            title: res,
+            status: "success",
+            duration: 5000,
+            isClosable: true,
+            position: "top",
+          });
+        })
+        .catch((err) => {
+          toast({
+            title: err,
+            status: "error",
+            duration: 5000,
+            isClosable: true,
+            position: "top",
+          });
         });
-      })
-      .catch((err) => {
-        toast({
-          title: err,
-          status: "error",
-          duration: 5000,
-          isClosable: true,
-          position: "top",
-        });
+    } else {
+      toast({
+        title: "Please Login First",
+        status: "error",
+        duration: 5000,
+        isClosable: true,
+        position: "top",
       });
+    }
   };
 
   return (

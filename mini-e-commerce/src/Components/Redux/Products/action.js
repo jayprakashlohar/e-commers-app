@@ -18,6 +18,7 @@ import axios from "axios";
 export const fetchMobileData = (page) => async (dispatch) => {
   const responce = await axios.get(
     `https://pear-naughty-clam.cyclic.app/iphone?limit=8&page=${page}`
+    // `http://localhost:8080/iphone?limit=8&page=${page}`
   );
   dispatch({ type: FETCH_MOBILEPRODUCTS, payload: responce.data });
 };
@@ -31,6 +32,7 @@ export const sortbyPrice = (order) => async (dispatch) => {
 export const filterbyTitle = (title, page) => async (dispatch) => {
   axios
     .get(`https://pear-naughty-clam.cyclic.app/iphone?limit=8&page=${page}`)
+    // .get(`http://localhost:8080/iphone?limit=8&page=${page}`)
     .then((res) => {
       let data = res.data;
       dispatch({ type: FILTER_BY_TITLE, payload: { data, title } });
@@ -43,6 +45,7 @@ export const addToWishlist = (token, data) => async (dispatch) => {
     let res = await axios({
       method: "POST",
       url: "https://pear-naughty-clam.cyclic.app/wishlist/createproduct",
+      // url: "http://localhost:8080/wishlist/createproduct",
       headers: {
         token,
       },
@@ -61,6 +64,7 @@ export const fetchwishlistData = (token) => async (dispatch) => {
     let responce = await axios({
       method: "GET",
       url: "https://pear-naughty-clam.cyclic.app/wishlist",
+      // url: "http://localhost:8080/wishlist",
       headers: {
         token,
       },
@@ -76,6 +80,7 @@ export const removeWishlistItem = (token, id) => async (dispatch) => {
     let responce = await axios({
       method: "DELETE",
       url: `https://pear-naughty-clam.cyclic.app/wishlist/delete/${id}`,
+      // url: `http://localhost:8080/wishlist/delete/${id}`,
       headers: {
         token,
       },
@@ -91,6 +96,7 @@ export const removeWishlistItem = (token, id) => async (dispatch) => {
 export const singleProduct = (id) => async (dispatch) => {
   const response = await axios.get(
     `https://pear-naughty-clam.cyclic.app/iphone/${id}`
+    // `http://localhost:8080/iphone/${id}`
   );
   dispatch({ type: PRODUCT_DETAILS, payload: response.data });
 };
@@ -102,6 +108,7 @@ export const addToCart = (token, data) => async (dispatch) => {
     let res = await axios({
       method: "POST",
       url: "https://pear-naughty-clam.cyclic.app/cart/createproduct",
+      // url: "http://localhost:8080/cart/createproduct",
       headers: {
         token,
       },
@@ -120,6 +127,7 @@ export const fetchCartData = (token) => async (dispatch) => {
     let responce = await axios({
       method: "GET",
       url: "https://pear-naughty-clam.cyclic.app/cart",
+      // url: "http://localhost:8080/cart",
       headers: {
         token,
       },
@@ -135,7 +143,8 @@ export const removeToCart = (token, id) => async (dispatch) => {
     let responce = await axios({
       method: "DELETE",
       url: `https://pear-naughty-clam.cyclic.app/cart/delete/${id}`,
-      // url:  `https://pear-naughty-clam.cyclic.app/cart/delete/${id}`,
+      // url: `http://localhost:8080/cart/delete/${id}`,
+
       headers: {
         token,
       },
@@ -151,6 +160,7 @@ export const changeQty = (token, id, item) => async (dispatch) => {
     let responce = await axios({
       method: "PATCH",
       url: `https://pear-naughty-clam.cyclic.app/cart/update/${id}`,
+      // url: `http://localhost:8080/cart/update/${id}`,
       headers: {
         token,
       },

@@ -25,6 +25,7 @@ const User = () => {
 
   const getUser = async () => {
     const res = await axios.get("https://pear-naughty-clam.cyclic.app/user");
+        // const res = await axios.get("http://localhost:8080/user");
     setData(res.data);
   };
 
