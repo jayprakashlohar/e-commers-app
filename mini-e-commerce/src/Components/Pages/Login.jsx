@@ -90,7 +90,7 @@ const Login = () => {
         p="8"
         rounded="md"
         bg="white"
-        w={{ base: "90%", md: "80%", lg: "30%" }}
+        w={{ base: "90%", sm: "50%", md: "80%", lg: "30%" }}
       >
         <Heading textAlign="center" mb="30px">
           Login
