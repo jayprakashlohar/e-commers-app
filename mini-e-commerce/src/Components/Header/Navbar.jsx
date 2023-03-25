@@ -6,6 +6,7 @@ import { BiUserCircle } from "react-icons/bi";
 import { Link } from "react-router-dom";
 import { MiniNavbar } from "../Header/MiniNavbar";
 import { useSelector, useDispatch } from "react-redux";
+import { AiOutlineSearch } from "react-icons/ai";
 
 import {
   Menu,
@@ -43,7 +44,13 @@ const Navbar = () => {
         </Link>
 
         <div className={Styles.searchInput}>
-          <Input w="20rem" borderRadius="0" type="text" placeholder="Search" />
+          <Input
+            w="20rem"
+            type="text"
+            placeholder="Search"
+            variant="unstyled"
+          />
+          <AiOutlineSearch style={{ color: "black", width: "10%" }} />
         </div>
         <Link to="/wishlist">
           <BsHeart className={Styles.navIcon} />
@@ -56,7 +63,7 @@ const Navbar = () => {
           <MenuButton>
             <BiUserCircle className={Styles.navIcon} />
           </MenuButton>
-          <MenuList color="black">
+          <MenuList color="black" marginTop="20px">
             <Link to="/adminlogin">
               {" "}
               <MenuItem>Admin</MenuItem>
@@ -85,7 +92,7 @@ const Navbar = () => {
           </MenuList>
         </Menu>
 
-        <Text>Hi</Text>
+        {/* <Text>Hi</Text> */}
       </div>
       <MiniNavbar />
     </div>

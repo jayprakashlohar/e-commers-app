@@ -21,17 +21,26 @@
   justify-content: space-around;
   align-items: center;
   background-color: #fff;
+  color: black;
+  padding: 8px;
+  border-radius: 5px;
 }
 .navIcon {
-  width: 22px;
-  height: 22px;
+  width: 21px;
+  height: 21px;
   cursor: pointer;
 }
 
+::placeholder {
+  padding-left: 10px;
+  height: 100%;
+}
+
 .navIcon1 {
-  width: 22px;
-  height: 22px;
+  width: 21px;
+  height: 21px;
   cursor: pointer;
+  margin-bottom: 10px;
 }
 
 .navIcon :hover {
@@ -59,8 +68,8 @@
 
 @media all and (min-width: 0px) and (max-width: 420px) {
   .searchInput Input {
-    width: 170px;
-    height: 30px;
+    width: 125px;
+    height: 20px;
   }
   .MiniNavDiv {
     font-size: 10px;
@@ -70,7 +79,21 @@
     width: 18px;
     height: 18px;
   }
+  ::placeholder {
+    padding-left: 5px;
+    height: 100%;
+  }
+
   .container {
-    padding: 17px;
+    padding: 12px;
+    display: flex;
+    justify-content: space-between;
+  }
+}
+
+@media all and (min-width: 420px) and (max-width: 700px) {
+  .searchInput Input {
+    width: 170px;
+    height: 22px;
   }
 }
