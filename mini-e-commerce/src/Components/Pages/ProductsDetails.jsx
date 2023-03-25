@@ -1,21 +1,23 @@
 import { useDispatch, useSelector } from "react-redux";
 import { singleProduct } from "../Redux/Products/action";
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 import { Button, useToast, Box } from "@chakra-ui/react";
 import { useParams } from "react-router-dom";
 import Styles from "../Styles/Product.module.css";
 import { addToCart } from "../Redux/Products/action";
+import { Spinner } from "@chakra-ui/react";
 
 const ProductsDetails = () => {
   let token = localStorage.getItem("token");
   const toast = useToast();
   const dispatch = useDispatch();
   const data = useSelector((state) => state.Products.singleProducts);
-
   const { id } = useParams();
+  // const [loading, setLoading] = useState(true);
 
   useEffect(() => {
     dispatch(singleProduct(id));
+    // setLoading(false);
   }, [dispatch]);
 
   const handleCart = (data) => {
@@ -87,7 +89,17 @@ const ProductsDetails = () => {
           alt=""
         />
       </div>
-
+      {/* {loading &&
+        loading?(
+          <Spinner
+            thickness="4px"
+            speed="0.65s"
+            emptyColor="gray.200"
+            color="blue.500"
+            size="xl"
+          />
+        ):
+    */}
       <div className={Styles.mainContainer}>
         <div className={Styles.imageDiv}>
           <img src={data.imgUrl} alt="" />
@@ -141,6 +153,7 @@ const ProductsDetails = () => {
           </Button>
         </Box>
       </div>
+      {/* // } */}
     </>
   );
 };

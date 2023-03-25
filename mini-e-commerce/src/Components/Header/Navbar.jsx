@@ -13,7 +13,7 @@ import {
   MenuList,
   MenuItem,
   Input,
-  border,
+  Text,
 } from "@chakra-ui/react";
 import { Profile } from "../Pages/Profile";
 import { useNavigate } from "react-router-dom";
@@ -30,7 +30,6 @@ const Navbar = () => {
     localStorage.removeItem("token");
     navigate("/");
   };
-  
 
   useEffect(() => {
     dispatch(fetchCartData);
@@ -50,8 +49,7 @@ const Navbar = () => {
           <BsHeart className={Styles.navIcon} />
         </Link>
         <Link to="/cart">
-          <p style={{ color: "#ffff", fontSize: "12px" }}>{cartLength}</p>
-
+          <p style={{ color: "#ffff", fontSize: "10px" }}>{cartLength}</p>
           <FaCartArrowDown className={Styles.navIcon1} />
         </Link>
         <Menu>
@@ -67,7 +65,7 @@ const Navbar = () => {
             {token && (
               <MenuItem>
                 {" "}
-                <Profile />{" "}
+                <Profile />
               </MenuItem>
             )}
             {!token && (
@@ -86,6 +84,8 @@ const Navbar = () => {
             {token && <MenuItem onClick={handleLogout}>Logout</MenuItem>}
           </MenuList>
         </Menu>
+
+        <Text>Hi</Text>
       </div>
       <MiniNavbar />
     </div>

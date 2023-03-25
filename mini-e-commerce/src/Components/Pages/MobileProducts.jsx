@@ -23,8 +23,8 @@ const MobileProducts = () => {
 
   useEffect(() => {
     dispatch(fetchMobileData(page));
-    dispatch(fetchwishlistData);
     setLoading(false);
+    dispatch(fetchwishlistData);
   }, [dispatch, page]);
 
   const handleSort = (value) => {
@@ -33,6 +33,7 @@ const MobileProducts = () => {
 
   const handleFilter = (value) => {
     dispatch(filterbyTitle(value, page));
+    setLoading(false);
   };
 
   const handleWishItem = (item) => {

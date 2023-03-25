@@ -17,6 +17,7 @@ import { AdminLogin } from "../Admin/AdminLogin";
 import { Admin } from "../Admin/Admin";
 import { Orders } from "../Admin/Orders";
 import { Layout } from "./Layout";
+import Error from "../Pages/Error";
 
 const AllRoutes = () => {
   return (
@@ -121,6 +122,7 @@ const AllRoutes = () => {
         <Route path="/adminedit/:id" element={<EditProduct />} />
         <Route path="/users" element={<User />}></Route>
         <Route path="/orders" element={<Orders />}></Route>
+        <Route path="*" element={<Error />}></Route>
       </Routes>
     </>
   );
