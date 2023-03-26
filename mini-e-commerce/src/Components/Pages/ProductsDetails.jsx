@@ -11,13 +11,14 @@ const ProductsDetails = () => {
   let token = localStorage.getItem("token");
   const toast = useToast();
   const dispatch = useDispatch();
-  const data = useSelector((state) => state.Products.singleProducts);
+  const { singleProducts: data, isLoading } = useSelector(
+    (state) => state.Products
+  );
+
   const { id } = useParams();
-  // const [loading, setLoading] = useState(true);
 
   useEffect(() => {
     dispatch(singleProduct(id));
-    // setLoading(false);
   }, [dispatch]);
 
   const handleCart = (data) => {
@@ -89,8 +90,14 @@ const ProductsDetails = () => {
           alt=""
         />
       </div>
-      {/* {loading &&
-        loading?(
+      <div
+        style={{
+          display: "flex",
+          justifyContent: "center",
+          alignItems: "center",
+        }}
+      >
+        {isLoading && (
           <Spinner
             thickness="4px"
             speed="0.65s"
@@ -98,8 +105,8 @@ const ProductsDetails = () => {
             color="blue.500"
             size="xl"
           />
-        ):
-    */}
+        )}
+      </div>
       <div className={Styles.mainContainer}>
         <div className={Styles.imageDiv}>
           <img src={data.imgUrl} alt="" />

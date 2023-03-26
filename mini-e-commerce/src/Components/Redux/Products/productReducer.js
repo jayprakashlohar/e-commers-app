@@ -9,6 +9,8 @@ import {
   FETCH_WISHLIST_DATA,
   FETCH_CART_DATA,
   ADD_TO_CART,
+  PRODUCT_REQUEST,
+  PRODUCT_ERROR,
 } from "./actionTypes";
 
 const initialState = {
@@ -17,15 +19,31 @@ const initialState = {
   wishlistData: [],
   cartData: [],
   cartLength: 0,
+  isLoading: false,
+  isError: false,
 };
 
 const productReducer = (state = initialState, action) => {
   switch (action.type) {
     // Products
+    case PRODUCT_REQUEST:
+      return {
+        ...state,
+        isLoading: true,
+        isError: false,
+      };
+    case PRODUCT_ERROR:
+      return {
+        ...state,
+        isLoading: false,
+        isError: true,
+      };
     case FETCH_MOBILEPRODUCTS:
       return {
         ...state,
         mobileData: action.payload,
+        isLoading: false,
+        isError: false,
       };
     case SORT_BY_PRICE:
       let sortPrice;
@@ -37,6 +55,7 @@ const productReducer = (state = initialState, action) => {
       return {
         ...state,
         mobileData: sortPrice,
+        isLoading: false,
       };
 
     case FILTER_BY_TITLE:
@@ -51,6 +70,7 @@ const productReducer = (state = initialState, action) => {
       return {
         ...state,
         mobileData: filterTilte,
+        isLoading: false,
       };
 
     // Wishlist
@@ -75,6 +95,7 @@ const productReducer = (state = initialState, action) => {
       return {
         ...state,
         singleProducts: action.payload,
+        isLoading: false,
       };
 
     // Cart

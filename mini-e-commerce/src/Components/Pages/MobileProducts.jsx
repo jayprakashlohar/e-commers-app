@@ -15,15 +15,16 @@ import { Link } from "react-router-dom";
 const MobileProducts = () => {
   let token = localStorage.getItem("token");
   const toast = useToast();
-  const [loading, setLoading] = useState(true);
   const dispatch = useDispatch();
-  let { mobileData, wishlistData } = useSelector((state) => state.Products);
+  let { mobileData, wishlistData, isLoading } = useSelector(
+    (state) => state.Products
+  );
   let data = mobileData;
+
   const [page, setPage] = useState(1);
 
   useEffect(() => {
     dispatch(fetchMobileData(page));
-    setLoading(false);
     dispatch(fetchwishlistData);
   }, [dispatch, page]);
 
@@ -33,7 +34,6 @@ const MobileProducts = () => {
 
   const handleFilter = (value) => {
     dispatch(filterbyTitle(value, page));
-    setLoading(false);
   };
 
   const handleWishItem = (item) => {
@@ -105,7 +105,7 @@ const MobileProducts = () => {
           alignItems: "center",
         }}
       >
-        {loading && (
+        {isLoading && (
           <Spinner
             thickness="4px"
             speed="0.65s"

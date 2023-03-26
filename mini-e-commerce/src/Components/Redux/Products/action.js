@@ -10,26 +10,46 @@ import {
   CHANGE_CART_QTY,
   FETCH_WISHLIST_DATA,
   FETCH_CART_DATA,
+  PRODUCT_REQUEST,
+  PRODUCT_ERROR,
 } from "./actionTypes";
 
 import axios from "axios";
 
+const getProductsRequest = () => {
+  return { type: PRODUCT_REQUEST };
+};
+const getProductsError = () => {
+  return { type: PRODUCT_ERROR };
+};
+
 // FETCH ALL DATA
-export const fetchMobileData = (page) => async (dispatch) => {
-  const responce = await axios.get(
-    `https://pear-naughty-clam.cyclic.app/iphone?limit=8&page=${page}`
-    // `http://localhost:8080/iphone?limit=8&page=${page}`
-  );
-  dispatch({ type: FETCH_MOBILEPRODUCTS, payload: responce.data });
+export const fetchMobileData = (page) => (dispatch) => {
+  dispatch(getProductsRequest());
+  axios
+    .get(
+      `https://pear-naughty-clam.cyclic.app/iphone?limit=8&page=${page}`
+      // `http://localhost:8080/iphone?limit=8&page=${page}`
+    )
+    .then((res) => {
+      dispatch({ type: FETCH_MOBILEPRODUCTS, payload: res.data });
+    })
+    .catch((err) => {
+      dispatch(getProductsError());
+    });
 };
 
 // SORTING
-export const sortbyPrice = (order) => async (dispatch) => {
-  dispatch({ type: SORT_BY_PRICE, payload: order });
+export const sortbyPrice = (order) => (dispatch) => {
+  dispatch(getProductsRequest());
+  setTimeout(() => {
+    dispatch({ type: SORT_BY_PRICE, payload: order });
+  }, 1000);
 };
 
 // FILTRING
 export const filterbyTitle = (title, page) => async (dispatch) => {
+  dispatch(getProductsRequest());
   axios
     .get(`https://pear-naughty-clam.cyclic.app/iphone?limit=8&page=${page}`)
     // .get(`http://localhost:8080/iphone?limit=8&page=${page}`)
@@ -37,7 +57,9 @@ export const filterbyTitle = (title, page) => async (dispatch) => {
       let data = res.data;
       dispatch({ type: FILTER_BY_TITLE, payload: { data, title } });
     })
-    .catch((err) => console.log(err));
+    .catch((err) => {
+      dispatch(getProductsError());
+    });
 };
 
 export const addToWishlist = (token, data) => async (dispatch) => {
@@ -94,6 +116,7 @@ export const removeWishlistItem = (token, id) => async (dispatch) => {
 // -------------- // ---------------------------- // ------------------------------ // ----------------------------
 
 export const singleProduct = (id) => async (dispatch) => {
+  dispatch(getProductsRequest());
   const response = await axios.get(
     `https://pear-naughty-clam.cyclic.app/iphone/${id}`
     // `http://localhost:8080/iphone/${id}`
