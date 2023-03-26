@@ -77,7 +77,7 @@ const MobileProducts = () => {
       <div className={Styles.filterDiv}>
         <div className={Styles.firstDivv}>
           <Select
-            w={{ base: "150px", lg: "300px" }}
+            w={{ base: "150px", sm: "250px", lg: "300px" }}
             onChange={(e) => handleFilter(e.target.value)}
           >
             <option value="All">Filter By Model</option>
@@ -89,7 +89,7 @@ const MobileProducts = () => {
         </div>
         <div>
           <Select
-            w={{ base: "150px", lg: "300px" }}
+            w={{ base: "150px", sm: "250px", lg: "300px" }}
             onChange={(e) => handleSort(e.target.value)}
           >
             <option value="">Sort By Price</option>
