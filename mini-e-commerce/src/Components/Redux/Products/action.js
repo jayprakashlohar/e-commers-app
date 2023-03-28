@@ -82,6 +82,7 @@ export const addToWishlist = (token, data) => async (dispatch) => {
 };
 
 export const fetchwishlistData = (token) => async (dispatch) => {
+  dispatch(getProductsRequest());
   try {
     let responce = await axios({
       method: "GET",
@@ -146,6 +147,7 @@ export const addToCart = (token, data) => async (dispatch) => {
 };
 
 export const fetchCartData = (token) => async (dispatch) => {
+  dispatch(getProductsRequest());
   try {
     let responce = await axios({
       method: "GET",

@@ -1,5 +1,5 @@
 import React, { useEffect } from "react";
-import { useToast, Box, Text, Heading, Image } from "@chakra-ui/react";
+import { useToast, Box, Text, Heading, Image, Spinner } from "@chakra-ui/react";
 import { useSelector, useDispatch } from "react-redux";
 import { Link } from "react-router-dom";
 
@@ -14,12 +14,12 @@ const Cart = () => {
   let token = localStorage.getItem("token");
   const toast = useToast();
   const dispatch = useDispatch();
-  const cartData = useSelector((state) => state.Products.cartData);
+  const { cartData: cartData, isLoading } = useSelector(
+    (state) => state.Products
+  );
 
   useEffect(() => {
-   
-      dispatch(fetchCartData(token));
-   
+    dispatch(fetchCartData(token));
   }, []);
 
   const handleQty = (id, qty, item) => {
@@ -41,6 +41,24 @@ const Cart = () => {
   return (
     <>
       <div>
+        <div
+          style={{
+            display: "flex",
+            justifyContent: "center",
+            alignItems: "center",
+            marginTop: "10px",
+          }}
+        >
+          {isLoading && (
+            <Spinner
+              thickness="4px"
+              speed="0.65s"
+              emptyColor="gray.200"
+              color="blue.500"
+              size="xl"
+            />
+          )}
+        </div>
         {cartData && cartData.length > 0 ? (
           <Box className="cartDiv">
             <div className="cartSecondDiv">

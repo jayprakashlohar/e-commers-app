@@ -79,6 +79,8 @@ const productReducer = (state = initialState, action) => {
       return {
         ...state,
         wishlistData: action.payload,
+        isLoading: false,
+        Error: false,
       };
     }
 
@@ -104,6 +106,8 @@ const productReducer = (state = initialState, action) => {
         ...state,
         cartData: action.payload,
         cartLength: action.payload.length,
+        isLoading: false,
+        isError: false,
       };
     }
     case ADD_TO_CART:

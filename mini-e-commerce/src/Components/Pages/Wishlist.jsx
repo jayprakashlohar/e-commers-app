@@ -1,7 +1,7 @@
 import React, { useEffect } from "react";
 import { useSelector, useDispatch } from "react-redux";
 import Styles from "../Styles/Product.module.css";
-import { Box, Text } from "@chakra-ui/react";
+import { Box, Text, Spinner } from "@chakra-ui/react";
 import { removeWishlistItem } from "../Redux/Products/action";
 import { useToast } from "@chakra-ui/react";
 import { fetchwishlistData } from "../Redux/Products/action";
@@ -11,7 +11,9 @@ const Wishlist = () => {
   let token = localStorage.getItem("token");
   const toast = useToast();
   const dispatch = useDispatch();
-  const wishData = useSelector((state) => state.Products.wishlistData);
+  const { wishlistData: wishData, isLoading } = useSelector(
+    (state) => state.Products
+  );
   useEffect(() => {
     dispatch(fetchwishlistData(token));
   }, []);
@@ -30,6 +32,24 @@ const Wishlist = () => {
 
   return (
     <div>
+      <div
+        style={{
+          display: "flex",
+          justifyContent: "center",
+          alignItems: "center",
+          marginTop: "10px",
+        }}
+      >
+        {isLoading && (
+          <Spinner
+            thickness="4px"
+            speed="0.65s"
+            emptyColor="gray.200"
+            color="blue.500"
+            size="xl"
+          />
+        )}
+      </div>
       {wishData.length > 0 ? (
         <div className={Styles.proContainer}>
           {wishData.map((item) => {
