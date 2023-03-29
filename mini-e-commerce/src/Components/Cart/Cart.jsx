@@ -40,25 +40,7 @@ const Cart = () => {
   };
   return (
     <>
-      <div>
-        <div
-          style={{
-            display: "flex",
-            justifyContent: "center",
-            alignItems: "center",
-            marginTop: "10px",
-          }}
-        >
-          {isLoading && (
-            <Spinner
-              thickness="4px"
-              speed="0.65s"
-              emptyColor="gray.200"
-              color="blue.500"
-              size="xl"
-            />
-          )}
-        </div>
+      <div>x
         {cartData && cartData.length > 0 ? (
           <Box className="cartDiv">
             <div className="cartSecondDiv">

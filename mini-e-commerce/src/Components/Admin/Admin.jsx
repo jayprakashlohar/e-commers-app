@@ -24,8 +24,8 @@ const Admin = () => {
 
   const fetchProducts = async () => {
     let product = await axios.get(
-      "https://pear-naughty-clam.cyclic.app/iphone"
-      // "http://localhost:8080/iphone/"
+      "https://pear-naughty-clam.cyclic.app/iphone/all"
+      // "http://localhost:8080/iphone/all"
     );
     setData(product.data);
   };
