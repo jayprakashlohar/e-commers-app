@@ -40,7 +40,7 @@ const Cart = () => {
   };
   return (
     <>
-      <div>x
+      <div>
         {cartData && cartData.length > 0 ? (
           <Box className="cartDiv">
             <div className="cartSecondDiv">
