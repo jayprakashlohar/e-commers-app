@@ -6,6 +6,7 @@ const { userRouter } = require("./Routes/User.route");
 const { mobileRouter } = require("./Routes/MobileProducts.route");
 const { wishlistRouter } = require("./Routes/Wishlist.route");
 const { cartRouter } = require("./Routes/Cart.route");
+// const { Authentication } = require("./Middleware/middleware");
 const app = express();
 const PORT = process.env.PORT;
 
@@ -22,6 +23,7 @@ app.get("/", (req, res) => {
 });
 
 app.use("/user", userRouter);
+// app.use(Authentication);
 app.use("/iphone", mobileRouter);
 app.use("/wishlist", wishlistRouter);
 app.use("/cart", cartRouter);

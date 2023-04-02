@@ -4,6 +4,11 @@ const userRouter = express.Router();
 const bcrypt = require("bcrypt");
 var jwt = require("jsonwebtoken");
 
+userRouter.get("/", async (req, res) => {
+  let users = await UserModel.find();
+  res.send(users);
+});
+
 userRouter.post("/signup", async (req, res) => {
   const { name, email, password } = req.body;
   const check_exist = await UserModel.find({ email });
@@ -18,7 +23,7 @@ userRouter.post("/signup", async (req, res) => {
         await userDetails.save();
         res.status(200).send({ response: "user registerd successfully" });
       });
-    } 
+    }
   } catch (error) {
     res.status(404).send("something went wrong please try again");
   }
@@ -53,7 +58,6 @@ userRouter.post("/login", async (req, res) => {
 
 userRouter.get("/getProfile", async (req, res) => {
   let token = req.headers.token;
-
   try {
     var decoded = jwt.verify(token, "secret");
     let { userID } = decoded;

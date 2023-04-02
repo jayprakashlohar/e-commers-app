@@ -5,8 +5,8 @@ const MobileProductSchema = mongoose.Schema({
   imgUrl: { type: String, required: true },
   brand: String,
   rate: String,
-  Price: Number,
-  qty:Number
+  price: Number,
+  qty: Number,
 });
 
 const AppleProductModel = mongoose.model("mobile", MobileProductSchema);
