@@ -75,11 +75,11 @@ const Signup = () => {
         bg="white"
         w={{ base: "90%", sm: "50%", md: "80%", lg: "30%" }}
       >
-        <Heading textAlign="center" mb="30px">
+        <Heading textAlign="center" mb="30px" fontFamily="cursive">
           Sign up
         </Heading>
         <form onSubmit={handleSubmit}>
-          <FormLabel>Name </FormLabel>
+          <FormLabel fontFamily="cursive">Name </FormLabel>
 
           <Input
             variant="flushed"
@@ -90,7 +90,9 @@ const Signup = () => {
             value={formData.name}
             required={true}
           />
-          <FormLabel m="10px 0px 10px 0px">Email </FormLabel>
+          <FormLabel m="10px 0px 10px 0px" fontFamily="cursive">
+            Email{" "}
+          </FormLabel>
 
           <Input
             variant="flushed"
@@ -102,7 +104,9 @@ const Signup = () => {
             required={true}
           />
 
-          <FormLabel m="10px 0px 10px 0px">Password </FormLabel>
+          <FormLabel m="10px 0px 10px 0px" fontFamily="cursive">
+            Password{" "}
+          </FormLabel>
 
           <Input
             variant="flushed"
@@ -131,6 +135,7 @@ const Signup = () => {
           textAlign="center"
           mt="50px"
           color="#58595b"
+          fontFamily="cursive"
         >
           Already a user ?
           <span
@@ -139,6 +144,7 @@ const Signup = () => {
               marginLeft: "5px",
               cursor: "pointer",
               fontWeight: "bold",
+              fontFamily:"cursive"
             }}
           >
             Login
