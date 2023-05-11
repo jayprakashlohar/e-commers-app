@@ -49,7 +49,12 @@ const CartTotal = () => {
           </p>
           <Link to="/payment">
             {" "}
-            <Button mt="40px" w="full" bg="#ffad33" _hover="none">
+            <Button
+              mt="40px"
+              w="full"
+              bg="#ffad33"
+              _hover={{ background: "#ff9900" }}
+            >
               Proceed to buy
             </Button>
           </Link>

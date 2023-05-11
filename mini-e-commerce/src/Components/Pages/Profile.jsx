@@ -8,6 +8,7 @@ const Profile = () => {
   let [userData, setUserData] = useState({ name: "", email: "" });
   const token = localStorage.getItem("token") || "";
   const { decodedToken, isExpired } = useJwt(token);
+  // console.log("decodedToken", decodedToken);
 
   const getUserData = () => {
     axios

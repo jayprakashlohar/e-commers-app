@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import Styles from "../Styles/Navbar.module.css";
 import { BsHeart } from "react-icons/bs";
 import { FaCartArrowDown } from "react-icons/fa";
@@ -8,18 +8,12 @@ import { MiniNavbar } from "../Header/MiniNavbar";
 import { useSelector, useDispatch } from "react-redux";
 import { AiOutlineSearch } from "react-icons/ai";
 
-import {
-  Menu,
-  MenuButton,
-  MenuList,
-  MenuItem,
-  Input,
-  Text,
-} from "@chakra-ui/react";
+import { Menu, MenuButton, MenuList, MenuItem, Input } from "@chakra-ui/react";
 import { Profile } from "../Pages/Profile";
 import { useNavigate } from "react-router-dom";
 import { BsApple } from "react-icons/bs";
 import { fetchCartData } from "../Redux/Products/action";
+// import axios from "axios";
 
 const Navbar = () => {
   const dispatch = useDispatch();
@@ -27,10 +21,19 @@ const Navbar = () => {
   const token = localStorage.getItem("token");
   const cartLength = useSelector((state) => state.Products.cartLength);
 
+  // const [result, setResult] = useState([]);
+  // const [query, setQuery] = useState("");
+  // console.log("result", result);
+
   const handleLogout = () => {
     localStorage.removeItem("token");
     navigate("/");
   };
+
+  // const handleClick = async () => {
+  //   const response = await axios.get(`http://localhost:8080/iphone?q=${query}`);
+  //   setResult(response);
+  // };
 
   useEffect(() => {
     dispatch(fetchCartData);
@@ -49,8 +52,13 @@ const Navbar = () => {
             type="text"
             placeholder="Search"
             variant="unstyled"
+            // value={query}
+            // onChange={(e) => setQuery(e.target.value)}
           />
-          <AiOutlineSearch style={{ color: "black", width: "10%" }} />
+          <AiOutlineSearch
+            style={{ color: "black", width: "10%" }}
+            // onClick={handleClick}
+          />
         </div>
         <Link to="/wishlist">
           <BsHeart className={Styles.navIcon} />

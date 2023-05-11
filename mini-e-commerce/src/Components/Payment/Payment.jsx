@@ -71,7 +71,7 @@ const Payment = () => {
           bg="black"
           color={"white"}
           as="b"
-          _hover="none"
+          _hover={{ background: "black" }}
           cursor="pointer"
           onClick={onOpen}
           ml={{ base: "50px", md: "12px", lg: "150px" }}
@@ -205,7 +205,7 @@ const Payment = () => {
                   bg={"#FF3399"}
                   variant="ghost"
                   color="#ffff"
-                  _hover="none"
+                  _hover={{ background: "#FF3399" }}
                 >
                   Save
                 </Button>

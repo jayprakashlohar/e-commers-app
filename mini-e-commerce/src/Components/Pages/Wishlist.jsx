@@ -37,7 +37,7 @@ const Wishlist = () => {
           {wishData.map((item) => {
             const { id, imgUrl, brand, title, rate, price } = item;
             return (
-              <div key={item.id}>
+              <div key={item._id}>
                 <img src={imgUrl} alt="" />
                 <h2>{brand}</h2>
                 <h3>{title}</h3>

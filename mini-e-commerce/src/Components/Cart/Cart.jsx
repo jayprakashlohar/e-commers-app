@@ -1,5 +1,5 @@
 import React, { useEffect } from "react";
-import { useToast, Box, Text, Heading, Image, Spinner } from "@chakra-ui/react";
+import { useToast, Box, Text, Heading, Image } from "@chakra-ui/react";
 import { useSelector, useDispatch } from "react-redux";
 import { Link } from "react-router-dom";
 
@@ -65,7 +65,7 @@ const Cart = () => {
                     boxShadow="base"
                     justifyContent="space-between"
                     padding="10px"
-                    key={item.id}
+                    key={item._id}
                     h={{ base: "150px", lg: "250px" }}
                   >
                     <Box display="flex">

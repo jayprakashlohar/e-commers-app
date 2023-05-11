@@ -1,7 +1,6 @@
 import {
   FormLabel,
   Input,
-  useDisclosure,
   useToast,
   Box,
   Heading,
@@ -10,10 +9,9 @@ import {
 } from "@chakra-ui/react";
 
 import React, { useState } from "react";
-import { useDispatch, useSelector } from "react-redux";
+import { useDispatch } from "react-redux";
 import { useNavigate } from "react-router-dom";
 import { authLogin } from "../Redux/Auth/action";
-import { AUTH_LOGIN_RESET } from "../Redux/Auth/actionTypes";
 import { BsFacebook } from "react-icons/bs";
 import { AiFillTwitterCircle, AiFillGoogleCircle } from "react-icons/ai";
 
@@ -23,62 +21,36 @@ const initialState = {
 };
 
 const Login = () => {
-  const [loading, setLoading] = useState(false);
   const toast = useToast();
-  const { onOpen, onClose } = useDisclosure();
   const navigate = useNavigate();
   const [formData, setFormData] = React.useState(initialState);
-  const authState = useSelector((state) => state.Auth);
   const dispatch = useDispatch();
-
-  React.useEffect(() => {
-    onOpen();
-    try {
-      if (authState.userLogin.message === "Invalid Credential") {
-        toast({
-          title: authState.message,
-          title: "Invalid Credential",
-          status: "error",
-          duration: 2000,
-          isClosable: true,
-          position: "top",
-        });
-      } else if (
-        authState.userLogin.message !== "please signup first" &&
-        authState.userLogin.message
-      ) {
-        toast({
-          title: "Login successfully",
-          status: "success",
-          duration: 2000,
-          isClosable: true,
-          position: "top",
-        });
-
-        dispatch({ type: AUTH_LOGIN_RESET });
-        setTimeout(() => {
-          navigate("/");
-        }, 2000);
-      }
-    } catch {
-      toast({
-        title: authState.message,
-        title: "Invalid Credential",
-        status: "warning",
-        duration: 2000,
-        isClosable: true,
-        position: "top",
-      });
-    }
-  }, [authState]);
 
   const handleChange = (e) => {
     setFormData({ ...formData, [e.target.name]: e.target.value });
   };
   const handleSubmit = (e) => {
     e.preventDefault();
-    setLoading(true);
-    dispatch(authLogin(formData));
+    dispatch(authLogin(formData))
+      .then((res) => {
+        toast({
+          title: res.data.msg,
+          status: "success",
+          duration: 2000,
+          isClosable: true,
+          position: "top",
+        });
+        navigate("/");
+      })
+      .catch((error) => {
+        toast({
+          title: error.response.data.response,
+          status: "error",
+          duration: 2000,
+          isClosable: true,
+          position: "top",
+        });
+      });
   };
   return (
     <Box height="100vh" pt="35px" bg="lightblue">
@@ -137,7 +109,7 @@ const Login = () => {
             marginTop="25px"
             borderRadius="20px"
             bg="black"
-            _hover="none"
+            _hover={{ background: "black.500" }}
             color="#fff"
             type="submit"
           >
@@ -158,7 +130,7 @@ const Login = () => {
         <p
           onClick={() => navigate("/signup")}
           style={{
-            color: "  color: #58595b;",
+            color: "blue",
             textAlign: "center",
             fontWeight: "bold",
             cursor: "pointer",

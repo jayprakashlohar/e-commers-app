@@ -11,7 +11,6 @@ import {
 import axios from "axios";
 
 export const authRegister = (data) => async (dispatch) => {
-  // console.log("data:", data);
   try {
     dispatch({ type: AUTH_REGISTER_REQUEST });
 
@@ -24,8 +23,6 @@ export const authRegister = (data) => async (dispatch) => {
         password: data.password,
       }
     );
-    // console.log("res: ", res);
-
     dispatch({
       type: AUTH_REGISTER_SUCCESS,
       payload: {
@@ -43,7 +40,6 @@ export const authRegister = (data) => async (dispatch) => {
 };
 
 export const authLogin = (data) => async (dispatch) => {
-  // console.log("data: ", data);
   try {
     dispatch({ type: AUTH_LOGIN_REQUEST });
 
@@ -53,8 +49,6 @@ export const authLogin = (data) => async (dispatch) => {
 
       data
     );
-    // console.log("res: ", res);
-
     dispatch({
       type: AUTH_LOGIN_SUCCESS,
       payload: {
@@ -63,15 +57,15 @@ export const authLogin = (data) => async (dispatch) => {
         user: res.data.user,
       },
     });
+    return res;
   } catch (error) {
-    // console.log("error: ", error);
-
     dispatch({
       type: AUTH_LOGIN_FAILURE,
       payload: {
         message: error.response.data.response,
       },
     });
+    return Promise.reject(error);
   }
 };
 

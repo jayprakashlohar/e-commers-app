@@ -71,7 +71,7 @@ const MobileProducts = () => {
   return (
     <>
       <Heading textAlign="center" margin="20px">
-        Products
+        Mobiles
       </Heading>
 
       <div className={Styles.filterDiv}>

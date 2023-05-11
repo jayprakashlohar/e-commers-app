@@ -141,7 +141,7 @@ const ProductsDetails = () => {
           <Button
             w="full"
             m="15px 0px 10px 0px"
-            _hover="none"
+            _hover={{ background: "#ffcc01" }}
             borderRadius="40px"
             bg="#ffcc00"
             onClick={() => handleCart(data)}
@@ -152,7 +152,7 @@ const ProductsDetails = () => {
           <Button
             w="full"
             m="0px 0px 15px 0px"
-            _hover="none"
+            _hover={{ background: "#ff9900" }}
             borderRadius="40px"
             bg="#ff9900"
           >

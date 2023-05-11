@@ -124,7 +124,7 @@ const Signup = () => {
             marginTop="30px"
             borderRadius="20px"
             bg="black"
-            _hover="none"
+            _hover={{ background: "black.500" }}
             color="#fff"
           >
             {authState.loading ? "Registering..." : "Register"}
@@ -144,7 +144,7 @@ const Signup = () => {
               marginLeft: "5px",
               cursor: "pointer",
               fontWeight: "bold",
-              fontFamily:"cursive"
+              fontFamily: "cursive",
             }}
           >
             Login
