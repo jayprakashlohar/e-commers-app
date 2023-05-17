@@ -10,7 +10,7 @@ import {
 
 import React, { useState } from "react";
 import { useDispatch } from "react-redux";
-import { useNavigate } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { authLogin } from "../Redux/Auth/action";
 import { BsFacebook } from "react-icons/bs";
 import { AiFillTwitterCircle, AiFillGoogleCircle } from "react-icons/ai";
@@ -53,7 +53,11 @@ const Login = () => {
       });
   };
   return (
-    <Box height="100vh" pt="35px" bg="lightblue">
+    <Box
+      pt="35px"
+      bg="lightblue"
+      h={{ base: "118vh", sm: "100vh", lg: "100vh" }}
+    >
       <Box
         margin="auto"
         padding="25px"
@@ -92,18 +96,21 @@ const Login = () => {
             onChange={handleChange}
             required={true}
           />
-          <Text
-            float="right"
-            fontSize="12px"
-            color="#58595b"
-            mt="5px"
-            fontWeight="400"
-            cursor="pointer"
-            fontFamily="cursive"
-            _hover={{ color: "blue" }}
-          >
-            Forgot password?
-          </Text>
+          <Link to="/forgot-password">
+            <Text
+              float="right"
+              fontSize="12px"
+              color="#58595b"
+              mt="5px"
+              fontWeight="400"
+              cursor="pointer"
+              fontFamily="cursive"
+              _hover={{ color: "blue" }}
+            >
+              Forgot password?
+            </Text>
+          </Link>
+
           <Button
             w="100%"
             marginTop="25px"

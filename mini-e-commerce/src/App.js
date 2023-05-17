@@ -7,7 +7,6 @@ import { AllRoutes } from "./Components/AllRoutes/AllRoutes";
 
 function App() {
   // let navigate = useNavigate();
-
   // const token = localStorage.getItem("token") || "";
   // const { decodedToken } = useJwt(token);
   // const TokenExpired = () => {

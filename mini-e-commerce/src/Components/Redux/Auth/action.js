@@ -72,3 +72,4 @@ export const authLogin = (data) => async (dispatch) => {
 export const logout = (dispatch) => {
   dispatch({ type: AUTH_LOGOUT });
 };
+

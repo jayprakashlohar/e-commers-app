@@ -18,6 +18,8 @@ import { Admin } from "../Admin/Admin";
 import { Orders } from "../Admin/Orders";
 import { Layout } from "./Layout";
 import Error from "../Pages/Error";
+import { ForgotPassword } from "../Pages/ForgotPassword";
+import ResetPasswordForm from "../Pages/ResetPassword";
 
 const AllRoutes = () => {
   return (
@@ -102,6 +104,22 @@ const AllRoutes = () => {
           element={
             <Layout>
               <ThankYou />
+            </Layout>
+          }
+        ></Route>
+        <Route
+          path="/forgot-password"
+          element={
+            <Layout>
+              <ForgotPassword />
+            </Layout>
+          }
+        ></Route>
+        <Route
+          path="/user/reset-password/:token"
+          element={
+            <Layout>
+              <ResetPasswordForm />
             </Layout>
           }
         ></Route>

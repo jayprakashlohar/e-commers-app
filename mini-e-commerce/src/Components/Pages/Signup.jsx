@@ -64,7 +64,7 @@ const Signup = () => {
   };
 
   return (
-    <Box height="95vh" bg="lightblue" pt="50px">
+    <Box bg="lightblue" pt="50px" h={{ base: "108vh", sm: "95vh", lg: "95vh" }}>
       <Box
         margin="auto"
         padding="25px"

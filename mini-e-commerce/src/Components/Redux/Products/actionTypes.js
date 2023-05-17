@@ -17,3 +17,5 @@ export const CHANGE_CART_QTY = "CHANGE_CART_QTY";
 export const FETCH_WISHLIST_DATA = "FETCH_WISHLIST_DATA";
 
 export const FETCH_CART_DATA = "FETCH_CART_DATA";
+
+
