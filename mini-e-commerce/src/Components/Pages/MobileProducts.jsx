@@ -20,6 +20,7 @@ const MobileProducts = () => {
     (state) => state.Products
   );
   let data = mobileData;
+  // console.log("data", data);
 
   const [page, setPage] = useState(1);
 

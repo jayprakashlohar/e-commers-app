@@ -122,6 +122,7 @@ export const singleProduct = (id) => async (dispatch) => {
     `https://pear-naughty-clam.cyclic.app/iphone/${id}`
     // `http://localhost:8080/iphone/${id}`
   );
+
   dispatch({ type: PRODUCT_DETAILS, payload: response.data });
 };
 

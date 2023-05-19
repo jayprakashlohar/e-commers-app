@@ -1,6 +1,6 @@
 import { useDispatch, useSelector } from "react-redux";
 import { singleProduct } from "../Redux/Products/action";
-import { useEffect, useState } from "react";
+import { useEffect } from "react";
 import { Button, useToast, Box } from "@chakra-ui/react";
 import { useParams } from "react-router-dom";
 import Styles from "../Styles/Product.module.css";
@@ -109,7 +109,8 @@ const ProductsDetails = () => {
       </div>
       <div className={Styles.mainContainer}>
         <div className={Styles.imageDiv}>
-          <img src={data.imgUrl} alt="" />
+          {/* {data && data.imgUrl && <img src={data.imgUrl} alt="item.imgUrl" />} */}
+          <img src={data && data.imgUrl} alt="" />
         </div>
         <Box
           w={{ base: "98%", lg: "400px" }}
@@ -117,10 +118,10 @@ const ProductsDetails = () => {
           p="20px"
           m="auto"
         >
-          <h3 className={Styles.title1}>{data.title}</h3>
-          <h3 className={Styles.price}>₹ {data.price}</h3>
-          <h2 className={Styles.brand}>Visit the {data.brand} Store</h2>
-          <h3>{data.rate}</h3>
+          <h3 className={Styles.title1}>{data && data.title}</h3>
+          <h3 className={Styles.price}>₹ {data && data.price}</h3>
+          <h2 className={Styles.brand}>Visit the {data && data.brand} Store</h2>
+          <h3>{data && data.rate}</h3>
           <p className={Styles.stock}>
             Available - <span style={{ color: "green" }}>In Stock</span>
           </p>
