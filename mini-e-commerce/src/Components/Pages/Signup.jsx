@@ -6,6 +6,7 @@ import {
   Button,
   FormLabel,
   Text,
+  Spinner,
 } from "@chakra-ui/react";
 
 import React from "react";
@@ -26,6 +27,8 @@ const Signup = () => {
   const [formData, setFormData] = React.useState(initialState);
   const authState = useSelector((state) => state.Auth.userRegister);
   const dispatch = useDispatch();
+
+  const { loading } = useSelector((state) => state.Auth.userRegister);
 
   React.useEffect(() => {
     if (authState.message === "user already registerd please login") {
@@ -127,7 +130,17 @@ const Signup = () => {
             _hover={{ background: "black.500" }}
             color="#fff"
           >
-            {authState.loading ? "Registering..." : "Register"}
+            {loading ? (
+              <Spinner
+                thickness="2px"
+                speed="0.65s"
+                emptyColor="gray.200"
+                color="blue.500"
+                size="sm"
+              />
+            ) : (
+              "Register"
+            )}
           </Button>
         </form>
         <Text

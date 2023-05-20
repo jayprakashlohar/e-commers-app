@@ -6,10 +6,11 @@ import {
   Heading,
   Button,
   Text,
+  Spinner,
 } from "@chakra-ui/react";
 
 import React, { useState } from "react";
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { Link, useNavigate } from "react-router-dom";
 import { authLogin } from "../Redux/Auth/action";
 import { BsFacebook } from "react-icons/bs";
@@ -25,6 +26,8 @@ const Login = () => {
   const navigate = useNavigate();
   const [formData, setFormData] = React.useState(initialState);
   const dispatch = useDispatch();
+
+  const { loading } = useSelector((state) => state.Auth.userLogin);
 
   const handleChange = (e) => {
     setFormData({ ...formData, [e.target.name]: e.target.value });
@@ -121,7 +124,17 @@ const Login = () => {
             type="submit"
           >
             {" "}
-            LOGIN
+            {loading ? (
+              <Spinner
+                thickness="2px"
+                speed="0.65s"
+                emptyColor="gray.200"
+                color="blue.500"
+                size="sm"
+              />
+            ) : (
+              "LOGIN"
+            )}
           </Button>
         </form>
         <p className="login1" onClick={() => navigate("/signup")}>
