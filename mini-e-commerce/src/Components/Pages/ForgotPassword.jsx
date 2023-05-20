@@ -1,4 +1,4 @@
-import { Box, Button, Input, Heading, Text } from "@chakra-ui/react";
+import { Box, Button, Input, Heading, Text, Spinner } from "@chakra-ui/react";
 import React, { useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { forgotPassword } from "../Redux/ForgotPassword/action";
@@ -45,7 +45,17 @@ const ForgotPassword = () => {
           color="#ffff"
           _hover={{ background: "black" }}
         >
-          Submit
+          {isLoading ? (
+            <Spinner
+              thickness="2px"
+              speed="0.65s"
+              emptyColor="gray.200"
+              color="blue.500"
+              size="sm"
+            />
+          ) : (
+            "        Submit"
+          )}
         </Button>
       </form>
     </Box>

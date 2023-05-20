@@ -6,6 +6,7 @@ import {
   Input,
   FormLabel,
   useToast,
+  Spinner,
 } from "@chakra-ui/react";
 import { useDispatch, useSelector } from "react-redux";
 import { useNavigate, useParams } from "react-router-dom";
@@ -86,7 +87,17 @@ const ResetPasswordForm = () => {
           color="#ffff"
           _hover={{ background: "black" }}
         >
-          Submit
+          {isLoading ? (
+            <Spinner
+              thickness="2px"
+              speed="0.65s"
+              emptyColor="gray.200"
+              color="blue.500"
+              size="sm"
+            />
+          ) : (
+            "Reset"
+          )}
         </Button>
       </form>
     </Box>
