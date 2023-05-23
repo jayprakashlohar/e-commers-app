@@ -32,7 +32,7 @@ export const fetchMobileData = (page) => (dispatch) => {
       // `http://localhost:8080/iphone?limit=8&page=${page}`
     )
     .then((res) => {
-      dispatch({ type: FETCH_MOBILEPRODUCTS, payload: res.data });
+      dispatch({ type: FETCH_MOBILEPRODUCTS, payload: res.data.data });
     })
     .catch((err) => {
       dispatch(getProductsError());
@@ -54,7 +54,7 @@ export const filterbyTitle = (title, page) => async (dispatch) => {
     .get(`https://pear-naughty-clam.cyclic.app/iphone?limit=8&page=${page}`)
     // .get(`http://localhost:8080/iphone?limit=8&page=${page}`)
     .then((res) => {
-      let data = res.data;
+      let data = res.data.data;
       dispatch({ type: FILTER_BY_TITLE, payload: { data, title } });
     })
     .catch((err) => {

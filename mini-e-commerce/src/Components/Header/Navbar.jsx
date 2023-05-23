@@ -7,13 +7,14 @@ import { Link } from "react-router-dom";
 import { MiniNavbar } from "../Header/MiniNavbar";
 import { useSelector, useDispatch } from "react-redux";
 import { AiOutlineSearch } from "react-icons/ai";
+import { MdSearch } from "react-icons/md";
 
 import { Menu, MenuButton, MenuList, MenuItem, Input } from "@chakra-ui/react";
 import { Profile } from "../Pages/Profile";
 import { useNavigate } from "react-router-dom";
 import { BsApple } from "react-icons/bs";
 import { fetchCartData } from "../Redux/Products/action";
-// import axios from "axios";
+import axios from "axios";
 
 const Navbar = () => {
   const dispatch = useDispatch();
@@ -21,19 +22,34 @@ const Navbar = () => {
   const token = localStorage.getItem("token");
   const cartLength = useSelector((state) => state.Products.cartLength);
 
-  // const [result, setResult] = useState([]);
-  // const [query, setQuery] = useState("");
-  // console.log("result", result);
+  const [result, setResult] = useState([]);
+  const [query, setQuery] = useState("");
 
   const handleLogout = () => {
     localStorage.removeItem("token");
     navigate("/");
   };
 
-  // const handleClick = async () => {
-  //   const response = await axios.get(`http://localhost:8080/iphone?q=${query}`);
-  //   setResult(response);
-  // };
+  const handleRedirect = () => {
+    // dispatch(setSingleProductDetails(params));
+    setResult([]);
+    navigate("/appleproducts");
+  };
+
+  useEffect(() => {
+    const debounce = setTimeout(() => {
+      if (query.length === 0) {
+        setResult([]);
+      } else {
+        axios
+          .get(`https://pear-naughty-clam.cyclic.app/iphone?q=${query}&limit=5`)
+          .then((res) => setResult(res.data.data));
+      }
+    }, 1000);
+    return () => {
+      clearTimeout(debounce);
+    };
+  }, [query]);
 
   useEffect(() => {
     dispatch(fetchCartData);
@@ -52,14 +68,36 @@ const Navbar = () => {
             type="text"
             placeholder="Search"
             variant="unstyled"
-            // value={query}
-            // onChange={(e) => setQuery(e.target.value)}
+            onChange={(e) => setQuery(e.target.value)}
+            value={query}
           />
-          <AiOutlineSearch
-            style={{ color: "black", width: "10%" }}
-            // onClick={handleClick}
-          />
+          <AiOutlineSearch className={Styles.search_icon} />
+          <div className={Styles.serch_result_box}>
+            {result.length > 0 &&
+              result.map((item, id) => {
+                return (
+                  <div
+                    onClick={() => handleRedirect(item)}
+                    key={id}
+                    className={Styles.search_product_list}
+                  >
+                    <img src={item.imgUrl} />
+                    <span>{item.title}</span>
+                  </div>
+                );
+              })}
+          </div>
         </div>
+        {/* ----------- */}
+        {/* <div >
+          <MdSearch />
+          <input
+            onChange={(e) => setQuery(e.target.value)}
+            value={query}
+            type="text"
+            placeholder="Search Products"
+          />
+        </div> */}
         <Link to="/wishlist">
           <BsHeart className={Styles.navIcon} />
         </Link>

@@ -91,9 +91,61 @@
   }
 }
 
-@media all and (min-width: 420px) and (max-width: 700px) {
+@media all and (min-width: 420px) and (max-width: 772px) {
   .searchInput Input {
     width: 170px;
     height: 22px;
   }
+  .search_icon {
+    border: 1px solid #ffff;
+    left: 60%;
+  }
+  .serch_result_box {
+    width: 30% !important;
+  }
+}
+
+@media all and (min-width: 0px) and (max-width: 420px) {
+.serch_result_box {
+  left: 19px;
+    width: 90% !important;
+  }
+}
+
+/* ----------------------------- */
+.search_icon {
+  color: black;
+  position: absolute;
+  left: 49%;
+}
+
+.serch_result_box {
+  position: absolute;
+  top: 33%;
+  transform: translate(0, 12%);
+  background-color: white;
+  box-shadow: rgba(0, 0, 0, 0.15) 1.95px 1.95px 2.6px;
+  z-index: 9999;
+  width: 25%;
+}
+.search_product_list {
+  display: flex;
+  border-bottom: 1px solid gray;
+  padding: 2px;
+}
+.search_product_list img {
+  height: 70px;
+  width: 70px;
+  cursor: pointer;
+}
+
+.search_product_list span {
+  cursor: pointer;
+  font-weight: bold;
+  font-size: 15px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  display: -webkit-box;
+  -webkit-line-clamp: 1;
+  -webkit-box-orient: vertical;
 }
