@@ -66,163 +66,171 @@ const Payment = () => {
           Checkout
         </Text>
       </Box>
-      <Box p="10px">
-        <Button
-          bg="black"
-          color={"white"}
-          as="b"
-          _hover={{ background: "black" }}
-          cursor="pointer"
-          onClick={onOpen}
-          ml={{ base: "50px", md: "12px", lg: "150px" }}
-        >
-          {finalAddress ? "CHANGE YOUR ADDRESS" : "ADD YOUR ADDRESS DETAILS"}
-        </Button>
-      </Box>
-      <Box as="b">
-        {finalAddress &&
-          finalAddress.map((items) => {
-            return (
-              <Box
-                textAlign={"left"}
-                width={"80%"}
-                m={["auto", "auto", "auto"]}
-                boxShadow="base"
-                p="10px"
-              >
-                <Heading color="#FF3399">ADDRESS</Heading>
-                <Text>{`Name : ${items.name}`}</Text>
-                <Text>{`phone : ${items.phone}`}</Text>
-                <Text>{`Alternate : ${items.alternate_phone}`}</Text>
-                <Text>{`Address : ${items.address}`}</Text>
-                <Text>{`Landmark : ${items.landMark}`}</Text>
-                <Text>{`Pincode : ${items.pincode}`}</Text>
-              </Box>
-            );
-          })}
-      </Box>
-      <Flex
-        color="white"
-        flexDirection={["column", "column", "row", "row", "row"]}
-        mt={"20px"}
-        gap={"20px"}
-        mx={["20px", "20px", "20px", "30px", "10%"]}
+      {/* ------------------------------------ */}
+
+      <Box
+        p="10px"
+        display={{ base: "block", sm: "block", md: "block", xl: "flex" }}
+        justifyContent="space-around"
       >
-        <Box color={"black"}>
-          <Modal isOpen={isOpen} onClose={onClose} size="6xl">
-            <ModalOverlay />
-            <ModalContent>
-              <ModalHeader>ADDRESS</ModalHeader>
-              <ModalCloseButton />
-              <ModalBody>
-                <Text>Name*</Text>
-                <Input
-                  bg="#F3F3F3"
-                  value={name}
-                  onChange={(e) => {
-                    setName(e.target.value);
-                  }}
-                ></Input>
-                <Text>Address*</Text>
-                <Input
-                  bg="#F3F3F3"
-                  value={address}
-                  onChange={(e) => {
-                    setAddress(e.target.value);
-                  }}
-                ></Input>
-                <Flex
-                  flexDirection={["column", "column", "column", "row", "row"]}
-                >
-                  <Box width={["100%", "100%", "100%", "50%", "50%"]} p="15px">
-                    <VStack
-                      divider={<StackDivider borderColor="gray.200" />}
-                      spacing={4}
-                      align="stretch"
-                    >
-                      <Box>
-                        <Text>Phone Number*</Text>
-                        <Input
-                          bg="#F3F3F3"
-                          value={phone}
-                          onChange={(e) => {
-                            setPhone(e.target.value);
-                          }}
-                        ></Input>
-                      </Box>
-                      <Box>
-                        <Text>Pincode*</Text>
-                        <Input
-                          bg="#F3F3F3"
-                          value={pincode}
-                          onChange={(e) => {
-                            setPincode(e.target.value);
-                          }}
-                        ></Input>
-                      </Box>
-                    </VStack>
+        <Box>
+          <Button
+            bg="black"
+            color={"white"}
+            as="b"
+            _hover={{ background: "black" }}
+            cursor="pointer"
+            onClick={onOpen}
+            ml={{ base: "50px", md: "12px", lg: "150px" }}
+          >
+            {finalAddress ? "CHANGE YOUR ADDRESS" : "ADD YOUR ADDRESS DETAILS"}
+          </Button>
+          <Box as="b">
+            {finalAddress &&
+              finalAddress.map((items) => {
+                return (
+                  <Box
+                    key={items.id}
+                    textAlign={"left"}
+                    width={"100%"}
+                    boxShadow="base"
+                    p="20px"
+                    mt="50px"
+                    lineHeight="25px"
+                  >
+                    <Heading color="#FF3399">ADDRESS</Heading>
+                    <Text>{`Name : ${items.name}`}</Text>
+                    <Text>{`phone : ${items.phone}`}</Text>
+                    <Text>{`Alternate : ${items.alternate_phone}`}</Text>
+                    <Text>{`Address : ${items.address}`}</Text>
+                    <Text>{`Landmark : ${items.landMark}`}</Text>
+                    <Text>{`Pincode : ${items.pincode}`}</Text>
                   </Box>
-                  <Box width={["100%", "100%", "100%", "50%", "50%"]} p="15px">
-                    <VStack
-                      divider={<StackDivider borderColor="gray.200" />}
-                      spacing={4}
-                      align="stretch"
-                    >
-                      <Box>
-                        <Text>Alternate Number*</Text>
-                        <Input
-                          bg="#F3F3F3"
-                          value={altPhone}
-                          onChange={(e) => {
-                            setAltPhone(e.target.value);
-                          }}
-                        ></Input>
-                      </Box>
-                      <Box>
-                        <Text>LandMark*</Text>
-                        <Input
-                          bg="#F3F3F3"
-                          value={landMark}
-                          onChange={(e) => {
-                            setLandMark(e.target.value);
-                          }}
-                        ></Input>
-                      </Box>
-                    </VStack>
-                  </Box>
-                </Flex>
-              </ModalBody>
-
-              <ModalFooter>
-                <Button colorScheme="blue" mr={3} onClick={onClose}>
-                  Close
-                </Button>
-                <Button
-                  onClick={() => {
-                    handleAddress();
-                    onClose();
-                  }}
-                  bg={"#FF3399"}
-                  variant="ghost"
-                  color="#ffff"
-                  _hover={{ background: "#FF3399" }}
-                >
-                  Save
-                </Button>
-              </ModalFooter>
-            </ModalContent>
-          </Modal>
+                );
+              })}
+          </Box>
         </Box>
-        {/* --------- --------- ------------ */}
+        <Box>
+          <Order />
+        </Box>
+      </Box>
 
-        <Card />
+      {/* POPUP */}
+      <Box color={"black"}>
+        <Modal isOpen={isOpen} onClose={onClose} size="6xl">
+          <ModalOverlay />
+          <ModalContent>
+            <ModalHeader>ADDRESS</ModalHeader>
+            <ModalCloseButton />
+            <ModalBody>
+              <Text>Name*</Text>
+              <Input
+                bg="#F3F3F3"
+                value={name}
+                onChange={(e) => {
+                  setName(e.target.value);
+                }}
+              ></Input>
+              <Text>Address*</Text>
+              <Input
+                bg="#F3F3F3"
+                value={address}
+                onChange={(e) => {
+                  setAddress(e.target.value);
+                }}
+              ></Input>
+              <Flex
+                flexDirection={["column", "column", "column", "row", "row"]}
+              >
+                <Box width={["100%", "100%", "100%", "50%", "50%"]} p="15px">
+                  <VStack
+                    divider={<StackDivider borderColor="gray.200" />}
+                    spacing={4}
+                    align="stretch"
+                  >
+                    <Box>
+                      <Text>Phone Number*</Text>
+                      <Input
+                        bg="#F3F3F3"
+                        value={phone}
+                        onChange={(e) => {
+                          setPhone(e.target.value);
+                        }}
+                      ></Input>
+                    </Box>
+                    <Box>
+                      <Text>Pincode*</Text>
+                      <Input
+                        bg="#F3F3F3"
+                        value={pincode}
+                        onChange={(e) => {
+                          setPincode(e.target.value);
+                        }}
+                      ></Input>
+                    </Box>
+                  </VStack>
+                </Box>
+                <Box width={["100%", "100%", "100%", "50%", "50%"]} p="15px">
+                  <VStack
+                    divider={<StackDivider borderColor="gray.200" />}
+                    spacing={4}
+                    align="stretch"
+                  >
+                    <Box>
+                      <Text>Alternate Number*</Text>
+                      <Input
+                        bg="#F3F3F3"
+                        value={altPhone}
+                        onChange={(e) => {
+                          setAltPhone(e.target.value);
+                        }}
+                      ></Input>
+                    </Box>
+                    <Box>
+                      <Text>LandMark*</Text>
+                      <Input
+                        bg="#F3F3F3"
+                        value={landMark}
+                        onChange={(e) => {
+                          setLandMark(e.target.value);
+                        }}
+                      ></Input>
+                    </Box>
+                  </VStack>
+                </Box>
+              </Flex>
+            </ModalBody>
 
-        {/* ------- ------------ -------------- */}
+            <ModalFooter>
+              <Button colorScheme="blue" mr={3} onClick={onClose}>
+                Close
+              </Button>
+              <Button
+                onClick={() => {
+                  handleAddress();
+                  onClose();
+                }}
+                bg={"#FF3399"}
+                variant="ghost"
+                color="#ffff"
+                _hover={{ background: "#FF3399" }}
+              >
+                Save
+              </Button>
+            </ModalFooter>
+          </ModalContent>
+        </Modal>
+      </Box>
+      {/* --------- --------- ------------ */}
 
-        <Order />
+      {/* <Card /> */}
 
-        {/* ------- ----------- ----------- ----------    */}
-      </Flex>
+      {/* ------- ------------ -------------- */}
+      {/* 
+      <Order /> */}
+
+      {/* ------- ----------- ----------- ----------    */}
+      {/* </Flex> */}
     </div>
   );
 };

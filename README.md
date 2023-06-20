@@ -99,6 +99,16 @@ its Fully Responsive e-commerce web application that allows you to buy Products.
 <img src="mini-e-commerce/src/assets/mobileCart.png">
 <br />
 
+## Payment Page
+
+<img src="mini-e-commerce/src/assets/paymentMethod.png">
+<br />
+
+<img src="mini-e-commerce/src/assets/payment.png">
+<br/>
+<img src="mini-e-commerce/src/assets/paymentSuccess.png">
+<br/>
+
 ## Admin Dashboard
 
 <img src="mini-e-commerce/src/assets/admin.png">

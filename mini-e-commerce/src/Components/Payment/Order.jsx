@@ -4,18 +4,16 @@ import {
   StackDivider,
   Heading,
   HStack,
-  useToast,
+  Button,
 } from "@chakra-ui/react";
 import { useNavigate } from "react-router-dom";
 import { useSelector } from "react-redux";
 import React from "react";
-import { Link } from "react-router-dom";
 import { useState, useEffect } from "react";
+import OrderPayment from "../../razorpay/OrderPayment";
 
 const Order = () => {
   const navigate = useNavigate();
-  const toast = useToast();
-  const [finalAddress, setFinalAddress] = useState(null);
   const [total, setTotal] = useState();
   const cart = useSelector((state) => state.Products.cartData);
 
@@ -24,6 +22,11 @@ const Order = () => {
       cart.reduce((acc, curr) => acc + Number(curr.price) * curr.qty, 0)
     );
   }, [cart]);
+
+  const handlePayment = () => {
+    OrderPayment(total);
+    navigate("/thankyou");
+  };
 
   return (
     <Box>
@@ -100,49 +103,16 @@ const Order = () => {
           </VStack>
         </Box>
 
-        <Box
-          width={"90%"}
-          m="auto"
-          fontWeight={"bold"}
+        <Button
+          w="90%"
+          m="20px 0px 20px 20px"
           bg="#ffad33"
-          textAlign="center"
-          p="10px"
-          mt="20px"
-          mb="20px"
+          fontWeight="bold"
+          _hover={{ bg: "#ffcc00" }}
+          onClick={handlePayment}
         >
-          <Link
-            to={"/thankyou"}
-            onClick={() => {
-              finalAddress
-                ? toast({
-                    title: "SUCCESS",
-                    description: "order placed successfully",
-                    status: "success",
-                    duration: 5000,
-                    isClosable: true,
-                    position: "top",
-                  })
-                : toast({
-                    // title: "ERROR",
-                    // description: "Please Enter valid address details",
-                    // status: "error",
-                    // duration: 5000,
-                    // isClosable: true,
-                    // position: "top",
-                    title: "SUCCESS",
-                    description: "order placed successfully",
-                    status: "success",
-                    duration: 5000,
-                    isClosable: true,
-                    position: "top",
-                  });
-              alert("Your order is placed successfully 🎁");
-              navigate("/thankyou");
-            }}
-          >
-            PLACE ORDER
-          </Link>
-        </Box>
+          PLACE ORDER
+        </Button>
       </Box>
     </Box>
   );
