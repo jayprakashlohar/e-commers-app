@@ -6,7 +6,6 @@ import axios from "axios";
 import { Link } from "react-router-dom";
 import {
   Box,
-  IconButton,
   Card,
   CardBody,
   Flex,
@@ -14,18 +13,15 @@ import {
   GridItem,
   Heading,
   Stack,
-  useToast,
   Image,
   Text,
 } from "@chakra-ui/react";
 
 const User = () => {
   const [data, setData] = useState([]);
-  const toast = useToast();
 
   const getUser = async () => {
     const res = await axios.get("https://pear-naughty-clam.cyclic.app/user");
-        // const res = await axios.get("http://localhost:8080/user");
     setData(res.data);
   };
 

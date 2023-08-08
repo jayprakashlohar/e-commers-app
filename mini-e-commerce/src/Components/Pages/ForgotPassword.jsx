@@ -54,7 +54,7 @@ const ForgotPassword = () => {
               size="sm"
             />
           ) : (
-            "        Submit"
+            "Submit"
           )}
         </Button>
       </form>

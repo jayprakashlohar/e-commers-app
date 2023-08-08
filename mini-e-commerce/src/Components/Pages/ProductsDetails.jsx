@@ -109,7 +109,6 @@ const ProductsDetails = () => {
       </div>
       <div className={Styles.mainContainer}>
         <div className={Styles.imageDiv}>
-          {/* {data && data.imgUrl && <img src={data.imgUrl} alt="item.imgUrl" />} */}
           <img src={data && data.imgUrl} alt="" />
         </div>
         <Box
@@ -161,7 +160,6 @@ const ProductsDetails = () => {
           </Button>
         </Box>
       </div>
-      {/* // } */}
     </>
   );
 };

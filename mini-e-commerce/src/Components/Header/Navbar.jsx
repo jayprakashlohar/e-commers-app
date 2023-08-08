@@ -7,7 +7,6 @@ import { Link } from "react-router-dom";
 import { MiniNavbar } from "../Header/MiniNavbar";
 import { useSelector, useDispatch } from "react-redux";
 import { AiOutlineSearch } from "react-icons/ai";
-import { MdSearch } from "react-icons/md";
 
 import { Menu, MenuButton, MenuList, MenuItem, Input } from "@chakra-ui/react";
 import { Profile } from "../Pages/Profile";
@@ -31,7 +30,6 @@ const Navbar = () => {
   };
 
   const handleRedirect = () => {
-    // dispatch(setSingleProductDetails(params));
     setResult([]);
     navigate("/appleproducts");
   };
@@ -66,7 +64,7 @@ const Navbar = () => {
           <Input
             w="20rem"
             type="text"
-            placeholder="Search"
+            placeholder="Search..."
             variant="unstyled"
             onChange={(e) => setQuery(e.target.value)}
             value={query}
@@ -74,7 +72,7 @@ const Navbar = () => {
           <AiOutlineSearch className={Styles.search_icon} />
           <div className={Styles.serch_result_box}>
             {result.length > 0 &&
-              result.map((item, id) => {
+              result?.map((item, id) => {
                 return (
                   <div
                     onClick={() => handleRedirect(item)}
@@ -88,16 +86,7 @@ const Navbar = () => {
               })}
           </div>
         </div>
-        {/* ----------- */}
-        {/* <div >
-          <MdSearch />
-          <input
-            onChange={(e) => setQuery(e.target.value)}
-            value={query}
-            type="text"
-            placeholder="Search Products"
-          />
-        </div> */}
+
         <Link to="/wishlist">
           <BsHeart className={Styles.navIcon} />
         </Link>
@@ -137,8 +126,6 @@ const Navbar = () => {
             {token && <MenuItem onClick={handleLogout}>Logout</MenuItem>}
           </MenuList>
         </Menu>
-
-        {/* <Text>Hi</Text> */}
       </div>
       <MiniNavbar />
     </div>

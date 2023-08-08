@@ -106,13 +106,12 @@
 }
 
 @media all and (min-width: 0px) and (max-width: 420px) {
-.serch_result_box {
-  left: 19px;
+  .serch_result_box {
+    left: 19px;
     width: 90% !important;
   }
 }
 
-/* ----------------------------- */
 .search_icon {
   color: black;
   position: absolute;

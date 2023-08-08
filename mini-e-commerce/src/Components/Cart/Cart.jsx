@@ -14,9 +14,7 @@ const Cart = () => {
   let token = localStorage.getItem("token");
   const toast = useToast();
   const dispatch = useDispatch();
-  const { cartData: cartData, isLoading } = useSelector(
-    (state) => state.Products
-  );
+  const { cartData: cartData } = useSelector((state) => state.Products);
 
   useEffect(() => {
     dispatch(fetchCartData(token));

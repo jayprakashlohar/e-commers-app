@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import { Box, Grid, Image, Text, Button, background } from "@chakra-ui/react";
+import { Box, Grid, Image, Text, Button } from "@chakra-ui/react";
 import {
   Menu,
   MenuButton,
@@ -25,7 +25,6 @@ const Admin = () => {
   const fetchProducts = async () => {
     let product = await axios.get(
       "https://pear-naughty-clam.cyclic.app/iphone/all"
-      // "http://localhost:8080/iphone/all"
     );
     setData(product.data);
   };
@@ -34,7 +33,6 @@ const Admin = () => {
     if (window.confirm("Are You Sure Delete This Product")) {
       const res = await axios.delete(
         `https://pear-naughty-clam.cyclic.app/iphone/delete/${id}`
-        // `http://localhost:8080/iphone/delete/${id}`
       );
 
       toast({

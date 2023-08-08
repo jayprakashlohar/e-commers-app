@@ -36,7 +36,6 @@ export const resetPassword = (userInput, token) => async (dispatch) => {
 
     dispatch({ type: types.RESET_PASSWORD_SUCCESS, payload: res.data.success });
   } catch (error) {
-    // console.log(error);
     dispatch({
       type: types.RESET_PASSWORD_ERROR,
       payload: error.data.success || "Something went wrong",

@@ -3,7 +3,7 @@ import axios from "axios";
 
 const OrderPayment = async (total) => {
   let data = await axios.post(
-    "https://bug-backend-production.up.railway.app/create-order",
+    "https://pear-naughty-clam.cyclic.app/create-order",
     { total }
   );
 

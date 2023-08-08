@@ -35,7 +35,7 @@ const Footer = () => {
           natus repellendus reprehenderit facere odit?
         </p>
       </div>
-      <div className={Styles.lastDiv}>@2023 Apple Hub</div>
+      <div className={Styles.lastDiv}>@2023 Copyright Apple Hub</div>
     </div>
   );
 };

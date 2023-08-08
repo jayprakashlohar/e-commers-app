@@ -7,7 +7,6 @@
 }
 
 .proContainer div {
-  /* margin: auto; */
   padding: 20px;
   box-shadow: rgba(0, 0, 0, 0.16) 0px 3px 6px, rgba(0, 0, 0, 0.23) 0px 3px 6px;
 }
@@ -55,7 +54,6 @@
   .filterDiv {
     display: flex;
     justify-content: space-around;
-    /* margin-left: 25px; */
   }
   .firstDivv {
     margin-bottom: 10px;

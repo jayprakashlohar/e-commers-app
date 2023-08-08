@@ -88,7 +88,6 @@
 
 .wishIcon {
   transition: 100ms ease-in;
-  /* color: red; */
   color: #3f497f;
 }
 
@@ -251,7 +250,6 @@
 }
 
 /* Admin panel  */
-
 .editIcon {
   cursor: pointer;
   width: 25px;

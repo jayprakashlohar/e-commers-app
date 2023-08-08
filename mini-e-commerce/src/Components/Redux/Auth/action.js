@@ -16,7 +16,6 @@ export const authRegister = (data) => async (dispatch) => {
 
     const res = await axios.post(
       "https://pear-naughty-clam.cyclic.app/user/signup",
-      // "http://localhost:8080/user/signup",
       {
         email: data.email,
         name: data.name,
@@ -45,7 +44,6 @@ export const authLogin = (data) => async (dispatch) => {
 
     const res = await axios.post(
       "https://pear-naughty-clam.cyclic.app/user/login",
-      // "http://localhost:8080/user/login",
 
       data
     );
@@ -72,4 +70,3 @@ export const authLogin = (data) => async (dispatch) => {
 export const logout = (dispatch) => {
   dispatch({ type: AUTH_LOGOUT });
 };
-

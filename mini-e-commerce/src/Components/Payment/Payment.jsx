@@ -22,7 +22,6 @@ import {
   Button,
   Image,
 } from "@chakra-ui/react";
-import { Card } from "./Card";
 import { Order } from "./Order";
 
 const Payment = () => {
@@ -66,7 +65,6 @@ const Payment = () => {
           Checkout
         </Text>
       </Box>
-      {/* ------------------------------------ */}
 
       <Box
         p="10px"
@@ -221,16 +219,6 @@ const Payment = () => {
           </ModalContent>
         </Modal>
       </Box>
-      {/* --------- --------- ------------ */}
-
-      {/* <Card /> */}
-
-      {/* ------- ------------ -------------- */}
-      {/* 
-      <Order /> */}
-
-      {/* ------- ----------- ----------- ----------    */}
-      {/* </Flex> */}
     </div>
   );
 };

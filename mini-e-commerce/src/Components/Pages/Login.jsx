@@ -9,7 +9,7 @@ import {
   Spinner,
 } from "@chakra-ui/react";
 
-import React, { useState } from "react";
+import React from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { Link, useNavigate } from "react-router-dom";
 import { authLogin } from "../Redux/Auth/action";

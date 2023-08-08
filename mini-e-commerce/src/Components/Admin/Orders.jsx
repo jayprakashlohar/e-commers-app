@@ -1,23 +1,9 @@
-import React, { useEffect, useState } from "react";
+import React from "react";
 import { Menu, MenuButton, MenuList, MenuItem } from "@chakra-ui/react";
 import { AiOutlineHome, AiOutlineUserAdd, AiOutlineGift } from "react-icons/ai";
 import { MdOutlineProductionQuantityLimits } from "react-icons/md";
-import axios from "axios";
 import { Link } from "react-router-dom";
-import {
-  Box,
-  IconButton,
-  Card,
-  CardBody,
-  Flex,
-  Grid,
-  GridItem,
-  Heading,
-  Stack,
-  useToast,
-  Image,
-  Text,
-} from "@chakra-ui/react";
+import { Box, Image, Text } from "@chakra-ui/react";
 
 const Orders = () => {
   return (
@@ -126,9 +112,6 @@ const Orders = () => {
               </MenuList>
             </Menu>
           </Box>
-
-          {/* All Products */}
-          <Box></Box>
         </Box>
       </Box>
     </div>

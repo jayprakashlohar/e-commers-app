@@ -20,7 +20,6 @@ const MobileProducts = () => {
     (state) => state.Products
   );
   let data = mobileData;
-  // console.log("data", data);
 
   const [page, setPage] = useState(1);
 
@@ -118,7 +117,7 @@ const MobileProducts = () => {
       </div>
 
       <div className={Styles.proContainer}>
-        {data.map((item) => {
+        {data?.map((item) => {
           const [isAvailable] = wishlistData.filter(
             (find) => find._id === item._id
           );

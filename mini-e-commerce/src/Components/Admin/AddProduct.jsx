@@ -1,5 +1,4 @@
 import React, { useState } from "react";
-import { useNavigate } from "react-router-dom";
 import { Link } from "react-router-dom";
 import {
   Menu,
@@ -39,7 +38,6 @@ const AddProduct = () => {
     };
 
     fetch("https://pear-naughty-clam.cyclic.app/iphone/createproduct", {
-      // fetch("http://localhost:8080/iphone/createproduct", {
       method: "POST",
       headers: { "content-type": "application/json" },
       body: JSON.stringify(prodata),
