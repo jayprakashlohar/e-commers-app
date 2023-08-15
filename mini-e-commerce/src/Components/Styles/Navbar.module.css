@@ -25,6 +25,7 @@
   padding: 8px;
   border-radius: 5px;
 }
+
 .navIcon {
   width: 21px;
   height: 21px;
@@ -63,6 +64,7 @@
 .MiniNavDiv {
   display: flex;
   justify-content: space-around;
+  align-items: center;
   margin-top: 70px;
 }
 

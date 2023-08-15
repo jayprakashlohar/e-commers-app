@@ -33,7 +33,7 @@ const Wishlist = () => {
       {wishData.length > 0 ? (
         <div className={Styles.proContainer}>
           {wishData?.map((item) => {
-            const { id, imgUrl, brand, title, rate, price } = item;
+            const {  imgUrl, brand, title, rate, price } = item;
             return (
               <div key={item._id}>
                 <img src={imgUrl} alt="" />

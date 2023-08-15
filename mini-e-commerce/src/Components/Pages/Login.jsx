@@ -56,19 +56,13 @@ const Login = () => {
       });
   };
   return (
-    <Box
-      pt="35px"
-      bg="lightblue"
-      h={{ base: "118vh", sm: "100vh", lg: "100vh" }}
-    >
+    <Box pt="35px" h={{ base: "118vh", sm: "100vh", lg: "100vh" }}>
       <Box
         margin="auto"
         padding="25px"
-        background="#fff"
         boxShadow="dark-lg"
         p="8"
         rounded="md"
-        bg="white"
         w={{ base: "90%", sm: "50%", md: "80%", lg: "30%" }}
       >
         <Heading textAlign="center" mb="30px" fontFamily="cursive">
@@ -103,7 +97,6 @@ const Login = () => {
             <Text
               float="right"
               fontSize="12px"
-              color="#58595b"
               mt="5px"
               fontWeight="400"
               cursor="pointer"

@@ -165,3 +165,171 @@ const ProductsDetails = () => {
 };
 
 export { ProductsDetails };
+
+// import { useEffect } from "react";
+// import { useParams } from "react-router-dom";
+// import {
+//   Box,
+//   Button,
+//   Container,
+//   Flex,
+//   Heading,
+//   Image,
+//   Spinner,
+//   Stack,
+//   Text,
+//   useColorModeValue,
+//   useToast,
+//   VStack,
+// } from "@chakra-ui/react";
+// import { useDispatch, useSelector } from "react-redux";
+// import { MdLocalShipping } from "react-icons/md";
+// import { singleProduct, addToCart } from "../Redux/Products/action";
+// import Styles from "../Styles/Product.module.css";
+
+// function ProductsDetails() {
+//   const token = localStorage.getItem("token");
+//   const toast = useToast();
+//   const dispatch = useDispatch();
+//   const { singleProducts: data, isLoading } = useSelector(
+//     (state) => state.Products
+//   );
+//   const { id } = useParams();
+
+//   useEffect(() => {
+//     dispatch(singleProduct(id));
+//   }, [dispatch]);
+
+//   const handleCart = (data) => {
+//     if (token) {
+//       dispatch(addToCart(token, data))
+//         .then((res) => {
+//           toast({
+//             title: res,
+//             status: "success",
+//             duration: 5000,
+//             isClosable: true,
+//             position: "top",
+//           });
+//         })
+//         .catch((err) => {
+//           toast({
+//             title: err,
+//             status: "error",
+//             duration: 5000,
+//             isClosable: true,
+//             position: "top",
+//           });
+//         });
+//     } else {
+//       toast({
+//         title: "Please Login First",
+//         status: "error",
+//         duration: 5000,
+//         isClosable: true,
+//         position: "top",
+//       });
+//     }
+//   };
+
+//   return (
+//     <Container maxW={"7xl"}>
+//       <Stack
+//         direction={{ base: "column", lg: "row" }}
+//         spacing={{ base: 8, md: 10 }}
+//         py={{ base: 18, md: 24 }}
+//       >
+//         <Flex>
+//           <Image
+//             rounded={"md"}
+//             alt={"product image"}
+//             src={
+//               "https://images.unsplash.com/photo-1596516109370-29001ec8ec36?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=MnwyODE1MDl8MHwxfGFsbHx8fHx8fHx8fDE2Mzg5MzY2MzE&ixlib=rb-1.2.1&q=80&w=1080"
+//             }
+//             fit={"cover"}
+//             align={"center"}
+//             w={"100%"}
+//             h={{ base: "100%", sm: "400px", lg: "500px" }}
+//           />
+//         </Flex>
+//         <VStack spacing={{ base: 6, md: 10 }} align="start">
+//           <Box as={"header"}>
+//             <Heading
+//               lineHeight={1.1}
+//               fontWeight={600}
+//               fontSize={{ base: "2xl", sm: "4xl", lg: "5xl" }}
+//             >
+//               {data && data.title}
+//             </Heading>
+//             <Text
+//               color={useColorModeValue("gray.900", "gray.400")}
+//               fontWeight={300}
+//               fontSize={"2xl"}
+//             >
+//               ₹ {data && data.price}
+//             </Text>
+//           </Box>
+
+//           {/* ... (Product Description, Features, Product Details) */}
+
+//           <Button
+//             rounded={"none"}
+//             w={"full"}
+//             mt={8}
+//             size={"lg"}
+//             py={"7"}
+//             bg={useColorModeValue("gray.900", "gray.50")}
+//             color={useColorModeValue("white", "gray.900")}
+//             textTransform={"uppercase"}
+//             _hover={{
+//               transform: "translateY(2px)",
+//               boxShadow: "lg",
+//             }}
+//             onClick={() => handleCart(data)}
+//           >
+//             Add to cart
+//           </Button>
+
+//           <Stack direction="row" alignItems="center" justifyContent={"center"}>
+//             <MdLocalShipping />
+//             <Text>2-3 business days delivery</Text>
+//           </Stack>
+
+//           {/* Customer Reviews */}
+//           <Box mt={8}>
+//             <Text
+//               fontSize={{ base: "16px", lg: "18px" }}
+//               color={useColorModeValue("yellow.500", "yellow.300")}
+//               fontWeight={"500"}
+//               textTransform={"uppercase"}
+//               mb={"4"}
+//             >
+//               Customer Reviews
+//             </Text>
+//             <VStack spacing={4}>
+//               <Flex alignItems="center">
+//                 <Image
+//                   src={"https://randomuser.me/api/portraits/men/32.jpg"}
+//                   alt={"User"}
+//                   boxSize={12}
+//                   rounded={"full"}
+//                 />
+//                 <VStack alignItems="flex-start" spacing={1}>
+//                   <Text fontWeight="bold">John Doe</Text>
+//                   <Text fontSize="sm">Rated 4 out of 5 stars</Text>
+//                 </VStack>
+//               </Flex>
+//               <Text>
+//                 Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed
+//                 eget commodo eros, a vehicula nisl. In hac habitasse platea
+//                 dictumst.
+//               </Text>
+//             </VStack>
+//           </Box>
+//         </VStack>
+//       </Stack>
+//     </Container>
+//   );
+// }
+
+// export { ProductsDetails };

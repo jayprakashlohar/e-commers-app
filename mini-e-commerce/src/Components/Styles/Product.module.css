@@ -1,22 +1,27 @@
 .proContainer {
+  width: 90%;
+  margin: auto;
   margin-bottom: 20px;
   margin-top: 20px;
   display: grid;
   grid-template-columns: repeat(4, 1fr);
-  gap: 10px;
+  gap: 25px;
 }
 
 .proContainer div {
+  border-radius: 5px;
   padding: 20px;
   box-shadow: rgba(0, 0, 0, 0.16) 0px 3px 6px, rgba(0, 0, 0, 0.23) 0px 3px 6px;
 }
 
 .proContainer div:hover {
   cursor: pointer;
-  box-shadow: rgba(0, 0, 0, 0.19) 0px 10px 20px, rgba(0, 0, 0, 0.23) 0px 6px 6px;
+  box-shadow: rgba(197, 151, 151, 0.19) 0px 10px 20px,
+    rgba(0, 0, 0, 0.23) 0px 6px 6px;
 }
 
 .proContainer div img {
+  border-radius: 5px;
   margin: auto;
   width: 80%;
 }
@@ -69,7 +74,8 @@
 
 @media all and (min-width: 0px) and (max-width: 420px) {
   .proContainer {
-    width: 100%;
+    width: 90% !important;
+    margin: auto;
     display: grid;
     grid-template-columns: repeat(1, 1fr);
   }

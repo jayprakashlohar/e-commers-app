@@ -5,13 +5,22 @@ import App from "./App";
 import { BrowserRouter } from "react-router-dom";
 import { Provider } from "react-redux";
 import { store } from "./Components/Redux/store";
-import { ChakraProvider } from "@chakra-ui/react";
+import { ChakraProvider, ColorModeScript } from "@chakra-ui/react";
+import { extendTheme } from "@chakra-ui/react";
+
+const theme = extendTheme({
+  config: {
+    initialColorMode: "light",
+    useSystemColorMode: false,
+  },
+});
 
 const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(
   <BrowserRouter>
-    <ChakraProvider>
+    <ChakraProvider theme={theme}>
       <Provider store={store}>
+        <ColorModeScript initialColorMode={theme.config.initialColorMode} />
         <App />
       </Provider>
     </ChakraProvider>

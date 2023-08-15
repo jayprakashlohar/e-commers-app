@@ -67,15 +67,13 @@ const Signup = () => {
   };
 
   return (
-    <Box bg="lightblue" pt="50px" h={{ base: "108vh", sm: "95vh", lg: "95vh" }}>
+    <Box pt="50px" h={{ base: "108vh", sm: "95vh", lg: "95vh" }}>
       <Box
         margin="auto"
         padding="25px"
-        background="#fff"
         boxShadow="dark-lg"
         p="8"
         rounded="md"
-        bg="white"
         w={{ base: "90%", sm: "50%", md: "80%", lg: "30%" }}
       >
         <Heading textAlign="center" mb="30px" fontFamily="cursive">
@@ -147,7 +145,6 @@ const Signup = () => {
           onClick={() => navigate("/login")}
           textAlign="center"
           mt="50px"
-          color="#58595b"
           fontFamily="cursive"
         >
           Already a user ?
